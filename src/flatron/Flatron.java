@@ -2,7 +2,8 @@ package flatron;
 
 /**
  *
- * @author agu
+ * @author Agustín Ruatta
+ * @email agustinruatta@gmail.com
  */
 public class Flatron {
 
