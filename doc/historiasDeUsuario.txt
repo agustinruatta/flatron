@@ -1,0 +1,21 @@
+1) Como usuario del sistema, yo puedo registrar un cliente con nombre, apellido y número de celular de forma tal que quede registrado en el sistema todos mis clientes.
+
+2) Como usuario del sistema, yo puedo modificar el cuit, nombre, apellido y número de celular de forma tal que pueda actualizar en el sistema todos mis clientes.
+
+3) Como usuario del sistema, yo puedo eliminar un cliente para tener la lista actualizada.
+
+4) Como usuario del sistema, yo puedo registrar, modificar y eliminar un producto detallando el nombre, la marca, el tipo, costo, ganancia, stock, stock minimo y rubro para tener un registro de los productos.
+
+5) Como usuario del sistema, yo puedo registrar, modificar y eliminar un proveedor detallando nombre, telefono, direccion, email, CUIT para tener un registro de los proveedores que se le realizaran pedidos.
+
+6) Como usuario del sistema, yo puedo registrar ventas para llevar un control de lo vendido, calcular ganancias y stock.
+
+7) Como usuario del sistema, yo puedo registrar compras para llevar un control de stock y calcular gastos.
+
+8) Como usuario del sistema, yo puedo ser notificado de faltante de stock de un producto para realizar un pedido a tiempo.
+
+9) Como usuario del sistema, yo puedo visualizar la lista de productos para tener conocimiento del inventario.
+
+10) Como usuario del sistema, yo puedo visualizar las ganancias y gastos mensuales para conocer el estado actual del negocio.
+
+11) Como usuario del sistema, yo puedo asignar descuentos a ventas para poder actualizar los precios en casos de ofertas o ventas especiales.
