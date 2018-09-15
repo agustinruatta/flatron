@@ -16,10 +16,32 @@
  */
 package com.flatron.repositorios;
 
+import com.flatron.modelos.ModeloProducto;
+import java.util.ArrayList;
+
 /**
  *
  * @author Franco Morbidoni <fgmorbidoni@gmail.com>
  */
 public class RepositorioProducto {
+    private ArrayList<ModeloProducto> listadoProductos;
+
+    public RepositorioProducto() {
+        this.listadoProductos = new ArrayList<>();
+    }
+    
+    public void guardarProducto(ModeloProducto producto){
+        this.listadoProductos.add(producto);
+    }
+    
+    public void eliminarProducto(int index){
+        this.listadoProductos.remove(index);
+    }
+    
+    public ModeloProducto[] obtenerTodosLosProductos(){
+        ModeloProducto[] arrayADevolver = new ModeloProducto[this.listadoProductos.size()];
+        
+        return this.listadoProductos.toArray(arrayADevolver);
+    }
     
 }
