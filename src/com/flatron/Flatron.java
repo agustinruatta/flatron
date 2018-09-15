@@ -1,4 +1,4 @@
-package flatron;
+package com.flatron;
 
 /**
  *
