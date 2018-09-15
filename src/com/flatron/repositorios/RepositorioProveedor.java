@@ -16,6 +16,7 @@
  */
 package com.flatron.repositorios;
 
+import com.flatron.excepciones.ProveedorNoEncontradoException;
 import com.flatron.modelos.Proveedor;
 import java.util.ArrayList;
 
@@ -34,12 +35,23 @@ public class RepositorioProveedor {
     public void guardarProveedor(Proveedor proveedor) {
         this.proveedoresGuardados.add(proveedor);
     }
+    
+    public Proveedor obtenerProveedor(int id) throws ProveedorNoEncontradoException {
+        for (Proveedor proveedor : this.proveedoresGuardados){
+            if (proveedor.getId() == id){
+                return proveedor;
+            }
+        }
+        throw new ProveedorNoEncontradoException("¡No se ha encontrado el proveedor en el repositorio!");
+    }
 
-    public void eliminarProveedor(int id) {
+    public void eliminarProveedor(int id) throws ProveedorNoEncontradoException {
         for (Proveedor proveedor : this.proveedoresGuardados) {
             if (proveedor.getId() == id) {
                 this.proveedoresGuardados.remove(proveedor);
+                return;
             }
         }
+        throw new ProveedorNoEncontradoException("¡No se ha encontrado el proveedor en el repositorio!");
     }
 }
