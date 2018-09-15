@@ -16,17 +16,64 @@
  */
 package com.flatron.vistas;
 
+import com.flatron.presentadores.PresentadorProducto;
+import javax.swing.JComboBox;
+import javax.swing.JTextField;
+
 /**
  *
  * @author Franco Morbidoni <fgmorbidoni@gmail.com>
  */
 public class VistaProducto extends javax.swing.JFrame {
 
+    private final PresentadorProducto presentador;
+
     /**
      * Creates new form VistaProducto
      */
     public VistaProducto() {
         initComponents();
+
+        this.presentador = new PresentadorProducto(this);
+        this.setUnidadesMedidaProductoComboBox();
+    }
+
+    public void setUnidadesMedidaProductoComboBox() {
+        String[] auxiliar = new String[1];
+        auxiliar[0]="Prueba";
+        this.unidadesMedidaProductoComboBox = new JComboBox<>(auxiliar);
+    }
+
+    public JTextField getCostoProductoTextField() {
+        return costoProductoTextField;
+    }
+
+    public JTextField getGananciaProductoTextField() {
+        return gananciaProductoTextField;
+    }
+
+    public JTextField getMarcaProductoTextField() {
+        return marcaProductoTextField;
+    }
+
+    public JTextField getNombreProductoTextField() {
+        return nombreProductoTextField;
+    }
+
+    public JTextField getRubroProductoTextField() {
+        return rubroProductoTextField;
+    }
+
+    public JTextField getStockActualProductoTextField() {
+        return stockActualProductoTextField;
+    }
+
+    public JTextField getStockMinimoProductoTextField() {
+        return stockMinimoProductoTextField;
+    }
+
+    public JComboBox<String> getUnidadesMedidaProductoComboBox() {
+        return unidadesMedidaProductoComboBox;
     }
 
     /**
@@ -49,7 +96,6 @@ public class VistaProducto extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        unidadMedidaTextField = new javax.swing.JTextField();
         nombreProductoTextField = new javax.swing.JTextField();
         marcaProductoTextField = new javax.swing.JTextField();
         costoProductoTextField = new javax.swing.JTextField();
@@ -65,6 +111,7 @@ public class VistaProducto extends javax.swing.JFrame {
         productosTable = new javax.swing.JTable();
         modificarProductoButton = new javax.swing.JButton();
         eliminarProductoButton = new javax.swing.JButton();
+        unidadesMedidaProductoComboBox = new javax.swing.JComboBox<>();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -103,6 +150,11 @@ public class VistaProducto extends javax.swing.JFrame {
         buscarProductoButton.setText("Buscar");
 
         guardarProductoButton.setText("Guardar");
+        guardarProductoButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                guardarProductoButtonActionPerformed(evt);
+            }
+        });
 
         productosTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -166,11 +218,11 @@ public class VistaProducto extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(costoProductoTextField)
-                                    .addComponent(unidadMedidaTextField)
                                     .addComponent(gananciaProductoTextField)
                                     .addComponent(stockActualProductoTextField)
                                     .addComponent(stockMinimoProductoTextField)
-                                    .addComponent(rubroProductoTextField)))
+                                    .addComponent(rubroProductoTextField)
+                                    .addComponent(unidadesMedidaProductoComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(buscarProductoTextField)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -204,7 +256,7 @@ public class VistaProducto extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(unidadMedidaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(unidadesMedidaProductoComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(6, 6, 6)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
@@ -244,6 +296,10 @@ public class VistaProducto extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void guardarProductoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarProductoButtonActionPerformed
+        this.presentador.botonGuardarProducto();
+    }//GEN-LAST:event_guardarProductoButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -307,6 +363,6 @@ public class VistaProducto extends javax.swing.JFrame {
     private javax.swing.JTextField rubroProductoTextField;
     private javax.swing.JTextField stockActualProductoTextField;
     private javax.swing.JTextField stockMinimoProductoTextField;
-    private javax.swing.JTextField unidadMedidaTextField;
+    private javax.swing.JComboBox<String> unidadesMedidaProductoComboBox;
     // End of variables declaration//GEN-END:variables
 }

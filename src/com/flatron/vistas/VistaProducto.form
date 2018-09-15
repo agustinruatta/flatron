@@ -98,11 +98,11 @@
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="costoProductoTextField" max="32767" attributes="0"/>
-                                  <Component id="unidadMedidaTextField" max="32767" attributes="0"/>
                                   <Component id="gananciaProductoTextField" alignment="0" max="32767" attributes="0"/>
                                   <Component id="stockActualProductoTextField" alignment="0" max="32767" attributes="0"/>
                                   <Component id="stockMinimoProductoTextField" alignment="0" max="32767" attributes="0"/>
                                   <Component id="rubroProductoTextField" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="unidadesMedidaProductoComboBox" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -148,7 +148,7 @@
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="unidadMedidaTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="unidadesMedidaProductoComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -245,8 +245,6 @@
         <Property name="text" type="java.lang.String" value="Rubro:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="unidadMedidaTextField">
-    </Component>
     <Component class="javax.swing.JTextField" name="nombreProductoTextField">
     </Component>
     <Component class="javax.swing.JTextField" name="marcaProductoTextField">
@@ -274,6 +272,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Guardar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="guardarProductoButtonActionPerformed"/>
+      </Events>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane2">
       <AuxValues>
@@ -305,6 +306,16 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Eliminar"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="unidadesMedidaProductoComboBox">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="0"/>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>
