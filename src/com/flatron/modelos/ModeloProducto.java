@@ -21,5 +21,64 @@ package com.flatron.modelos;
  * @author Franco Morbidoni <fgmorbidoni@gmail.com>
  */
 public class ModeloProducto {
+    String nombreProducto;
+    String marcaProducto;
+    String unidadMedidaProducto; //TODO Cambiarlo por un objeto de la clase Unidad de Medida.
+    float costoProducto;
+    float gananciasProducto;
+    float stockActualProducto;
+    float stockMinimoProducto;
+    String rubroProducto;
+
+    public ModeloProducto(String nombreProducto, String marcaProducto, String unidadMedidaProducto, float costoProducto, float gananciasProducto, float stockActualProducto, float stockMinimoProducto, String rubroProducto) {
+        this.nombreProducto = nombreProducto;
+        this.marcaProducto = marcaProducto;
+        this.unidadMedidaProducto = unidadMedidaProducto;
+        this.costoProducto = costoProducto;
+        this.gananciasProducto = gananciasProducto;
+        this.stockActualProducto = stockActualProducto;
+        this.stockMinimoProducto = stockMinimoProducto;
+        this.rubroProducto = rubroProducto;
+    }
+
+    public String getNombreProducto() {
+        return nombreProducto;
+    }
+
+    public String getMarcaProducto() {
+        return marcaProducto;
+    }
+
+    public String getUnidadMedidaProducto() {
+        return unidadMedidaProducto;
+    }
+
+    public float getCostoProducto() {
+        return costoProducto;
+    }
+
+    public float getGananciasProducto() {
+        return gananciasProducto;
+    }
+
+    public float getStockActualProducto() {
+        return stockActualProducto;
+    }
+
+    public float getStockMinimoProducto() {
+        return stockMinimoProducto;
+    }
+
+    public String getRubroProducto() {
+        return rubroProducto;
+    }
+    
+    public void validarStock(){
+        
+    }
+    
+    public void calcularPrecioVenta(){
+        
+    }
     
 }
