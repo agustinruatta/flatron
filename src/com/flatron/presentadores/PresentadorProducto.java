@@ -16,9 +16,13 @@
  */
 package com.flatron.presentadores;
 
+import com.flatron.modelos.ModeloProducto;
 import com.flatron.servicios.ServicioProducto;
 import com.flatron.vistas.VistaProducto;
+import java.util.ArrayList;
+import java.util.Vector;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -57,12 +61,44 @@ public class PresentadorProducto {
             this.vista.getRubroProductoTextField().setText("");
             
             JOptionPane.showMessageDialog(null, "Datos guardados.");
+            this.actualizarTabla(this.servicio.ObtenerProductosRegistrados());
         
         } catch (IllegalArgumentException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
         }
         
         
+               
     
     }
+    
+    private void actualizarTabla(ArrayList<ModeloProducto> array){
+        Vector<String> tableHeaders = new Vector<String>();
+        Vector tableData = new Vector();
+        tableHeaders.add("Nombre");
+        tableHeaders.add("Marca");
+        tableHeaders.add("Unidad de Medida");
+        tableHeaders.add("Costo");
+        tableHeaders.add("Ganancias");
+        tableHeaders.add("Stock Actual");
+        tableHeaders.add("Stock Minimo");
+        tableHeaders.add("Rubro");
+        
+        for (ModeloProducto o : array) {
+            ModeloProducto modelo = o;
+            Vector<Object> oneRow = new Vector<Object>();
+            oneRow.add(modelo.getNombreProducto());
+            oneRow.add(modelo.getMarcaProducto());
+            oneRow.add(modelo.getUnidadMedidaProducto());
+            oneRow.add(modelo.getCostoProducto());
+            oneRow.add(modelo.getGananciasProducto());
+            oneRow.add(modelo.getStockActualProducto());
+            oneRow.add(modelo.getStockMinimoProducto());
+            oneRow.add(modelo.getRubroProducto());
+            tableData.add(oneRow);
+        }
+        
+        this.vista.getProductosTable().setModel(new DefaultTableModel(tableData, tableHeaders));
+    };
     
 }

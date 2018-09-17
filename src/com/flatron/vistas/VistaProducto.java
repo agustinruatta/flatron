@@ -18,13 +18,14 @@ package com.flatron.vistas;
 
 import com.flatron.presentadores.PresentadorProducto;
 import javax.swing.JComboBox;
+import javax.swing.JTable;
 import javax.swing.JTextField;
 
 /**
  *
  * @author Franco Morbidoni <fgmorbidoni@gmail.com>
  */
-public class VistaProducto extends javax.swing.JFrame {
+public final class VistaProducto extends javax.swing.JFrame {
 
     private final PresentadorProducto presentador;
 
@@ -38,10 +39,14 @@ public class VistaProducto extends javax.swing.JFrame {
         this.setUnidadesMedidaProductoComboBox();
     }
 
+    public JTable getProductosTable() {
+        return productosTable;
+    }
+
     public void setUnidadesMedidaProductoComboBox() {
-        String[] auxiliar = new String[1];
-        auxiliar[0]="Prueba";
-        this.unidadesMedidaProductoComboBox = new JComboBox<>(auxiliar);
+        //Solo como metodo de prueba.
+        String[] lista = {"Prueba"};
+        this.unidadesMedidaProductoComboBox.setModel(new javax.swing.DefaultComboBoxModel(lista));
     }
 
     public JTextField getCostoProductoTextField() {
@@ -301,40 +306,7 @@ public class VistaProducto extends javax.swing.JFrame {
         this.presentador.botonGuardarProducto();
     }//GEN-LAST:event_guardarProductoButtonActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VistaProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VistaProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VistaProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VistaProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new VistaProducto().setVisible(true);
-            }
-        });
-    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buscarProductoButton;

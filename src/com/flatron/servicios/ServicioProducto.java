@@ -19,6 +19,7 @@ package com.flatron.servicios;
 
 import com.flatron.modelos.ModeloProducto;
 import com.flatron.repositorios.RepositorioProducto;
+import java.util.ArrayList;
 
 /**
  *
@@ -34,6 +35,11 @@ public class ServicioProducto {
     float stockMinimoProducto;
     String rubroProducto;
     RepositorioProducto repositioProducto;
+
+    public ServicioProducto() {
+        this.repositioProducto = new RepositorioProducto();
+    }
+    
     
     public void guardarProducto(String nombre, String marca, String unidadMedida, String costo, String ganancias, String stock, String stockMinimo, String rubro){
        this.validarDatos(nombre, marca, unidadMedida, costo, ganancias, stock, stockMinimo, rubro);
@@ -55,6 +61,12 @@ public class ServicioProducto {
             throw new IllegalArgumentException("El campo marca esta vacio.");
         }else{
             this.marcaProducto=marca;
+        }
+        
+        if (unidadMedida.equals("")) {
+             throw new IllegalArgumentException("No se selecciono unidad de medida esta vacio.");
+        }else{
+            this.unidadMedidaProducto=unidadMedida;
         }
         
         if (costo.equals("")) {
@@ -101,8 +113,15 @@ public class ServicioProducto {
             throw new IllegalArgumentException("El campo rubro esta vacio.");
         }else{
             this.rubroProducto=rubro;
-        }
-        
+        }      
         
     }
+    
+    public ArrayList<ModeloProducto> ObtenerProductosRegistrados(){
+       ArrayList<ModeloProducto> arrayADevolver = new ArrayList<>();
+        
+        arrayADevolver=this.repositioProducto.obtenerTodosLosProductos();
+        
+        return arrayADevolver;
+    } 
 }

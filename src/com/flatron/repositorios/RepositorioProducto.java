@@ -38,10 +38,12 @@ public class RepositorioProducto {
         this.listadoProductos.remove(index);
     }
     
-    public ModeloProducto[] obtenerTodosLosProductos(){
-        ModeloProducto[] arrayADevolver = new ModeloProducto[this.listadoProductos.size()];
+    public ArrayList<ModeloProducto> obtenerTodosLosProductos(){
+        ArrayList<ModeloProducto> arrayADevolver = new ArrayList<>();
         
-        return this.listadoProductos.toArray(arrayADevolver);
+        arrayADevolver=listadoProductos;
+        
+        return arrayADevolver;
     }
     
 }
