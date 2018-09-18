@@ -21,6 +21,8 @@ package com.flatron.modelos;
  * @author Franco Morbidoni <fgmorbidoni@gmail.com>
  */
 public class ModeloProducto {
+    static int contador=0;
+    int codigoProducto;
     String nombreProducto;
     String marcaProducto;
     String unidadMedidaProducto; //TODO Cambiarlo por un objeto de la clase Unidad de Medida.
@@ -31,6 +33,8 @@ public class ModeloProducto {
     String rubroProducto;
 
     public ModeloProducto(String nombreProducto, String marcaProducto, String unidadMedidaProducto, float costoProducto, float gananciasProducto, float stockActualProducto, float stockMinimoProducto, String rubroProducto) {
+        contador++;
+        this.codigoProducto=contador;
         this.nombreProducto = nombreProducto;
         this.marcaProducto = marcaProducto;
         this.unidadMedidaProducto = unidadMedidaProducto;
@@ -40,6 +44,10 @@ public class ModeloProducto {
         this.stockMinimoProducto = stockMinimoProducto;
         this.rubroProducto = rubroProducto;
     }
+
+    public int getCodigoProducto() {
+        return codigoProducto;
+    }    
 
     public String getNombreProducto() {
         return nombreProducto;

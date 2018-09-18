@@ -46,4 +46,18 @@ public class RepositorioProducto {
         return arrayADevolver;
     }
     
+    public ArrayList<ModeloProducto> obtenerProductosSegunNombre(String nombre){
+        ArrayList<ModeloProducto> arrayADevolver = new ArrayList<>();
+        ArrayList<ModeloProducto> arrayAuxiliar = new ArrayList<>();
+        
+        arrayAuxiliar=listadoProductos;
+        
+        for (ModeloProducto modeloProducto : arrayAuxiliar) {
+            if (modeloProducto.getNombreProducto().toLowerCase().contains(nombre.toLowerCase())) {
+                arrayADevolver.add(modeloProducto);
+            }
+        }
+        return arrayADevolver;
+    }
+    
 }

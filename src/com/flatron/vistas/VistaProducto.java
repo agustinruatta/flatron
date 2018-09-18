@@ -20,6 +20,8 @@ import com.flatron.presentadores.PresentadorProducto;
 import javax.swing.JComboBox;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 /**
  *
@@ -37,6 +39,7 @@ public final class VistaProducto extends javax.swing.JFrame {
 
         this.presentador = new PresentadorProducto(this);
         this.setUnidadesMedidaProductoComboBox();
+        
     }
 
     public JTable getProductosTable() {
@@ -55,6 +58,10 @@ public final class VistaProducto extends javax.swing.JFrame {
 
     public JTextField getGananciaProductoTextField() {
         return gananciaProductoTextField;
+    }
+
+    public JTextField getBuscarProductoTextField() {
+        return buscarProductoTextField;
     }
 
     public JTextField getMarcaProductoTextField() {
@@ -80,6 +87,8 @@ public final class VistaProducto extends javax.swing.JFrame {
     public JComboBox<String> getUnidadesMedidaProductoComboBox() {
         return unidadesMedidaProductoComboBox;
     }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -117,6 +126,7 @@ public final class VistaProducto extends javax.swing.JFrame {
         modificarProductoButton = new javax.swing.JButton();
         eliminarProductoButton = new javax.swing.JButton();
         unidadesMedidaProductoComboBox = new javax.swing.JComboBox<>();
+        mostrarTodoButton = new javax.swing.JButton();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -153,6 +163,11 @@ public final class VistaProducto extends javax.swing.JFrame {
         jLabel9.setText("Rubro:");
 
         buscarProductoButton.setText("Buscar");
+        buscarProductoButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buscarProductoButtonActionPerformed(evt);
+            }
+        });
 
         guardarProductoButton.setText("Guardar");
         guardarProductoButton.addActionListener(new java.awt.event.ActionListener() {
@@ -177,6 +192,13 @@ public final class VistaProducto extends javax.swing.JFrame {
         modificarProductoButton.setText("Modificar");
 
         eliminarProductoButton.setText("Eliminar");
+
+        mostrarTodoButton.setText("Mostrar Todo");
+        mostrarTodoButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mostrarTodoButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -237,13 +259,15 @@ public final class VistaProducto extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(guardarProductoButton)
                 .addGap(149, 149, 149))
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(97, 97, 97)
+                .addGap(72, 72, 72)
                 .addComponent(modificarProductoButton)
-                .addGap(44, 44, 44)
+                .addGap(18, 18, 18)
+                .addComponent(mostrarTodoButton)
+                .addGap(18, 18, 18)
                 .addComponent(eliminarProductoButton)
-                .addContainerGap(115, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -295,7 +319,8 @@ public final class VistaProducto extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(modificarProductoButton)
-                    .addComponent(eliminarProductoButton))
+                    .addComponent(eliminarProductoButton)
+                    .addComponent(mostrarTodoButton))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
@@ -305,6 +330,14 @@ public final class VistaProducto extends javax.swing.JFrame {
     private void guardarProductoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarProductoButtonActionPerformed
         this.presentador.botonGuardarProducto();
     }//GEN-LAST:event_guardarProductoButtonActionPerformed
+
+    private void buscarProductoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarProductoButtonActionPerformed
+        this.presentador.botonBuscarProducto();
+    }//GEN-LAST:event_buscarProductoButtonActionPerformed
+
+    private void mostrarTodoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarTodoButtonActionPerformed
+        this.presentador.botonMostrarTodosLosProductos();
+    }//GEN-LAST:event_mostrarTodoButtonActionPerformed
 
     
 
@@ -330,6 +363,7 @@ public final class VistaProducto extends javax.swing.JFrame {
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField marcaProductoTextField;
     private javax.swing.JButton modificarProductoButton;
+    private javax.swing.JButton mostrarTodoButton;
     private javax.swing.JTextField nombreProductoTextField;
     private javax.swing.JTable productosTable;
     private javax.swing.JTextField rubroProductoTextField;

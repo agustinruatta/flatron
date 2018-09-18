@@ -58,23 +58,21 @@ public class PresentadorProducto {
             this.vista.getGananciaProductoTextField().setText("");
             this.vista.getStockActualProductoTextField().setText("");
             this.vista.getStockMinimoProductoTextField().setText("");
-            this.vista.getRubroProductoTextField().setText("");
-            
+            this.vista.getRubroProductoTextField().setText("");            
+          
+            this.actualizarTabla(this.servicio.obtenerProductosRegistrados());
             JOptionPane.showMessageDialog(null, "Datos guardados.");
-            this.actualizarTabla(this.servicio.ObtenerProductosRegistrados());
         
         } catch (IllegalArgumentException e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
-        }
-        
-        
-               
+        }              
     
     }
     
     private void actualizarTabla(ArrayList<ModeloProducto> array){
         Vector<String> tableHeaders = new Vector<String>();
         Vector tableData = new Vector();
+        tableHeaders.add("Codigo");
         tableHeaders.add("Nombre");
         tableHeaders.add("Marca");
         tableHeaders.add("Unidad de Medida");
@@ -87,6 +85,7 @@ public class PresentadorProducto {
         for (ModeloProducto o : array) {
             ModeloProducto modelo = o;
             Vector<Object> oneRow = new Vector<Object>();
+            oneRow.add(modelo.getCodigoProducto());
             oneRow.add(modelo.getNombreProducto());
             oneRow.add(modelo.getMarcaProducto());
             oneRow.add(modelo.getUnidadMedidaProducto());
@@ -99,6 +98,27 @@ public class PresentadorProducto {
         }
         
         this.vista.getProductosTable().setModel(new DefaultTableModel(tableData, tableHeaders));
-    };
+    }
+    
+    //Se escogio buscar los productos que se acerquen al nombre ingresado, como
+    //caracteristica elegida para centrar la busqueda.
+    public void botonBuscarProducto(){
+        try {
+            String nombreBuscado = this.vista.getBuscarProductoTextField().getText();
+            ArrayList<ModeloProducto> array = new ArrayList<>();
+            array=this.servicio.buscarProductosPorNombre(nombreBuscado);
+            this.actualizarTabla(array);
+        } catch (IllegalArgumentException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }       
+    }
+    
+    public void botonMostrarTodosLosProductos(){
+         this.actualizarTabla(this.servicio.obtenerProductosRegistrados());
+    }
+    
+    public void modificarDatosProducto(){
+        
+    }
     
 }
