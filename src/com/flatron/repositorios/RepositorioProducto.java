@@ -38,6 +38,20 @@ public class RepositorioProducto {
         this.listadoProductos.remove(index);
     }
     
+    public void actualizarProducto(int codigo, ModeloProducto producto){
+        int contador=0, indice=0;
+        for(ModeloProducto objeto : listadoProductos) {
+            
+            if (objeto.getCodigoProducto()==codigo) { 
+               indice=contador;                                    
+            }
+            contador++;            
+        }
+        listadoProductos.remove(indice);   
+        producto.setCodigoProducto(codigo);
+        listadoProductos.add(indice, producto);
+    }
+    
     public ArrayList<ModeloProducto> obtenerTodosLosProductos(){
         ArrayList<ModeloProducto> arrayADevolver = new ArrayList<>();
         
@@ -58,6 +72,18 @@ public class RepositorioProducto {
             }
         }
         return arrayADevolver;
+    }
+    
+    public ModeloProducto obtenerUnicoProductoPorCodigo(int codigo){
+        ModeloProducto productoADevolver = null;
+        
+        for (ModeloProducto producto : listadoProductos) {
+            if (producto.getCodigoProducto()==codigo) {
+                productoADevolver=producto;
+            }
+        }
+        
+        return productoADevolver;
     }
     
 }

@@ -29,6 +29,7 @@ import javax.swing.table.DefaultTableModel;
  * @author Franco Morbidoni <fgmorbidoni@gmail.com>
  */
 public class PresentadorProducto {
+
     private final VistaProducto vista;
     private final ServicioProducto servicio;
 
@@ -36,8 +37,8 @@ public class PresentadorProducto {
         this.vista = vista;
         this.servicio = new ServicioProducto();
     }
-    
-    public void botonGuardarProducto(){
+
+    public void botonGuardarProducto() {
         String nombre = this.vista.getNombreProductoTextField().getText();
         String marca = this.vista.getMarcaProductoTextField().getText();
         String unidadMedida = this.vista.getUnidadesMedidaProductoComboBox().getSelectedItem().toString();
@@ -46,30 +47,23 @@ public class PresentadorProducto {
         String stock = this.vista.getStockActualProductoTextField().getText();
         String stockMinimo = this.vista.getStockMinimoProductoTextField().getText();
         String rubro = this.vista.getRubroProductoTextField().getText();
-        
+
         try {
-        
+
             this.servicio.guardarProducto(nombre, marca, unidadMedida, costo, ganancia, stock, stockMinimo, rubro);
-        
-            this.vista.getNombreProductoTextField().setText("");
-            this.vista.getMarcaProductoTextField().setText("");
-            this.vista.getUnidadesMedidaProductoComboBox().setSelectedIndex(0);
-            this.vista.getCostoProductoTextField().setText("");
-            this.vista.getGananciaProductoTextField().setText("");
-            this.vista.getStockActualProductoTextField().setText("");
-            this.vista.getStockMinimoProductoTextField().setText("");
-            this.vista.getRubroProductoTextField().setText("");            
-          
+
+            limpiarVista();
+
             this.actualizarTabla(this.servicio.obtenerProductosRegistrados());
             JOptionPane.showMessageDialog(null, "Datos guardados.");
-        
+
         } catch (IllegalArgumentException e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
-        }              
-    
+        }
+
     }
-    
-    private void actualizarTabla(ArrayList<ModeloProducto> array){
+
+    private void actualizarTabla(ArrayList<ModeloProducto> array) {
         Vector<String> tableHeaders = new Vector<String>();
         Vector tableData = new Vector();
         tableHeaders.add("Codigo");
@@ -81,7 +75,7 @@ public class PresentadorProducto {
         tableHeaders.add("Stock Actual");
         tableHeaders.add("Stock Minimo");
         tableHeaders.add("Rubro");
-        
+
         for (ModeloProducto o : array) {
             ModeloProducto modelo = o;
             Vector<Object> oneRow = new Vector<Object>();
@@ -96,29 +90,83 @@ public class PresentadorProducto {
             oneRow.add(modelo.getRubroProducto());
             tableData.add(oneRow);
         }
-        
+
         this.vista.getProductosTable().setModel(new DefaultTableModel(tableData, tableHeaders));
     }
-    
+
     //Se escogio buscar los productos que se acerquen al nombre ingresado, como
     //caracteristica elegida para centrar la busqueda.
-    public void botonBuscarProducto(){
+    public void botonBuscarProducto() {
         try {
             String nombreBuscado = this.vista.getBuscarProductoTextField().getText();
             ArrayList<ModeloProducto> array = new ArrayList<>();
-            array=this.servicio.buscarProductosPorNombre(nombreBuscado);
+            array = this.servicio.buscarProductosPorNombre(nombreBuscado);
             this.actualizarTabla(array);
         } catch (IllegalArgumentException e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
-        }       
+        }
     }
-    
-    public void botonMostrarTodosLosProductos(){
-         this.actualizarTabla(this.servicio.obtenerProductosRegistrados());
+
+    //Restaura la tabla a mostrar todos los valores, luego de una busqueda.
+    public void botonMostrarTodosLosProductos() {
+        this.actualizarTabla(this.servicio.obtenerProductosRegistrados());
     }
-    
-    public void modificarDatosProducto(){
-        
+
+    public void cargarDatosProducto(int codigoProducto) {
+        try {
+            ModeloProducto producto;
+            producto = this.servicio.buscarProductoPorCodigo(codigoProducto);
+
+            this.vista.getNombreProductoTextField().setText(producto.getNombreProducto());
+            this.vista.getMarcaProductoTextField().setText(producto.getMarcaProducto());
+            this.vista.getUnidadesMedidaProductoComboBox().setSelectedItem(producto.getUnidadMedidaProducto());
+            this.vista.getCostoProductoTextField().setText("" + producto.getCostoProducto());
+            this.vista.getGananciaProductoTextField().setText("" + producto.getGananciasProducto());
+            this.vista.getStockActualProductoTextField().setText("" + producto.getStockActualProducto());
+            this.vista.getStockMinimoProductoTextField().setText("" + producto.getStockMinimoProducto());
+            this.vista.getRubroProductoTextField().setText(producto.getRubroProducto());
+
+        } catch (IllegalArgumentException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
     }
-    
+
+    public void botonModificarProducto() {
+        try {
+            int codigoProducto = Integer.valueOf(this.vista.getProductoElegidoLabel().getText().split(" ")[2]);
+
+            String nombre = this.vista.getNombreProductoTextField().getText();
+            String marca = this.vista.getMarcaProductoTextField().getText();
+            String unidadMedida = this.vista.getUnidadesMedidaProductoComboBox().getSelectedItem().toString();
+            String costo = this.vista.getCostoProductoTextField().getText();
+            String ganancia = this.vista.getGananciaProductoTextField().getText();
+            String stock = this.vista.getStockActualProductoTextField().getText();
+            String stockMinimo = this.vista.getStockMinimoProductoTextField().getText();
+            String rubro = this.vista.getRubroProductoTextField().getText();
+
+            this.servicio.actualizarProducto(codigoProducto,nombre, marca, unidadMedida, costo, ganancia, stock, stockMinimo, rubro);
+            limpiarVista();
+            this.actualizarTabla(this.servicio.obtenerProductosRegistrados());
+            JOptionPane.showMessageDialog(null, "Datos actualizados.");
+            
+        } catch (IllegalArgumentException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        } catch (NullPointerException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+    }
+
+    private void limpiarVista() {
+        this.vista.getNombreProductoTextField().setText("");
+        this.vista.getMarcaProductoTextField().setText("");
+        this.vista.getUnidadesMedidaProductoComboBox().setSelectedIndex(0);
+        this.vista.getCostoProductoTextField().setText("");
+        this.vista.getGananciaProductoTextField().setText("");
+        this.vista.getStockActualProductoTextField().setText("");
+        this.vista.getStockMinimoProductoTextField().setText("");
+        this.vista.getRubroProductoTextField().setText("");
+        this.vista.getProductoElegidoLabel().setText("");
+
+    }
+
 }

@@ -140,4 +140,25 @@ public class ServicioProducto {
             return arrayADevolver;
         }
     }
+    
+    public ModeloProducto buscarProductoPorCodigo(int codigo){
+        ModeloProducto producto;
+        producto=this.repositioProducto.obtenerUnicoProductoPorCodigo(codigo);
+        
+        if (producto==null) {
+            throw new IllegalArgumentException("No existe el producto seleccionado");
+        }
+        
+        return producto;
+    }
+    
+    public void actualizarProducto(int codigo, String nombre, String marca, String unidadMedida, String costo, String ganancias, String stock, String stockMinimo, String rubro){
+        ModeloProducto productoModificado;
+        
+        validarDatos(nombre, marca, unidadMedida, costo, ganancias, stock, stockMinimo, rubro);
+        
+        productoModificado = new ModeloProducto(nombreProducto, marcaProducto, unidadMedidaProducto, costoProducto, gananciasProducto, stockActualProducto, stockMinimoProducto, rubroProducto);
+        
+        this.repositioProducto.actualizarProducto(codigo, productoModificado);
+    }
 }
