@@ -39,6 +39,7 @@ public class PresentadorProducto {
     }
 
     public void botonGuardarProducto() {
+        
         String nombre = this.vista.getNombreProductoTextField().getText();
         String marca = this.vista.getMarcaProductoTextField().getText();
         String unidadMedida = this.vista.getUnidadesMedidaProductoComboBox().getSelectedItem().toString();
@@ -62,7 +63,21 @@ public class PresentadorProducto {
         }
 
     }
+    
+    //Elimina un producto seleccionado de la tabla.
+    public void botonEliminarProducto(){
+        String auxiliar;
+        auxiliar = this.vista.getProductoElegidoLabel().getText();
+        try {
+           this.servicio.eliminarProducto(auxiliar);
+           this.actualizarTabla(this.servicio.obtenerProductosRegistrados());
+        } catch (IllegalArgumentException e) {            
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+    }
 
+    //Llena la tabla con los atributos de los productos, ya sea la lista completa
+    //o los obtenidos por la operacion buscar.
     private void actualizarTabla(ArrayList<ModeloProducto> array) {
         Vector<String> tableHeaders = new Vector<String>();
         Vector tableData = new Vector();
@@ -111,7 +126,9 @@ public class PresentadorProducto {
     public void botonMostrarTodosLosProductos() {
         this.actualizarTabla(this.servicio.obtenerProductosRegistrados());
     }
-
+    
+    //Llena los campos de la vista con los valores de la linea seleccionada en 
+    //la tabla.
     public void cargarDatosProducto(int codigoProducto) {
         try {
             ModeloProducto producto;
@@ -131,8 +148,11 @@ public class PresentadorProducto {
         }
     }
 
+    //Toma los datos presentes en los campos de la vista y actualiza el registro
+    //del producto seleccionado en la tabla.
     public void botonModificarProducto() {
         try {
+            //Se utiliza el laber para no perder el codigo respectivo del producto elegido.
             int codigoProducto = Integer.valueOf(this.vista.getProductoElegidoLabel().getText().split(" ")[2]);
 
             String nombre = this.vista.getNombreProductoTextField().getText();
@@ -149,13 +169,12 @@ public class PresentadorProducto {
             this.actualizarTabla(this.servicio.obtenerProductosRegistrados());
             JOptionPane.showMessageDialog(null, "Datos actualizados.");
             
-        } catch (IllegalArgumentException e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
-        } catch (NullPointerException e) {
+        } catch (IllegalArgumentException | NullPointerException e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
     }
 
+    //Vacia los campos de la vista luego de agregar o modificar un producto.
     private void limpiarVista() {
         this.vista.getNombreProductoTextField().setText("");
         this.vista.getMarcaProductoTextField().setText("");
@@ -167,6 +186,12 @@ public class PresentadorProducto {
         this.vista.getRubroProductoTextField().setText("");
         this.vista.getProductoElegidoLabel().setText("");
 
+    }
+    
+    //Crea una tabla vacia cuando se abre la vista de la gestion de productos.
+    public void crearTablaInicial(){
+        ArrayList<ModeloProducto> arrayVacio = new ArrayList<>();
+        this.actualizarTabla(arrayVacio);
     }
 
 }

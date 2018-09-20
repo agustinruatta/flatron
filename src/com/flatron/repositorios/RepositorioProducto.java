@@ -30,16 +30,28 @@ public class RepositorioProducto {
         this.listadoProductos = new ArrayList<>();
     }
     
+    //Los tres metodos siguientes realizan las tareas de ABM de los productos.
     public void guardarProducto(ModeloProducto producto){
         this.listadoProductos.add(producto);
     }
     
     public void eliminarProducto(int index){
-        this.listadoProductos.remove(index);
+        int contador=0, indice=0;
+        
+        for(ModeloProducto objeto : listadoProductos) {
+            
+            if (objeto.getCodigoProducto()==index) { 
+               indice=contador;                                    
+            }
+            contador++;            
+        }
+        
+        listadoProductos.remove(indice);           
     }
     
     public void actualizarProducto(int codigo, ModeloProducto producto){
         int contador=0, indice=0;
+        
         for(ModeloProducto objeto : listadoProductos) {
             
             if (objeto.getCodigoProducto()==codigo) { 
@@ -47,11 +59,13 @@ public class RepositorioProducto {
             }
             contador++;            
         }
+        
         listadoProductos.remove(indice);   
         producto.setCodigoProducto(codigo);
         listadoProductos.add(indice, producto);
     }
     
+    //Genera un array con todos los productos almacenados.
     public ArrayList<ModeloProducto> obtenerTodosLosProductos(){
         ArrayList<ModeloProducto> arrayADevolver = new ArrayList<>();
         
@@ -60,6 +74,7 @@ public class RepositorioProducto {
         return arrayADevolver;
     }
     
+    //Genera un array con todos los productos cuyo nombre se asemege al buscado.
     public ArrayList<ModeloProducto> obtenerProductosSegunNombre(String nombre){
         ArrayList<ModeloProducto> arrayADevolver = new ArrayList<>();
         ArrayList<ModeloProducto> arrayAuxiliar = new ArrayList<>();
@@ -74,6 +89,7 @@ public class RepositorioProducto {
         return arrayADevolver;
     }
     
+    //Obtiene el producto al cual le pertenece el codigo ingresado.
     public ModeloProducto obtenerUnicoProductoPorCodigo(int codigo){
         ModeloProducto productoADevolver = null;
         

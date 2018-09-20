@@ -41,6 +41,8 @@ public final class VistaProducto extends javax.swing.JFrame {
 
         this.presentador = new PresentadorProducto(this);
         this.setUnidadesMedidaProductoComboBox();
+        
+        this.presentador.crearTablaInicial();
 
         this.productosTable.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
@@ -214,6 +216,11 @@ public final class VistaProducto extends javax.swing.JFrame {
         });
 
         eliminarProductoButton.setText("Eliminar");
+        eliminarProductoButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eliminarProductoButtonActionPerformed(evt);
+            }
+        });
 
         mostrarTodoButton.setText("Mostrar Todo");
         mostrarTodoButton.addActionListener(new java.awt.event.ActionListener() {
@@ -376,6 +383,10 @@ public final class VistaProducto extends javax.swing.JFrame {
     private void modificarProductoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarProductoButtonActionPerformed
         this.presentador.botonModificarProducto();
     }//GEN-LAST:event_modificarProductoButtonActionPerformed
+
+    private void eliminarProductoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarProductoButtonActionPerformed
+       this.presentador.botonEliminarProducto();
+    }//GEN-LAST:event_eliminarProductoButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

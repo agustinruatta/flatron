@@ -48,6 +48,7 @@ public class ServicioProducto {
 
     }
 
+    //Verifica la viabilidad de los datos ingresados.
     private void validarDatos(String nombre, String marca, String unidadMedida, String costo, String ganancias, String stock, String stockMinimo, String rubro) {
 
         if (nombre.equals("")) {
@@ -73,6 +74,9 @@ public class ServicioProducto {
         } else {
             try {
                 this.costoProducto = Float.valueOf(costo);
+                if (costoProducto<0) {
+                    throw new IllegalArgumentException("No puede ingresar numeros negativos.");
+                }
             } catch (NumberFormatException e) {
                 throw new IllegalArgumentException("No fue ingresado un numero en costo.");
             }
@@ -83,6 +87,9 @@ public class ServicioProducto {
         } else {
             try {
                 this.gananciasProducto = Float.valueOf(ganancias);
+                if (gananciasProducto<0) {
+                    throw new IllegalArgumentException("No puede ingresar numeros negativos.");
+                }
             } catch (NumberFormatException e) {
                 throw new IllegalArgumentException("No fue ingresado un numero en ganancias.");
             }
@@ -93,6 +100,9 @@ public class ServicioProducto {
         } else {
             try {
                 this.stockActualProducto = Float.valueOf(stock);
+                if (stockActualProducto<0) {
+                    throw new IllegalArgumentException("No puede ingresar numeros negativos.");
+                }
             } catch (NumberFormatException e) {
                 throw new IllegalArgumentException("No fue ingresado un numero en stock actual.");
             }
@@ -103,6 +113,9 @@ public class ServicioProducto {
         } else {
             try {
                 this.stockMinimoProducto = Float.valueOf(stockMinimo);
+                if (stockMinimoProducto<0) {
+                    throw new IllegalArgumentException("No puede ingresar numeros negativos.");
+                }
             } catch (NumberFormatException e) {
                 throw new IllegalArgumentException("No fue ingresado un numero en stock minimo.");
             }
@@ -113,7 +126,22 @@ public class ServicioProducto {
         } else {
             this.rubroProducto = rubro;
         }
-
+    }
+    
+    public void eliminarProducto(String codigo){
+        try {
+            
+            if (codigo==null) {
+                throw new IllegalArgumentException("No se ha escogido ningun producto a eliminar.");
+            }
+            
+            int codigoProducto = Integer.valueOf(codigo.split(" ")[2]);
+            this.repositioProducto.eliminarProducto(codigoProducto); 
+        } catch (NumberFormatException e) {
+                throw new IllegalArgumentException("Problemas con el formato del codigo.");
+            
+        }
+               
     }
 
     public ArrayList<ModeloProducto> obtenerProductosRegistrados() {
