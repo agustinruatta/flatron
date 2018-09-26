@@ -31,25 +31,96 @@ public class VistaPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         salirjButton = new javax.swing.JButton();
+        clienteButton = new javax.swing.JButton();
+        informeButton = new javax.swing.JButton();
+        productoButton = new javax.swing.JButton();
+        proovedoresButton = new javax.swing.JButton();
+        ventasButton = new javax.swing.JButton();
+        comprasButton = new javax.swing.JButton();
         fondojLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        salirjButton.setBackground(new java.awt.Color(255, 0, 0));
+        salirjButton.setBackground(new java.awt.Color(147, 30, 17));
         salirjButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         salirjButton.setForeground(new java.awt.Color(255, 255, 255));
         salirjButton.setText("Salir ");
+        salirjButton.setBorder(null);
+        salirjButton.setBorderPainted(false);
+        salirjButton.setFocusable(false);
         salirjButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 salirjButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(salirjButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 20, 70, 30));
+        getContentPane().add(salirjButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 20, 70, 30));
+
+        clienteButton.setBackground(new java.awt.Color(77, 58, 89));
+        clienteButton.setForeground(new java.awt.Color(255, 255, 255));
+        clienteButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/flatron/vistas/imagenes/cliente.png"))); // NOI18N
+        clienteButton.setBorder(null);
+        clienteButton.setBorderPainted(false);
+        clienteButton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        clienteButton.setFocusable(false);
+        clienteButton.setMaximumSize(new java.awt.Dimension(90, 90));
+        clienteButton.setMinimumSize(new java.awt.Dimension(90, 90));
+        clienteButton.setPreferredSize(new java.awt.Dimension(90, 90));
+        clienteButton.setRequestFocusEnabled(false);
+        clienteButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clienteButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(clienteButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 60, -1, -1));
+
+        informeButton.setBackground(new java.awt.Color(89, 58, 58));
+        informeButton.setForeground(new java.awt.Color(255, 255, 255));
+        informeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/flatron/vistas/imagenes/informe.png"))); // NOI18N
+        informeButton.setBorder(null);
+        informeButton.setFocusable(false);
+        informeButton.setMaximumSize(new java.awt.Dimension(90, 90));
+        informeButton.setMinimumSize(new java.awt.Dimension(90, 90));
+        informeButton.setPreferredSize(new java.awt.Dimension(90, 90));
+        getContentPane().add(informeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 220, -1, -1));
+
+        productoButton.setBackground(new java.awt.Color(64, 89, 58));
+        productoButton.setForeground(new java.awt.Color(255, 255, 255));
+        productoButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/flatron/vistas/imagenes/producto.png"))); // NOI18N
+        productoButton.setBorder(null);
+        productoButton.setFocusable(false);
+        productoButton.setPreferredSize(new java.awt.Dimension(90, 90));
+        getContentPane().add(productoButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 60, -1, -1));
+
+        proovedoresButton.setBackground(new java.awt.Color(86, 89, 58));
+        proovedoresButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/flatron/vistas/imagenes/proveedores.png"))); // NOI18N
+        proovedoresButton.setBorder(null);
+        proovedoresButton.setFocusable(false);
+        proovedoresButton.setPreferredSize(new java.awt.Dimension(90, 90));
+        getContentPane().add(proovedoresButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 60, -1, -1));
+
+        ventasButton.setBackground(new java.awt.Color(39, 58, 86));
+        ventasButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/flatron/vistas/imagenes/venta.png"))); // NOI18N
+        ventasButton.setBorder(null);
+        ventasButton.setPreferredSize(new java.awt.Dimension(90, 90));
+        ventasButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ventasButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(ventasButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 220, -1, -1));
+
+        comprasButton.setBackground(new java.awt.Color(131, 132, 90));
+        comprasButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/flatron/vistas/imagenes/compra.png"))); // NOI18N
+        comprasButton.setBorder(null);
+        comprasButton.setBorderPainted(false);
+        comprasButton.setFocusable(false);
+        comprasButton.setPreferredSize(new java.awt.Dimension(90, 90));
+        getContentPane().add(comprasButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 220, -1, -1));
 
         fondojLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/flatron/vistas/imagenes/fondo.jpg"))); // NOI18N
-        getContentPane().add(fondojLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 421));
+        getContentPane().add(fondojLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 670, 400));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -58,43 +129,27 @@ public class VistaPrincipal extends javax.swing.JFrame {
       System.exit(0);
     }//GEN-LAST:event_salirjButtonActionPerformed
 
+    private void clienteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clienteButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_clienteButtonActionPerformed
+
+    private void ventasButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ventasButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ventasButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VistaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VistaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VistaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VistaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new VistaPrincipal().setVisible(true);
-            }
-        });
-    }
+   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton clienteButton;
+    private javax.swing.JButton comprasButton;
     private javax.swing.JLabel fondojLabel;
+    private javax.swing.JButton informeButton;
+    private javax.swing.JButton productoButton;
+    private javax.swing.JButton proovedoresButton;
     private javax.swing.JButton salirjButton;
+    private javax.swing.JButton ventasButton;
     // End of variables declaration//GEN-END:variables
 }
