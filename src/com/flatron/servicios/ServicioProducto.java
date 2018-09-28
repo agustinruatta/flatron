@@ -19,6 +19,7 @@ package com.flatron.servicios;
 import com.flatron.modelos.ModeloProducto;
 import com.flatron.repositorios.RepositorioProducto;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -188,5 +189,14 @@ public class ServicioProducto {
         productoModificado = new ModeloProducto(nombreProducto, marcaProducto, unidadMedidaProducto, costoProducto, gananciasProducto, stockActualProducto, stockMinimoProducto, rubroProducto);
         
         this.repositioProducto.actualizarProducto(codigo, productoModificado);
+    }
+    
+    public void revisarStock(int codigo){
+        boolean aux;
+        aux=this.repositioProducto.verificarStock(codigo);
+        
+        if (aux) {
+            JOptionPane.showMessageDialog(null, "Se alcanzo el stock minimo con el producto seleccionado.");
+        }
     }
 }

@@ -102,4 +102,21 @@ public class RepositorioProducto {
         return productoADevolver;
     }
     
+    public boolean verificarStock(int codigo){
+        ModeloProducto productoElegido = null;
+        boolean alcanzoStockMinimo = false; //true->se alcanzo el stock minimo, false-> no se alcanzo el stock minimo
+        
+        for (ModeloProducto producto : listadoProductos) {
+            if (producto.getCodigoProducto()==codigo) {
+                productoElegido=producto;
+            }
+        }
+        
+        if (productoElegido.getStockActualProducto()<=productoElegido.getStockMinimoProducto()){
+            alcanzoStockMinimo=true;
+        }
+        
+        return alcanzoStockMinimo;
+    }
+    
 }
