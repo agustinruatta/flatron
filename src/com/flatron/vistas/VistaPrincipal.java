@@ -37,6 +37,13 @@ public class VistaPrincipal extends javax.swing.JFrame {
         proovedoresButton = new javax.swing.JButton();
         ventasButton = new javax.swing.JButton();
         comprasButton = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
         fondojLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -55,7 +62,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
                 salirjButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(salirjButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 20, 70, 30));
+        getContentPane().add(salirjButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 10, 70, 30));
 
         clienteButton.setBackground(new java.awt.Color(77, 58, 89));
         clienteButton.setForeground(new java.awt.Color(255, 255, 255));
@@ -70,7 +77,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
         clienteButton.setRequestFocusEnabled(false);
         clienteButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                clienteButtonActionPerformed(evt);
+                botonClientesApretado(evt);
             }
         });
         getContentPane().add(clienteButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 60, -1, -1));
@@ -83,6 +90,11 @@ public class VistaPrincipal extends javax.swing.JFrame {
         informeButton.setMaximumSize(new java.awt.Dimension(90, 90));
         informeButton.setMinimumSize(new java.awt.Dimension(90, 90));
         informeButton.setPreferredSize(new java.awt.Dimension(90, 90));
+        informeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonInformesApretado(evt);
+            }
+        });
         getContentPane().add(informeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 220, -1, -1));
 
         productoButton.setBackground(new java.awt.Color(64, 89, 58));
@@ -91,6 +103,11 @@ public class VistaPrincipal extends javax.swing.JFrame {
         productoButton.setBorder(null);
         productoButton.setFocusable(false);
         productoButton.setPreferredSize(new java.awt.Dimension(90, 90));
+        productoButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonProductosApretado(evt);
+            }
+        });
         getContentPane().add(productoButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 60, -1, -1));
 
         proovedoresButton.setBackground(new java.awt.Color(86, 89, 58));
@@ -98,6 +115,11 @@ public class VistaPrincipal extends javax.swing.JFrame {
         proovedoresButton.setBorder(null);
         proovedoresButton.setFocusable(false);
         proovedoresButton.setPreferredSize(new java.awt.Dimension(90, 90));
+        proovedoresButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonProveedoresApretado(evt);
+            }
+        });
         getContentPane().add(proovedoresButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 60, -1, -1));
 
         ventasButton.setBackground(new java.awt.Color(39, 58, 86));
@@ -106,7 +128,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
         ventasButton.setPreferredSize(new java.awt.Dimension(90, 90));
         ventasButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ventasButtonActionPerformed(evt);
+                botonVentasApretado(evt);
             }
         });
         getContentPane().add(ventasButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 220, -1, -1));
@@ -117,10 +139,71 @@ public class VistaPrincipal extends javax.swing.JFrame {
         comprasButton.setBorderPainted(false);
         comprasButton.setFocusable(false);
         comprasButton.setPreferredSize(new java.awt.Dimension(90, 90));
+        comprasButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonComprasApretado(evt);
+            }
+        });
         getContentPane().add(comprasButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 220, -1, -1));
 
+        jLabel1.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("PROVEEDORES");
+        jLabel1.setPreferredSize(new java.awt.Dimension(90, 19));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 160, 110, -1));
+
+        jLabel2.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("INFORMES");
+        jLabel2.setPreferredSize(new java.awt.Dimension(90, 19));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 320, 90, -1));
+
+        jLabel3.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("PRODUCTOS");
+        jLabel3.setPreferredSize(new java.awt.Dimension(90, 19));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 160, 90, -1));
+
+        jLabel4.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("CLIENTES ");
+        jLabel4.setPreferredSize(new java.awt.Dimension(90, 19));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 160, 90, -1));
+
+        jLabel5.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel5.setFont(new java.awt.Font("Comic Sans MS", 2, 24)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("Flatron");
+        jLabel5.setPreferredSize(new java.awt.Dimension(90, 19));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 370, 90, -1));
+
+        jLabel6.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setText("COMPRAS");
+        jLabel6.setPreferredSize(new java.awt.Dimension(90, 19));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 320, 90, -1));
+
+        jLabel7.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel7.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setText("VENTAS");
+        jLabel7.setPreferredSize(new java.awt.Dimension(90, 19));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 320, 90, -1));
+
         fondojLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/flatron/vistas/imagenes/fondo.jpg"))); // NOI18N
-        getContentPane().add(fondojLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 670, 400));
+        getContentPane().add(fondojLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 630, 400));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -129,13 +212,29 @@ public class VistaPrincipal extends javax.swing.JFrame {
       System.exit(0);
     }//GEN-LAST:event_salirjButtonActionPerformed
 
-    private void clienteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clienteButtonActionPerformed
+    private void botonClientesApretado(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonClientesApretado
         // TODO add your handling code here:
-    }//GEN-LAST:event_clienteButtonActionPerformed
+    }//GEN-LAST:event_botonClientesApretado
 
-    private void ventasButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ventasButtonActionPerformed
+    private void botonVentasApretado(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonVentasApretado
         // TODO add your handling code here:
-    }//GEN-LAST:event_ventasButtonActionPerformed
+    }//GEN-LAST:event_botonVentasApretado
+
+    private void botonProductosApretado(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonProductosApretado
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botonProductosApretado
+
+    private void botonProveedoresApretado(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonProveedoresApretado
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botonProveedoresApretado
+
+    private void botonComprasApretado(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonComprasApretado
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botonComprasApretado
+
+    private void botonInformesApretado(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonInformesApretado
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botonInformesApretado
 
     /**
      * @param args the command line arguments
@@ -147,6 +246,13 @@ public class VistaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton comprasButton;
     private javax.swing.JLabel fondojLabel;
     private javax.swing.JButton informeButton;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JButton productoButton;
     private javax.swing.JButton proovedoresButton;
     private javax.swing.JButton salirjButton;
