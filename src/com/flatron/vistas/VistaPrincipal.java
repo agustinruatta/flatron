@@ -37,13 +37,13 @@ public class VistaPrincipal extends javax.swing.JFrame {
         proovedoresButton = new javax.swing.JButton();
         ventasButton = new javax.swing.JButton();
         comprasButton = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        proveedoresLabel = new javax.swing.JLabel();
+        informesLabel = new javax.swing.JLabel();
+        productosLabel = new javax.swing.JLabel();
+        clientesLabel = new javax.swing.JLabel();
+        flatronLabel = new javax.swing.JLabel();
+        comprasLabel = new javax.swing.JLabel();
+        ventasLabel = new javax.swing.JLabel();
         fondojLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -146,61 +146,55 @@ public class VistaPrincipal extends javax.swing.JFrame {
         });
         getContentPane().add(comprasButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 220, -1, -1));
 
-        jLabel1.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("PROVEEDORES");
-        jLabel1.setPreferredSize(new java.awt.Dimension(90, 19));
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 160, 110, -1));
+        proveedoresLabel.setBackground(new java.awt.Color(0, 0, 0));
+        proveedoresLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        proveedoresLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        proveedoresLabel.setText("PROVEEDORES");
+        proveedoresLabel.setPreferredSize(new java.awt.Dimension(90, 19));
+        getContentPane().add(proveedoresLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 160, 110, -1));
 
-        jLabel2.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("INFORMES");
-        jLabel2.setPreferredSize(new java.awt.Dimension(90, 19));
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 320, 90, -1));
+        informesLabel.setBackground(new java.awt.Color(0, 0, 0));
+        informesLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        informesLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        informesLabel.setText("INFORMES");
+        informesLabel.setPreferredSize(new java.awt.Dimension(90, 19));
+        getContentPane().add(informesLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 320, 90, -1));
 
-        jLabel3.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("PRODUCTOS");
-        jLabel3.setPreferredSize(new java.awt.Dimension(90, 19));
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 160, 90, -1));
+        productosLabel.setBackground(new java.awt.Color(0, 0, 0));
+        productosLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        productosLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        productosLabel.setText("PRODUCTOS");
+        productosLabel.setPreferredSize(new java.awt.Dimension(90, 19));
+        getContentPane().add(productosLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 160, 90, -1));
 
-        jLabel4.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("CLIENTES ");
-        jLabel4.setPreferredSize(new java.awt.Dimension(90, 19));
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 160, 90, -1));
+        clientesLabel.setBackground(new java.awt.Color(0, 0, 0));
+        clientesLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        clientesLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        clientesLabel.setText("CLIENTES ");
+        clientesLabel.setPreferredSize(new java.awt.Dimension(90, 19));
+        getContentPane().add(clientesLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 160, 90, -1));
 
-        jLabel5.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel5.setFont(new java.awt.Font("Comic Sans MS", 2, 24)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("Flatron");
-        jLabel5.setPreferredSize(new java.awt.Dimension(90, 19));
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 90, -1));
+        flatronLabel.setBackground(new java.awt.Color(0, 0, 0));
+        flatronLabel.setFont(new java.awt.Font("Comic Sans MS", 2, 24)); // NOI18N
+        flatronLabel.setForeground(new java.awt.Color(102, 102, 102));
+        flatronLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        flatronLabel.setText("Flatron");
+        flatronLabel.setPreferredSize(new java.awt.Dimension(90, 19));
+        getContentPane().add(flatronLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 90, -1));
 
-        jLabel6.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("COMPRAS");
-        jLabel6.setPreferredSize(new java.awt.Dimension(90, 19));
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 320, 90, -1));
+        comprasLabel.setBackground(new java.awt.Color(0, 0, 0));
+        comprasLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        comprasLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        comprasLabel.setText("COMPRAS");
+        comprasLabel.setPreferredSize(new java.awt.Dimension(90, 19));
+        getContentPane().add(comprasLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 320, 90, -1));
 
-        jLabel7.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel7.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("VENTAS");
-        jLabel7.setPreferredSize(new java.awt.Dimension(90, 19));
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 320, 90, -1));
+        ventasLabel.setBackground(new java.awt.Color(0, 0, 0));
+        ventasLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        ventasLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ventasLabel.setText("VENTAS");
+        ventasLabel.setPreferredSize(new java.awt.Dimension(90, 19));
+        getContentPane().add(ventasLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 320, 90, -1));
 
         fondojLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/flatron/vistas/imagenes/fondo.jpg"))); // NOI18N
         getContentPane().add(fondojLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 630, 400));
@@ -243,19 +237,19 @@ public class VistaPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton clienteButton;
+    private javax.swing.JLabel clientesLabel;
     private javax.swing.JButton comprasButton;
+    private javax.swing.JLabel comprasLabel;
+    private javax.swing.JLabel flatronLabel;
     private javax.swing.JLabel fondojLabel;
     private javax.swing.JButton informeButton;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel informesLabel;
     private javax.swing.JButton productoButton;
+    private javax.swing.JLabel productosLabel;
     private javax.swing.JButton proovedoresButton;
+    private javax.swing.JLabel proveedoresLabel;
     private javax.swing.JButton salirjButton;
     private javax.swing.JButton ventasButton;
+    private javax.swing.JLabel ventasLabel;
     // End of variables declaration//GEN-END:variables
 }
