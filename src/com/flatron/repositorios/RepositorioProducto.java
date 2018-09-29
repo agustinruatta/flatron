@@ -102,6 +102,8 @@ public class RepositorioProducto {
         return productoADevolver;
     }
     
+    //Metodo que luego de identificar un producto, consulta si su stock actual es menor o igual al stock minimo, 
+    //devolviendo un booleano como respusta.
     public boolean verificarStock(int codigo){
         ModeloProducto productoElegido = null;
         boolean alcanzoStockMinimo = false; //true->se alcanzo el stock minimo, false-> no se alcanzo el stock minimo

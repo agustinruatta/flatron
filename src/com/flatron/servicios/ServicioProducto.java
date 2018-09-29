@@ -145,7 +145,7 @@ public class ServicioProducto {
                
     }
 
-    public ArrayList<ModeloProducto> obtenerProductosRegistrados() {
+    public ArrayList<ModeloProducto> obtenerTodosLosProductosRegistrados() {
         ArrayList<ModeloProducto> arrayADevolver = new ArrayList<>();
 
         arrayADevolver = this.repositioProducto.obtenerTodosLosProductos();
@@ -191,6 +191,7 @@ public class ServicioProducto {
         this.repositioProducto.actualizarProducto(codigo, productoModificado);
     }
     
+    //Metodo llamado cuando se necesita revisar si se alcanzo el stock minimo, y envia una respuesta por pantalla.
     public void revisarStock(int codigo){
         boolean aux;
         aux=this.repositioProducto.verificarStock(codigo);

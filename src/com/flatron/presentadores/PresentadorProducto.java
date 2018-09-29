@@ -55,7 +55,7 @@ public class PresentadorProducto {
 
             limpiarVista();
 
-            this.actualizarTabla(this.servicio.obtenerProductosRegistrados());
+            this.actualizarTabla(this.servicio.obtenerTodosLosProductosRegistrados());
             JOptionPane.showMessageDialog(null, "Datos guardados.");
 
         } catch (IllegalArgumentException e) {
@@ -70,7 +70,7 @@ public class PresentadorProducto {
         auxiliar = this.vista.getProductoElegidoLabel().getText();
         try {
            this.servicio.eliminarProducto(auxiliar);
-           this.actualizarTabla(this.servicio.obtenerProductosRegistrados());
+           this.actualizarTabla(this.servicio.obtenerTodosLosProductosRegistrados());
         } catch (IllegalArgumentException e) {            
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
@@ -124,7 +124,7 @@ public class PresentadorProducto {
 
     //Restaura la tabla a mostrar todos los valores, luego de una busqueda.
     public void botonMostrarTodosLosProductos() {
-        this.actualizarTabla(this.servicio.obtenerProductosRegistrados());
+        this.actualizarTabla(this.servicio.obtenerTodosLosProductosRegistrados());
     }
     
     //Llena los campos de la vista con los valores de la linea seleccionada en 
@@ -166,7 +166,7 @@ public class PresentadorProducto {
 
             this.servicio.actualizarProducto(codigoProducto,nombre, marca, unidadMedida, costo, ganancia, stock, stockMinimo, rubro);
             limpiarVista();
-            this.actualizarTabla(this.servicio.obtenerProductosRegistrados());
+            this.actualizarTabla(this.servicio.obtenerTodosLosProductosRegistrados());
             JOptionPane.showMessageDialog(null, "Datos actualizados.");
             
         } catch (IllegalArgumentException | NullPointerException e) {
