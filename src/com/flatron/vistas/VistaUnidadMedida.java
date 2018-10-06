@@ -26,23 +26,47 @@ public class VistaUnidadMedida extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         nombreUnidadMedidaLabel = new javax.swing.JLabel();
         simboloUnidadMedidaLabel = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        simboloUnidadMedidaTextField2 = new javax.swing.JTextField();
+        simboloTextField = new javax.swing.JTextField();
+        nombreTextField = new javax.swing.JTextField();
         guardarUnidadMedidaButton = new javax.swing.JButton();
         eliminarUnidadMedidaButton = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        tablaUnidadesjScrollPane = new javax.swing.JScrollPane();
         unidadMedidaTable = new javax.swing.JTable();
         atrasUnidadMedidaButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Unidad de medida");
+        getContentPane().setLayout(new java.awt.GridBagLayout());
 
         nombreUnidadMedidaLabel.setText("Nombre: ");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        getContentPane().add(nombreUnidadMedidaLabel, gridBagConstraints);
 
         simboloUnidadMedidaLabel.setText("Símbolo:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 3;
+        getContentPane().add(simboloUnidadMedidaLabel, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.ipadx = 213;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
+        getContentPane().add(simboloTextField, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.ipadx = 213;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
+        getContentPane().add(nombreTextField, gridBagConstraints);
 
         guardarUnidadMedidaButton.setText("Guardar");
         guardarUnidadMedidaButton.addActionListener(new java.awt.event.ActionListener() {
@@ -50,6 +74,10 @@ public class VistaUnidadMedida extends javax.swing.JFrame {
                 botonGuardarUnidadMedidaApretado(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 5;
+        getContentPane().add(guardarUnidadMedidaButton, gridBagConstraints);
 
         eliminarUnidadMedidaButton.setText("Eliminar");
         eliminarUnidadMedidaButton.addActionListener(new java.awt.event.ActionListener() {
@@ -57,6 +85,10 @@ public class VistaUnidadMedida extends javax.swing.JFrame {
                 botonEliminarUnidadMedidaApretado(evt);
             }
         });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 5;
+        getContentPane().add(eliminarUnidadMedidaButton, gridBagConstraints);
 
         unidadMedidaTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -79,11 +111,21 @@ public class VistaUnidadMedida extends javax.swing.JFrame {
             }
         });
         unidadMedidaTable.getTableHeader().setReorderingAllowed(false);
-        jScrollPane1.setViewportView(unidadMedidaTable);
+        tablaUnidadesjScrollPane.setViewportView(unidadMedidaTable);
         if (unidadMedidaTable.getColumnModel().getColumnCount() > 0) {
             unidadMedidaTable.getColumnModel().getColumn(0).setResizable(false);
             unidadMedidaTable.getColumnModel().getColumn(1).setResizable(false);
         }
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 7;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 30;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        getContentPane().add(tablaUnidadesjScrollPane, gridBagConstraints);
 
         atrasUnidadMedidaButton.setText("Átras");
         atrasUnidadMedidaButton.addActionListener(new java.awt.event.ActionListener() {
@@ -91,52 +133,12 @@ public class VistaUnidadMedida extends javax.swing.JFrame {
                 botonAtrasApretado(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(atrasUnidadMedidaButton)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(simboloUnidadMedidaLabel)
-                                .addComponent(nombreUnidadMedidaLabel))
-                            .addGap(15, 15, 15)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jTextField1)
-                                .addComponent(simboloUnidadMedidaTextField2))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(eliminarUnidadMedidaButton)
-                        .addGap(18, 18, 18)
-                        .addComponent(guardarUnidadMedidaButton)))
-                .addContainerGap(20, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(41, 41, 41)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nombreUnidadMedidaLabel)
-                    .addComponent(simboloUnidadMedidaTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(simboloUnidadMedidaLabel)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(eliminarUnidadMedidaButton)
-                    .addComponent(guardarUnidadMedidaButton))
-                .addGap(31, 31, 31)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
-                .addComponent(atrasUnidadMedidaButton)
-                .addContainerGap())
-        );
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(29, 30, 11, 20);
+        getContentPane().add(atrasUnidadMedidaButton, gridBagConstraints);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -192,11 +194,11 @@ public class VistaUnidadMedida extends javax.swing.JFrame {
     private javax.swing.JButton atrasUnidadMedidaButton;
     private javax.swing.JButton eliminarUnidadMedidaButton;
     private javax.swing.JButton guardarUnidadMedidaButton;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField nombreTextField;
     private javax.swing.JLabel nombreUnidadMedidaLabel;
+    private javax.swing.JTextField simboloTextField;
     private javax.swing.JLabel simboloUnidadMedidaLabel;
-    private javax.swing.JTextField simboloUnidadMedidaTextField2;
+    private javax.swing.JScrollPane tablaUnidadesjScrollPane;
     private javax.swing.JTable unidadMedidaTable;
     // End of variables declaration//GEN-END:variables
 }
