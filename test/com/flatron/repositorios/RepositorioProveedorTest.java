@@ -26,28 +26,38 @@ import static org.junit.Assert.*;
  *
  * @author Mateo Cignetti <mateocig18@gmail.com>
  */
-public class RepositorioTest {
+public class RepositorioProveedorTest {
     
-    public RepositorioTest() {
+    private RepositorioProveedor repositorioProveedor;
+    
+    public RepositorioProveedorTest() {
     }
     
     @Before
     public void setUp() {
-        
+        this.repositorioProveedor = new RepositorioProveedor();
     }
 
     @Test
-    public void guardarProveedor(){
-        RepositorioProveedor repositorioProveedor = new RepositorioProveedor();
-        Proveedor proveedor = new Proveedor("Nombre y apellido", "Razon social", "email", "telefono", "cuit", "direccion", "localidad", "provincia");
-        repositorioProveedor.guardarProveedor(proveedor);
+    public void guardarProveedorTest(){
+        Proveedor proveedor = new Proveedor("Nombre", "Apellido", "Razon social", "email", "telefono", "cuit", "direccion", "localidad", "provincia");
+        repositorioProveedor.guardarProveedor(crearProveedorCorrecto());
     }
     
     @Test
-    public void eliminarProveedor() throws ProveedorNoEncontradoException{
-        RepositorioProveedor repositorioProveedor = new RepositorioProveedor();
-        Proveedor proveedor = new Proveedor("Nombre y apellido", "Razon social", "email", "telefono", "cuit", "direccion", "localidad", "provincia");
-        repositorioProveedor.guardarProveedor(proveedor);
+    public void eliminarProveedorTest() throws ProveedorNoEncontradoException{
+        repositorioProveedor.guardarProveedor(crearProveedorCorrecto());
         repositorioProveedor.eliminarProveedor(1);
+    }
+    
+    @Test
+    public void obtenerProveedorTest() throws ProveedorNoEncontradoException{
+        repositorioProveedor.guardarProveedor(crearProveedorCorrecto());
+        repositorioProveedor.obtenerProveedor(1);
+    }
+    
+    private Proveedor crearProveedorCorrecto(){
+        Proveedor proveedor = new Proveedor("Nombre", "Apellido", "Razon social", "email", "telefono", "cuit", "direccion", "localidad", "provincia");
+        return proveedor;
     }
 }

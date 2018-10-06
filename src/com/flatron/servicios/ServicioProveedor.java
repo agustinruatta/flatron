@@ -18,6 +18,7 @@ package com.flatron.servicios;
 
 import com.flatron.modelos.Proveedor;
 import com.flatron.repositorios.RepositorioProveedor;
+import java.util.ArrayList;
 
 /**
  *
@@ -70,7 +71,15 @@ public class ServicioProveedor {
         localidad,
         provincia
         );
+        
+        //Guardamos en la base de datos
+        
+        this.repositorioProveedor.guardarProveedor(proveedor);
                         
+    }
+    
+    public ArrayList obtenerProveedores(){
+        
     }
     
     private void validarNombre(String nombre) {
