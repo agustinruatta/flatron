@@ -46,6 +46,7 @@ constraint FkProveedor_Compra FOREIGN KEY(codigo_proveedor) REFERENCES flatron.P
 #tabla Productos
 CREATE TABLE flatron.Producto (
 codigo int not null auto_increment primary key,
+marca nvarchar(255),
 nombre nvarchar(255),
 costo double,
 ganancia double, #vertipo
