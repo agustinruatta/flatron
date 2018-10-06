@@ -28,69 +28,80 @@ public class VistaUnidadMedida extends javax.swing.JFrame {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        nombreUnidadMedidaLabel = new javax.swing.JLabel();
-        simboloUnidadMedidaLabel = new javax.swing.JLabel();
-        simboloTextField = new javax.swing.JTextField();
+        nombreLabel = new javax.swing.JLabel();
+        simboloLabel = new javax.swing.JLabel();
         nombreTextField = new javax.swing.JTextField();
-        guardarUnidadMedidaButton = new javax.swing.JButton();
-        eliminarUnidadMedidaButton = new javax.swing.JButton();
-        tablaUnidadesjScrollPane = new javax.swing.JScrollPane();
-        unidadMedidaTable = new javax.swing.JTable();
-        atrasUnidadMedidaButton = new javax.swing.JButton();
+        simboloTextField = new javax.swing.JTextField();
+        eliminarButton = new javax.swing.JButton();
+        guardarButton = new javax.swing.JButton();
+        separadorSeparator = new javax.swing.JSeparator();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tablaUnidadesTable = new javax.swing.JTable();
+        atrasButton = new javax.swing.JButton();
+        fondoLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Unidad de medida");
-        getContentPane().setLayout(new java.awt.GridBagLayout());
+        java.awt.GridBagLayout layout = new java.awt.GridBagLayout();
+        layout.columnWidths = new int[] {0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0, 20, 0};
+        layout.rowHeights = new int[] {0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0};
+        getContentPane().setLayout(layout);
 
-        nombreUnidadMedidaLabel.setText("Nombre: ");
+        nombreLabel.setText("Nombre:");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
-        getContentPane().add(nombreUnidadMedidaLabel, gridBagConstraints);
-
-        simboloUnidadMedidaLabel.setText("Símbolo:");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
-        getContentPane().add(simboloUnidadMedidaLabel, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.ipadx = 213;
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
-        getContentPane().add(simboloTextField, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.ipadx = 213;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
-        getContentPane().add(nombreTextField, gridBagConstraints);
+        getContentPane().add(nombreLabel, gridBagConstraints);
 
-        guardarUnidadMedidaButton.setText("Guardar");
-        guardarUnidadMedidaButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonGuardarUnidadMedidaApretado(evt);
-            }
-        });
+        simboloLabel.setText("Símbolo: ");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
+        getContentPane().add(simboloLabel, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 5;
-        getContentPane().add(guardarUnidadMedidaButton, gridBagConstraints);
-
-        eliminarUnidadMedidaButton.setText("Eliminar");
-        eliminarUnidadMedidaButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonEliminarUnidadMedidaApretado(evt);
-            }
-        });
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.ipadx = 300;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
+        getContentPane().add(nombreTextField, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 5;
-        getContentPane().add(eliminarUnidadMedidaButton, gridBagConstraints);
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.ipadx = 300;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
+        getContentPane().add(simboloTextField, gridBagConstraints);
 
-        unidadMedidaTable.setModel(new javax.swing.table.DefaultTableModel(
+        eliminarButton.setText("Eliminar");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(40, 77, 0, 0);
+        getContentPane().add(eliminarButton, gridBagConstraints);
+
+        guardarButton.setText("Guardar");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 8;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridwidth = 11;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(40, 10, 0, 0);
+        getContentPane().add(guardarButton, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridwidth = 9;
+        gridBagConstraints.ipadx = 359;
+        gridBagConstraints.ipady = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(17, 20, 0, 0);
+        getContentPane().add(separadorSeparator, gridBagConstraints);
+
+        tablaUnidadesTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
                 {null, null},
@@ -99,7 +110,7 @@ public class VistaUnidadMedida extends javax.swing.JFrame {
                 {null, null}
             },
             new String [] {
-                "Nombre unidad", "Símbolo"
+                "Nombre", "Símbolo"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -110,50 +121,47 @@ public class VistaUnidadMedida extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        unidadMedidaTable.getTableHeader().setReorderingAllowed(false);
-        tablaUnidadesjScrollPane.setViewportView(unidadMedidaTable);
-        if (unidadMedidaTable.getColumnModel().getColumnCount() > 0) {
-            unidadMedidaTable.getColumnModel().getColumn(0).setResizable(false);
-            unidadMedidaTable.getColumnModel().getColumn(1).setResizable(false);
+        jScrollPane1.setViewportView(tablaUnidadesTable);
+        if (tablaUnidadesTable.getColumnModel().getColumnCount() > 0) {
+            tablaUnidadesTable.getColumnModel().getColumn(0).setResizable(false);
+            tablaUnidadesTable.getColumnModel().getColumn(1).setResizable(false);
         }
 
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 7;
-        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridwidth = 23;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.ipadx = 30;
+        gridBagConstraints.ipadx = 347;
+        gridBagConstraints.ipady = 83;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        getContentPane().add(tablaUnidadesjScrollPane, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(8, 30, 0, 0);
+        getContentPane().add(jScrollPane1, gridBagConstraints);
 
-        atrasUnidadMedidaButton.setText("Átras");
-        atrasUnidadMedidaButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonAtrasApretado(evt);
-            }
-        });
+        atrasButton.setText("Atrás");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 8;
+        gridBagConstraints.gridx = 8;
+        gridBagConstraints.gridy = 14;
+        gridBagConstraints.gridwidth = 13;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(29, 30, 11, 20);
-        getContentPane().add(atrasUnidadMedidaButton, gridBagConstraints);
+        gridBagConstraints.insets = new java.awt.Insets(20, 30, 0, 0);
+        getContentPane().add(atrasButton, gridBagConstraints);
+
+        fondoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/flatron/vistas/imagenes/fondo.jpg"))); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 25;
+        gridBagConstraints.gridheight = 17;
+        gridBagConstraints.ipadx = -1255;
+        gridBagConstraints.ipady = -708;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        getContentPane().add(fondoLabel, gridBagConstraints);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void botonEliminarUnidadMedidaApretado(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEliminarUnidadMedidaApretado
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botonEliminarUnidadMedidaApretado
-
-    private void botonGuardarUnidadMedidaApretado(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGuardarUnidadMedidaApretado
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botonGuardarUnidadMedidaApretado
-
-    private void botonAtrasApretado(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAtrasApretado
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botonAtrasApretado
 
     /**
      * @param args the command line arguments
@@ -191,14 +199,16 @@ public class VistaUnidadMedida extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton atrasUnidadMedidaButton;
-    private javax.swing.JButton eliminarUnidadMedidaButton;
-    private javax.swing.JButton guardarUnidadMedidaButton;
+    private javax.swing.JButton atrasButton;
+    private javax.swing.JButton eliminarButton;
+    private javax.swing.JLabel fondoLabel;
+    private javax.swing.JButton guardarButton;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel nombreLabel;
     private javax.swing.JTextField nombreTextField;
-    private javax.swing.JLabel nombreUnidadMedidaLabel;
+    private javax.swing.JSeparator separadorSeparator;
+    private javax.swing.JLabel simboloLabel;
     private javax.swing.JTextField simboloTextField;
-    private javax.swing.JLabel simboloUnidadMedidaLabel;
-    private javax.swing.JScrollPane tablaUnidadesjScrollPane;
-    private javax.swing.JTable unidadMedidaTable;
+    private javax.swing.JTable tablaUnidadesTable;
     // End of variables declaration//GEN-END:variables
 }
