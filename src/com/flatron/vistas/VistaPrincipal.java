@@ -42,14 +42,15 @@ public class VistaPrincipal extends javax.swing.JFrame {
         productosLabel = new javax.swing.JLabel();
         clientesLabel = new javax.swing.JLabel();
         flatronLabel = new javax.swing.JLabel();
-        comprasLabel = new javax.swing.JLabel();
         ventasLabel = new javax.swing.JLabel();
+        comprasLabel = new javax.swing.JLabel();
+        comodinLabel = new javax.swing.JLabel();
         fondojLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         java.awt.GridBagLayout layout = new java.awt.GridBagLayout();
-        layout.columnWidths = new int[] {0, 40, 0, 40, 0, 40, 0, 40, 0};
-        layout.rowHeights = new int[] {0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0};
+        layout.columnWidths = new int[] {0, 40, 0, 40, 0, 40, 0, 40, 0, 40, 0};
+        layout.rowHeights = new int[] {0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0, 10, 0};
         getContentPane().setLayout(layout);
 
         clienteButton.setBackground(new java.awt.Color(77, 58, 89));
@@ -71,10 +72,10 @@ public class VistaPrincipal extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 29;
         gridBagConstraints.ipady = 29;
-        gridBagConstraints.weightx = 0.01;
-        gridBagConstraints.weighty = 0.01;
+        gridBagConstraints.weightx = 20.0;
         getContentPane().add(clienteButton, gridBagConstraints);
 
         informeButton.setBackground(new java.awt.Color(89, 58, 58));
@@ -92,11 +93,11 @@ public class VistaPrincipal extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 29;
         gridBagConstraints.ipady = 29;
-        gridBagConstraints.weightx = 0.01;
-        gridBagConstraints.weighty = 0.01;
+        gridBagConstraints.weightx = 20.0;
         getContentPane().add(informeButton, gridBagConstraints);
 
         productoButton.setBackground(new java.awt.Color(64, 89, 58));
@@ -113,10 +114,10 @@ public class VistaPrincipal extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 29;
         gridBagConstraints.ipady = 29;
-        gridBagConstraints.weightx = 0.01;
-        gridBagConstraints.weighty = 0.01;
+        gridBagConstraints.weightx = 20.0;
         getContentPane().add(productoButton, gridBagConstraints);
 
         proovedoresButton.setBackground(new java.awt.Color(86, 89, 58));
@@ -132,10 +133,10 @@ public class VistaPrincipal extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 29;
         gridBagConstraints.ipady = 29;
-        gridBagConstraints.weightx = 0.01;
-        gridBagConstraints.weighty = 0.01;
+        gridBagConstraints.weightx = 20.0;
         getContentPane().add(proovedoresButton, gridBagConstraints);
 
         ventasButton.setBackground(new java.awt.Color(39, 58, 86));
@@ -149,11 +150,11 @@ public class VistaPrincipal extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 29;
         gridBagConstraints.ipady = 29;
-        gridBagConstraints.weightx = 0.01;
-        gridBagConstraints.weighty = 0.01;
+        gridBagConstraints.weightx = 20.0;
         getContentPane().add(ventasButton, gridBagConstraints);
 
         comprasButton.setBackground(new java.awt.Color(131, 132, 90));
@@ -169,11 +170,11 @@ public class VistaPrincipal extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 10;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 29;
         gridBagConstraints.ipady = 29;
-        gridBagConstraints.weightx = 0.01;
-        gridBagConstraints.weighty = 0.01;
+        gridBagConstraints.weightx = 20.0;
         getContentPane().add(comprasButton, gridBagConstraints);
 
         proveedoresLabel.setBackground(new java.awt.Color(0, 0, 0));
@@ -184,6 +185,8 @@ public class VistaPrincipal extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
         gridBagConstraints.gridy = 6;
+        gridBagConstraints.ipadx = 36;
+        gridBagConstraints.ipady = 20;
         getContentPane().add(proveedoresLabel, gridBagConstraints);
 
         informesLabel.setBackground(new java.awt.Color(0, 0, 0));
@@ -193,8 +196,9 @@ public class VistaPrincipal extends javax.swing.JFrame {
         informesLabel.setPreferredSize(new java.awt.Dimension(90, 19));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 12;
-        gridBagConstraints.ipadx = 15;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.ipadx = 36;
+        gridBagConstraints.ipady = 20;
         getContentPane().add(informesLabel, gridBagConstraints);
 
         productosLabel.setBackground(new java.awt.Color(0, 0, 0));
@@ -205,7 +209,8 @@ public class VistaPrincipal extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 6;
-        gridBagConstraints.ipadx = 2;
+        gridBagConstraints.ipadx = 36;
+        gridBagConstraints.ipady = 20;
         getContentPane().add(productosLabel, gridBagConstraints);
 
         clientesLabel.setBackground(new java.awt.Color(0, 0, 0));
@@ -216,12 +221,13 @@ public class VistaPrincipal extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 6;
-        gridBagConstraints.ipadx = 19;
+        gridBagConstraints.ipadx = 36;
+        gridBagConstraints.ipady = 20;
         getContentPane().add(clientesLabel, gridBagConstraints);
 
         flatronLabel.setBackground(new java.awt.Color(0, 0, 0));
-        flatronLabel.setFont(new java.awt.Font("Comic Sans MS", 2, 24)); // NOI18N
-        flatronLabel.setForeground(new java.awt.Color(102, 102, 102));
+        flatronLabel.setFont(new java.awt.Font("Comic Sans MS", 3, 24)); // NOI18N
+        flatronLabel.setForeground(new java.awt.Color(51, 51, 51));
         flatronLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         flatronLabel.setText("Flatron");
         flatronLabel.setPreferredSize(new java.awt.Dimension(90, 19));
@@ -230,18 +236,8 @@ public class VistaPrincipal extends javax.swing.JFrame {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.ipadx = 7;
+        gridBagConstraints.weighty = 1.0;
         getContentPane().add(flatronLabel, gridBagConstraints);
-
-        comprasLabel.setBackground(new java.awt.Color(0, 0, 0));
-        comprasLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        comprasLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        comprasLabel.setText("COMPRAS");
-        comprasLabel.setPreferredSize(new java.awt.Dimension(90, 19));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 12;
-        gridBagConstraints.ipadx = 19;
-        getContentPane().add(comprasLabel, gridBagConstraints);
 
         ventasLabel.setBackground(new java.awt.Color(0, 0, 0));
         ventasLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -250,9 +246,27 @@ public class VistaPrincipal extends javax.swing.JFrame {
         ventasLabel.setPreferredSize(new java.awt.Dimension(90, 19));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 12;
+        gridBagConstraints.gridy = 10;
         gridBagConstraints.ipadx = 36;
+        gridBagConstraints.ipady = 20;
         getContentPane().add(ventasLabel, gridBagConstraints);
+
+        comprasLabel.setBackground(new java.awt.Color(0, 0, 0));
+        comprasLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        comprasLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        comprasLabel.setText("COMPRAS");
+        comprasLabel.setPreferredSize(new java.awt.Dimension(90, 19));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.ipadx = 36;
+        gridBagConstraints.ipady = 20;
+        getContentPane().add(comprasLabel, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.weighty = 1.0;
+        getContentPane().add(comodinLabel, gridBagConstraints);
 
         fondojLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/flatron/vistas/imagenes/fondo.jpg"))); // NOI18N
         fondojLabel.setMaximumSize(new java.awt.Dimension(5000, 4000));
@@ -260,8 +274,8 @@ public class VistaPrincipal extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 9;
-        gridBagConstraints.gridheight = 15;
+        gridBagConstraints.gridwidth = 11;
+        gridBagConstraints.gridheight = 13;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.ipadx = -1990;
         gridBagConstraints.ipady = -1200;
@@ -305,6 +319,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton clienteButton;
     private javax.swing.JLabel clientesLabel;
+    private javax.swing.JLabel comodinLabel;
     private javax.swing.JButton comprasButton;
     private javax.swing.JLabel comprasLabel;
     private javax.swing.JLabel flatronLabel;
