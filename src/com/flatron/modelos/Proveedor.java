@@ -23,8 +23,9 @@ package com.flatron.modelos;
 public class Proveedor {
 
     private int id = 0;
-    private String nombre_apellido;
-    private String razon_social;
+    private String nombre;
+    private String apellido;
+    private String razonSocial;
     private String email;
     private String telefono;
     private String cuit;
@@ -32,10 +33,21 @@ public class Proveedor {
     private String localidad;
     private String provincia;
 
-    public Proveedor(String nombre_apellido, String razon_social, String email, String telefono, String cuit, String direccion, String localidad, String provincia) {
+    public Proveedor(
+            String nombre,
+            String apellido,
+            String razon_social,
+            String email,
+            String telefono,
+            String cuit,
+            String direccion,
+            String localidad,
+            String provincia
+    ) {
         this.id += 1;
-        this.nombre_apellido = nombre_apellido;
-        this.razon_social = razon_social;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.razonSocial = razon_social;
         this.email = email;
         this.telefono = telefono;
         this.cuit = cuit;
@@ -48,12 +60,16 @@ public class Proveedor {
         return id;
     }
 
-    public String getNombre_apellido() {
-        return nombre_apellido;
+    public String getNombre() {
+        return nombre;
+    }
+    
+    public String getApellido(){
+        return apellido;
     }
 
     public String getRazon_social() {
-        return razon_social;
+        return razonSocial;
     }
 
     public String getEmail() {
