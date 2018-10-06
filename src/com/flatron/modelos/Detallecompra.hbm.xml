@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 06-oct-2018 9:42:20 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="flatron" name="com.flatron.modelos.Detallecompra" optimistic-lock="version" table="detallecompra">
+    <id name="codigo" type="java.lang.Integer">
+      <column name="codigo"/>
+      <generator class="identity"/>
+    </id>
+    <many-to-one class="com.flatron.modelos.Compra" fetch="select" name="compra">
+      <column name="codigo_compra"/>
+    </many-to-one>
+    <many-to-one class="com.flatron.modelos.Producto" fetch="select" name="producto">
+      <column name="codigo_producto"/>
+    </many-to-one>
+    <property name="cantidad" type="java.lang.Double">
+      <column name="cantidad" precision="22" scale="0"/>
+    </property>
+    <property name="importe" type="java.lang.Double">
+      <column name="importe" precision="22" scale="0"/>
+    </property>
+  </class>
+</hibernate-mapping>

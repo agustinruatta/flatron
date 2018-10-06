@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 06-oct-2018 9:42:20 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="flatron" name="com.flatron.modelos.Producto" optimistic-lock="version" table="producto">
+    <id name="codigo" type="java.lang.Integer">
+      <column name="codigo"/>
+      <generator class="identity"/>
+    </id>
+    <many-to-one class="com.flatron.modelos.Unidadmedida" fetch="select" name="unidadmedida">
+      <column name="codigo_unidadMedida"/>
+    </many-to-one>
+    <property name="marca" type="string">
+      <column name="marca"/>
+    </property>
+    <property name="nombre" type="string">
+      <column name="nombre"/>
+    </property>
+    <property name="costo" type="java.lang.Double">
+      <column name="costo" precision="22" scale="0"/>
+    </property>
+    <property name="ganancia" type="java.lang.Double">
+      <column name="ganancia" precision="22" scale="0"/>
+    </property>
+    <property name="stock" type="java.lang.Double">
+      <column name="stock" precision="22" scale="0"/>
+    </property>
+    <property name="stockMinimo" type="java.lang.Double">
+      <column name="stock_minimo" precision="22" scale="0"/>
+    </property>
+    <property name="rubro" type="string">
+      <column name="rubro"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="detalleventas" table="detalleventa">
+      <key>
+        <column name="codigo_producto"/>
+      </key>
+      <one-to-many class="com.flatron.modelos.Detalleventa"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="detallecompras" table="detallecompra">
+      <key>
+        <column name="codigo_producto"/>
+      </key>
+      <one-to-many class="com.flatron.modelos.Detallecompra"/>
+    </set>
+  </class>
+</hibernate-mapping>
