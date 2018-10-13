@@ -38,6 +38,7 @@ public class PresentadorProducto {
         this.servicio = new ServicioProducto();
     }
 
+    //Realiza el guardado de los datos ingresados.
     public void botonGuardarProducto() {
         
         String nombre = this.vista.getNombreProductoTextField().getText();
