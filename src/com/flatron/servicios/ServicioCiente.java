@@ -43,7 +43,7 @@ public class ServicioCiente {
 
         if (esCampoVacio(cuid)) {
             errores.setError("cuid", "No a ingresado el cuid");
-        } else if (esCuit(cuid)) {
+        } else if (!esCuit(cuid)) {
             errores.setError("cuid", "Cuid ingresado incorrecto");
         }
 
@@ -97,7 +97,7 @@ public class ServicioCiente {
 
     private boolean esCuit(String cadena) {
 
-        Pattern pat = Pattern.compile("/^\\d{2}\\-\\d{8}\\-\\d{1}$/");
+        Pattern pat = Pattern.compile("^\\d{2}-\\d{8}-\\d{1}$");
         Matcher mat = pat.matcher(cadena);
 
         if (!mat.matches()) {
