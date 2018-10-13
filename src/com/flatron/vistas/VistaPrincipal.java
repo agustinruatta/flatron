@@ -227,15 +227,16 @@ public class VistaPrincipal extends javax.swing.JFrame {
 
         flatronLabel.setBackground(new java.awt.Color(0, 0, 0));
         flatronLabel.setFont(new java.awt.Font("Comic Sans MS", 3, 24)); // NOI18N
-        flatronLabel.setForeground(new java.awt.Color(51, 51, 51));
         flatronLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         flatronLabel.setText("Flatron");
+        flatronLabel.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         flatronLabel.setPreferredSize(new java.awt.Dimension(90, 19));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.ipadx = 7;
+        gridBagConstraints.ipady = 11;
         gridBagConstraints.weighty = 1.0;
         getContentPane().add(flatronLabel, gridBagConstraints);
 
