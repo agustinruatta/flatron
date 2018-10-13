@@ -1,11 +1,6 @@
 package com.flatron;
 
-<<<<<<< HEAD
-import com.flatron.vistas.VistaProducto;
-
-=======
 import com.flatron.vistas.VistaPrincipal;
->>>>>>> master
 
 /**
  *
