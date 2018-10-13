@@ -5,6 +5,9 @@
  */
 package com.flatron.vistas;
 
+import javax.swing.JTable;
+import javax.swing.JTextField;
+
 /**
  *
  * @author laboratorio
@@ -36,7 +39,7 @@ public class VistaUnidadMedida extends javax.swing.JFrame {
         atrasButton = new javax.swing.JButton();
         nombreLabel = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        unidadDeMedidaTable = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Unidad de medida");
@@ -44,14 +47,29 @@ public class VistaUnidadMedida extends javax.swing.JFrame {
         jLabel1.setText("Símbolo:");
 
         eliminarButton.setText("Eliminar");
+        eliminarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonEliminarApretado(evt);
+            }
+        });
 
         guardarButton.setText("Guardar");
+        guardarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonGuardarApretado(evt);
+            }
+        });
 
         atrasButton.setText("Átras");
+        atrasButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonAtrasApretado(evt);
+            }
+        });
 
         nombreLabel.setText("Nombre:");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        unidadDeMedidaTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
                 {null, null},
@@ -78,10 +96,10 @@ public class VistaUnidadMedida extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setResizable(false);
-            jTable1.getColumnModel().getColumn(1).setResizable(false);
+        jScrollPane1.setViewportView(unidadDeMedidaTable);
+        if (unidadDeMedidaTable.getColumnModel().getColumnCount() > 0) {
+            unidadDeMedidaTable.getColumnModel().getColumn(0).setResizable(false);
+            unidadDeMedidaTable.getColumnModel().getColumn(1).setResizable(false);
         }
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -140,6 +158,35 @@ public class VistaUnidadMedida extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void botonEliminarApretado(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEliminarApretado
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botonEliminarApretado
+
+    private void botonGuardarApretado(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGuardarApretado
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botonGuardarApretado
+
+    private void botonAtrasApretado(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAtrasApretado
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botonAtrasApretado
+
+    public void setNombreTextField(JTextField nombreTextField) {
+        this.nombreTextField = nombreTextField;
+    }
+
+    public void setSimboloTextField(JTextField simboloTextField) {
+        this.simboloTextField = simboloTextField;
+    }
+
+  
+
+   
+   
+
+
+
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -181,9 +228,9 @@ public class VistaUnidadMedida extends javax.swing.JFrame {
     private javax.swing.JButton guardarButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JLabel nombreLabel;
     private javax.swing.JTextField nombreTextField;
     private javax.swing.JTextField simboloTextField;
+    private javax.swing.JTable unidadDeMedidaTable;
     // End of variables declaration//GEN-END:variables
 }
