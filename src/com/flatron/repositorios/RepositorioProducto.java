@@ -16,7 +16,7 @@
  */
 package com.flatron.repositorios;
 
-import com.flatron.modelos.ModeloProducto;
+import com.flatron.modelos.Producto;
 import java.util.ArrayList;
 
 /**
@@ -24,23 +24,23 @@ import java.util.ArrayList;
  * @author Franco Morbidoni <fgmorbidoni@gmail.com>
  */
 public class RepositorioProducto {
-    private ArrayList<ModeloProducto> listadoProductos;
+    private ArrayList<Producto> listadoProductos;
 
     public RepositorioProducto() {
         this.listadoProductos = new ArrayList<>();
     }
     
     //Los tres metodos siguientes realizan las tareas de ABM de los productos.
-    public void guardarProducto(ModeloProducto producto){
+    public void guardarProducto(Producto producto){
         this.listadoProductos.add(producto);
     }
     
     public void eliminarProducto(int index){
         int contador=0, indice=0;
         
-        for(ModeloProducto objeto : listadoProductos) {
+        for(Producto objeto : listadoProductos) {
             
-            if (objeto.getCodigoProducto()==index) { 
+            if (objeto.getId()==index) { 
                indice=contador;                                    
             }
             contador++;            
@@ -49,39 +49,34 @@ public class RepositorioProducto {
         listadoProductos.remove(indice);           
     }
     
-    public void actualizarProducto(int codigo, ModeloProducto producto){
+    public void actualizarProducto(Producto producto){
         int contador=0, indice=0;
         
-        for(ModeloProducto objeto : listadoProductos) {
+        for(Producto objeto : listadoProductos) {
             
-            if (objeto.getCodigoProducto()==codigo) { 
+            if (objeto.getId()==producto.getId()) { 
                indice=contador;                                    
             }
             contador++;            
         }
         
-        listadoProductos.remove(indice);   
-        producto.setCodigoProducto(codigo);
+        listadoProductos.remove(indice);
         listadoProductos.add(indice, producto);
     }
     
     //Genera un array con todos los productos almacenados.
-    public ArrayList<ModeloProducto> obtenerTodosLosProductos(){
-        ArrayList<ModeloProducto> arrayADevolver = new ArrayList<>();
-        
-        arrayADevolver=listadoProductos;
-        
-        return arrayADevolver;
+    public ArrayList<Producto> obtenerTodosLosProductos(){
+        return this.listadoProductos;
     }
     
     //Genera un array con todos los productos cuyo nombre se asemege al buscado.
-    public ArrayList<ModeloProducto> obtenerProductosSegunNombre(String nombre){
-        ArrayList<ModeloProducto> arrayADevolver = new ArrayList<>();
-        ArrayList<ModeloProducto> arrayAuxiliar = new ArrayList<>();
+    public ArrayList<Producto> obtenerProductosSegunNombre(String nombre){
+        ArrayList<Producto> arrayADevolver = new ArrayList<>();
+        ArrayList<Producto> arrayAuxiliar = new ArrayList<>();
         
         arrayAuxiliar=listadoProductos;
         
-        for (ModeloProducto modeloProducto : arrayAuxiliar) {
+        for (Producto modeloProducto : arrayAuxiliar) {
             if (modeloProducto.getNombreProducto().toLowerCase().contains(nombre.toLowerCase())) {
                 arrayADevolver.add(modeloProducto);
             }
@@ -90,11 +85,11 @@ public class RepositorioProducto {
     }
     
     //Obtiene el producto al cual le pertenece el codigo ingresado.
-    public ModeloProducto obtenerUnicoProductoPorCodigo(int codigo){
-        ModeloProducto productoADevolver = null;
+    public Producto obtenerUnicoProductoPorCodigo(int codigo){
+        Producto productoADevolver = null;
         
-        for (ModeloProducto producto : listadoProductos) {
-            if (producto.getCodigoProducto()==codigo) {
+        for (Producto producto : listadoProductos) {
+            if (producto.getId()==codigo) {
                 productoADevolver=producto;
             }
         }
@@ -102,14 +97,16 @@ public class RepositorioProducto {
         return productoADevolver;
     }
     
-    //Metodo que luego de identificar un producto, consulta si su stock actual es menor o igual al stock minimo, 
-    //devolviendo un booleano como respusta.
+    /*
+    *Metodo que luego de identificar un producto, consulta si su stock actual es menor o igual al stock minimo, 
+    *devolviendo un booleano como respusta.
+    */
     public boolean verificarStock(int codigo){
-        ModeloProducto productoElegido = null;
+        Producto productoElegido = null;
         boolean alcanzoStockMinimo = false; //true->se alcanzo el stock minimo, false-> no se alcanzo el stock minimo
         
-        for (ModeloProducto producto : listadoProductos) {
-            if (producto.getCodigoProducto()==codigo) {
+        for (Producto producto : listadoProductos) {
+            if (producto.getId()==codigo) {
                 productoElegido=producto;
             }
         }

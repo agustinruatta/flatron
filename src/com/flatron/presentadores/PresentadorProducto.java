@@ -16,13 +16,11 @@
  */
 package com.flatron.presentadores;
 
-import com.flatron.modelos.ModeloProducto;
+import com.flatron.modelos.Producto;
 import com.flatron.servicios.ServicioProducto;
 import com.flatron.vistas.VistaProducto;
 import java.util.ArrayList;
-import java.util.Vector;
 import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -32,6 +30,7 @@ public class PresentadorProducto {
 
     private final VistaProducto vista;
     private final ServicioProducto servicio;
+    private Producto productoSeleccionado;
 
     public PresentadorProducto(VistaProducto vista) {
         this.vista = vista;
@@ -54,7 +53,7 @@ public class PresentadorProducto {
 
             this.servicio.guardarProducto(nombre, marca, unidadMedida, costo, ganancia, stock, stockMinimo, rubro);
 
-            limpiarVista();
+            this.limpiarVista();
 
             this.actualizarTabla(this.servicio.obtenerTodosLosProductosRegistrados());
             JOptionPane.showMessageDialog(null, "Datos guardados.");
@@ -67,55 +66,34 @@ public class PresentadorProducto {
     
     //Elimina un producto seleccionado de la tabla.
     public void botonEliminarProducto(){
-        String auxiliar;
-        auxiliar = this.vista.getProductoElegidoLabel().getText();
         try {
-           this.servicio.eliminarProducto(auxiliar);
+           this.servicio.eliminarProducto(productoSeleccionado);
            this.actualizarTabla(this.servicio.obtenerTodosLosProductosRegistrados());
         } catch (IllegalArgumentException e) {            
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }catch(NullPointerException e){
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
     }
 
-    //Llena la tabla con los atributos de los productos, ya sea la lista completa
-    //o los obtenidos por la operacion buscar.
-    private void actualizarTabla(ArrayList<ModeloProducto> array) {
-        Vector<String> tableHeaders = new Vector<String>();
-        Vector tableData = new Vector();
-        tableHeaders.add("Codigo");
-        tableHeaders.add("Nombre");
-        tableHeaders.add("Marca");
-        tableHeaders.add("Unidad de Medida");
-        tableHeaders.add("Costo");
-        tableHeaders.add("Ganancias");
-        tableHeaders.add("Stock Actual");
-        tableHeaders.add("Stock Minimo");
-        tableHeaders.add("Rubro");
-
-        for (ModeloProducto o : array) {
-            ModeloProducto modelo = o;
-            Vector<Object> oneRow = new Vector<Object>();
-            oneRow.add(modelo.getCodigoProducto());
-            oneRow.add(modelo.getNombreProducto());
-            oneRow.add(modelo.getMarcaProducto());
-            oneRow.add(modelo.getUnidadMedidaProducto());
-            oneRow.add(modelo.getCostoProducto());
-            oneRow.add(modelo.getGananciasProducto());
-            oneRow.add(modelo.getStockActualProducto());
-            oneRow.add(modelo.getStockMinimoProducto());
-            oneRow.add(modelo.getRubroProducto());
-            tableData.add(oneRow);
-        }
-
-        this.vista.getProductosTable().setModel(new DefaultTableModel(tableData, tableHeaders));
+  /**
+    *Llena la tabla con los atributos de los productos, ya sea la lista completa
+    *o los obtenidos por la operacion buscar.
+    */
+    private void actualizarTabla(ArrayList<Producto> array) {        
+        
+        this.vista.getProductosTable().setModel(new ModeloTablaProducto(array));
+    
     }
-
-    //Se escogio buscar los productos que se acerquen al nombre ingresado, como
-    //caracteristica elegida para centrar la busqueda.
+    
+    /**
+    *Se escogio buscar los productos que se acerquen al nombre ingresado, como
+    *caracteristica elegida para centrar la busqueda.
+    */ 
     public void botonBuscarProducto() {
         try {
             String nombreBuscado = this.vista.getBuscarProductoTextField().getText();
-            ArrayList<ModeloProducto> array = new ArrayList<>();
+            ArrayList<Producto> array = new ArrayList<>();
             array = this.servicio.buscarProductosPorNombre(nombreBuscado);
             this.actualizarTabla(array);
         } catch (IllegalArgumentException e) {
@@ -128,13 +106,13 @@ public class PresentadorProducto {
         this.actualizarTabla(this.servicio.obtenerTodosLosProductosRegistrados());
     }
     
-    //Llena los campos de la vista con los valores de la linea seleccionada en 
-    //la tabla.
-    public void cargarDatosProducto(int codigoProducto) {
+    /*
+    *Llena los campos de la vista con los valores de la linea seleccionada en 
+    *la tabla.
+    */
+    public void cargarDatosProducto(Producto producto) {
         try {
-            ModeloProducto producto;
-            producto = this.servicio.buscarProductoPorCodigo(codigoProducto);
-
+            this.productoSeleccionado=producto;
             this.vista.getNombreProductoTextField().setText(producto.getNombreProducto());
             this.vista.getMarcaProductoTextField().setText(producto.getMarcaProducto());
             this.vista.getUnidadesMedidaProductoComboBox().setSelectedItem(producto.getUnidadMedidaProducto());
@@ -149,13 +127,17 @@ public class PresentadorProducto {
         }
     }
 
-    //Toma los datos presentes en los campos de la vista y actualiza el registro
-    //del producto seleccionado en la tabla.
+    /*
+    *Toma los datos presentes en los campos de la vista y actualiza el registro
+    *del producto seleccionado en la tabla.
+    */
     public void botonModificarProducto() {
         try {
+            if (productoSeleccionado==null) {
+                throw new NullPointerException("Producto no seleccionado");
+            }
+            
             //Se utiliza el laber para no perder el codigo respectivo del producto elegido.
-            int codigoProducto = Integer.valueOf(this.vista.getProductoElegidoLabel().getText().split(" ")[2]);
-
             String nombre = this.vista.getNombreProductoTextField().getText();
             String marca = this.vista.getMarcaProductoTextField().getText();
             String unidadMedida = this.vista.getUnidadesMedidaProductoComboBox().getSelectedItem().toString();
@@ -165,7 +147,7 @@ public class PresentadorProducto {
             String stockMinimo = this.vista.getStockMinimoProductoTextField().getText();
             String rubro = this.vista.getRubroProductoTextField().getText();
 
-            this.servicio.actualizarProducto(codigoProducto,nombre, marca, unidadMedida, costo, ganancia, stock, stockMinimo, rubro);
+            this.servicio.actualizarProducto(productoSeleccionado.getId(),nombre, marca, unidadMedida, costo, ganancia, stock, stockMinimo, rubro);
             limpiarVista();
             this.actualizarTabla(this.servicio.obtenerTodosLosProductosRegistrados());
             JOptionPane.showMessageDialog(null, "Datos actualizados.");
@@ -185,13 +167,11 @@ public class PresentadorProducto {
         this.vista.getStockActualProductoTextField().setText("");
         this.vista.getStockMinimoProductoTextField().setText("");
         this.vista.getRubroProductoTextField().setText("");
-        this.vista.getProductoElegidoLabel().setText("");
-
     }
     
     //Crea una tabla vacia cuando se abre la vista de la gestion de productos.
     public void crearTablaInicial(){
-        ArrayList<ModeloProducto> arrayVacio = new ArrayList<>();
+        ArrayList<Producto> arrayVacio = new ArrayList<>();
         this.actualizarTabla(arrayVacio);
     }
 

@@ -16,7 +16,7 @@
  */
 package com.flatron.servicios;
 
-import com.flatron.modelos.ModeloProducto;
+import com.flatron.modelos.Producto;
 import com.flatron.repositorios.RepositorioProducto;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -27,14 +27,6 @@ import javax.swing.JOptionPane;
  */
 public class ServicioProducto {
 
-    String nombreProducto;
-    String marcaProducto;
-    String unidadMedidaProducto; //TODO Cambiarlo por un objeto de la clase Unidad de Medida.
-    float costoProducto;
-    float gananciasProducto;
-    float stockActualProducto;
-    float stockMinimoProducto;
-    String rubroProducto;
     RepositorioProducto repositioProducto;
 
     public ServicioProducto() {
@@ -42,160 +34,153 @@ public class ServicioProducto {
     }
 
     public void guardarProducto(String nombre, String marca, String unidadMedida, String costo, String ganancias, String stock, String stockMinimo, String rubro) {
-        this.validarDatos(nombre, marca, unidadMedida, costo, ganancias, stock, stockMinimo, rubro);
 
-        ModeloProducto producto = new ModeloProducto(nombreProducto, marcaProducto, unidadMedidaProducto, costoProducto, gananciasProducto, stockActualProducto, stockMinimoProducto, rubroProducto);
+        Producto producto = new Producto(ValidarNombre(nombre), ValidarMarca(marca), ValidarUnidadMedida(unidadMedida), ValidarCosto(costo), ValidarGanancias(ganancias), ValidarStockActual(stock), ValidarStockMinimo(stockMinimo), ValidarRubro(rubro));
         this.repositioProducto.guardarProducto(producto);
 
     }
 
-    //Verifica la viabilidad de los datos ingresados.
-    private void validarDatos(String nombre, String marca, String unidadMedida, String costo, String ganancias, String stock, String stockMinimo, String rubro) {
-
-        if (nombre.equals("")) {
+    //Verifica la viabilidad de los datos ingresados.      
+    public String ValidarNombre(String nombre) {
+        if (nombre.trim().isEmpty()) {
             throw new IllegalArgumentException("El campo nombre esta vacio.");
-        } else {
-            this.nombreProducto = nombre;
         }
+        return nombre;
+    }
 
-        if (marca.equals("")) {
+    public String ValidarMarca(String marca) {
+        if (marca.trim().isEmpty()) {
             throw new IllegalArgumentException("El campo marca esta vacio.");
-        } else {
-            this.marcaProducto = marca;
         }
+        return marca;
+    }
 
-        if (unidadMedida.equals("")) {
+    public String ValidarUnidadMedida(String unidadMedida) {
+        if (unidadMedida.trim().isEmpty()) {
             throw new IllegalArgumentException("No se selecciono unidad de medida esta vacio.");
-        } else {
-            this.unidadMedidaProducto = unidadMedida;
         }
+        return unidadMedida;
+    }
 
-        if (costo.equals("")) {
-            throw new IllegalArgumentException("El campo costo esta vacio.");
-        } else {
-            try {
-                this.costoProducto = Float.valueOf(costo);
-                if (costoProducto<0) {
-                    throw new IllegalArgumentException("No puede ingresar numeros negativos.");
-                }
-            } catch (NumberFormatException e) {
-                throw new IllegalArgumentException("No fue ingresado un numero en costo.");
+    public float ValidarCosto(String costo) {
+        try {
+            float conversion = Float.valueOf(costo);
+            if (conversion < 0) {
+                throw new IllegalArgumentException("No puede ingresar numeros negativos.");
             }
-        }
-
-        if (ganancias.equals("")) {
-            throw new IllegalArgumentException("El campo ganancias esta vacio.");
-        } else {
-            try {
-                this.gananciasProducto = Float.valueOf(ganancias);
-                if (gananciasProducto<0) {
-                    throw new IllegalArgumentException("No puede ingresar numeros negativos.");
-                }
-            } catch (NumberFormatException e) {
-                throw new IllegalArgumentException("No fue ingresado un numero en ganancias.");
-            }
-        }
-
-        if (stock.equals("")) {
-            throw new IllegalArgumentException("El campo stock actual esta vacio.");
-        } else {
-            try {
-                this.stockActualProducto = Float.valueOf(stock);
-                if (stockActualProducto<0) {
-                    throw new IllegalArgumentException("No puede ingresar numeros negativos.");
-                }
-            } catch (NumberFormatException e) {
-                throw new IllegalArgumentException("No fue ingresado un numero en stock actual.");
-            }
-        }
-
-        if (stockMinimo.equals("")) {
-            throw new IllegalArgumentException("El campo stock minimo esta vacio.");
-        } else {
-            try {
-                this.stockMinimoProducto = Float.valueOf(stockMinimo);
-                if (stockMinimoProducto<0) {
-                    throw new IllegalArgumentException("No puede ingresar numeros negativos.");
-                }
-            } catch (NumberFormatException e) {
-                throw new IllegalArgumentException("No fue ingresado un numero en stock minimo.");
-            }
-        }
-
-        if (rubro.equals("")) {
-            throw new IllegalArgumentException("El campo rubro esta vacio.");
-        } else {
-            this.rubroProducto = rubro;
+            return conversion;
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("No fue ingresado un numero en costo.");
         }
     }
-    
-    public void eliminarProducto(String codigo){
+
+    public float ValidarGanancias(String ganancias) {
         try {
-            
-            if (codigo==null) {
+            float conversion = Float.valueOf(ganancias);
+            if (conversion < 0) {
+                throw new IllegalArgumentException("No puede ingresar numeros negativos.");
+            }
+            return conversion;
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("No fue ingresado un numero en ganancias.");
+        }
+    }
+
+    public float ValidarStockActual(String stock) {
+        try {
+            float conversion = Float.valueOf(stock);
+            if (conversion < 0) {
+                throw new IllegalArgumentException("No puede ingresar numeros negativos.");
+            }
+            return conversion;
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("No fue ingresado un numero en stock actual.");
+        }
+
+    }
+
+    public float ValidarStockMinimo(String stockMinimo) {
+        try {
+            float conversion = Float.valueOf(stockMinimo);
+            if (conversion < 0) {
+                throw new IllegalArgumentException("No puede ingresar numeros negativos.");
+            }
+            return conversion;
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("No fue ingresado un numero en stock minimo.");
+        }
+    }
+
+    public String ValidarRubro(String rubro) {
+        if (rubro.trim().isEmpty()) {
+            throw new IllegalArgumentException("El campo rubro esta vacio.");
+        }
+        return rubro;
+    }
+
+    public void eliminarProducto(Producto producto) {
+        try {
+
+            if (producto == null) {
                 throw new IllegalArgumentException("No se ha escogido ningun producto a eliminar.");
             }
-            
-            int codigoProducto = Integer.valueOf(codigo.split(" ")[2]);
-            this.repositioProducto.eliminarProducto(codigoProducto); 
+
+            int codigoProducto = producto.getId();
+            this.repositioProducto.eliminarProducto(codigoProducto);
         } catch (NumberFormatException e) {
-                throw new IllegalArgumentException("Problemas con el formato del codigo.");
-            
+            throw new IllegalArgumentException("Problemas con el formato del codigo.");
+
         }
-               
+
     }
 
-    public ArrayList<ModeloProducto> obtenerTodosLosProductosRegistrados() {
-        ArrayList<ModeloProducto> arrayADevolver = new ArrayList<>();
+    public ArrayList<Producto> obtenerTodosLosProductosRegistrados() {
 
-        arrayADevolver = this.repositioProducto.obtenerTodosLosProductos();
+        return this.repositioProducto.obtenerTodosLosProductos();
 
-        return arrayADevolver;
     }
 
-    public ArrayList<ModeloProducto> buscarProductosPorNombre(String nombre) {
+    public ArrayList<Producto> buscarProductosPorNombre(String nombre) {
         if (nombre.equals("")) {
             throw new IllegalArgumentException("No se ingreso ningun dato para buscar.");
-        } else {
-
-            ArrayList<ModeloProducto> arrayADevolver = new ArrayList<>();
-
-            arrayADevolver = this.repositioProducto.obtenerProductosSegunNombre(nombre);
-            
-            if (arrayADevolver.isEmpty()) {
-                 throw new IllegalArgumentException("No hay productos con ese nombre.");
-            }
-
-            return arrayADevolver;
         }
+
+        ArrayList<Producto> arrayADevolver = new ArrayList<>();
+
+        arrayADevolver = this.repositioProducto.obtenerProductosSegunNombre(nombre);
+
+        if (arrayADevolver.isEmpty()) {
+            throw new IllegalArgumentException("No hay productos con ese nombre.");
+        }
+
+        return arrayADevolver;
+
     }
-    
-    public ModeloProducto buscarProductoPorCodigo(int codigo){
-        ModeloProducto producto;
-        producto=this.repositioProducto.obtenerUnicoProductoPorCodigo(codigo);
-        
-        if (producto==null) {
+
+    public Producto buscarProductoPorCodigo(int codigo) {
+        Producto producto = this.repositioProducto.obtenerUnicoProductoPorCodigo(codigo);
+
+        if (producto == null) {
             throw new IllegalArgumentException("No existe el producto seleccionado");
         }
-        
+
         return producto;
     }
-    
-    public void actualizarProducto(int codigo, String nombre, String marca, String unidadMedida, String costo, String ganancias, String stock, String stockMinimo, String rubro){
-        ModeloProducto productoModificado;
-        
-        validarDatos(nombre, marca, unidadMedida, costo, ganancias, stock, stockMinimo, rubro);
-        
-        productoModificado = new ModeloProducto(nombreProducto, marcaProducto, unidadMedidaProducto, costoProducto, gananciasProducto, stockActualProducto, stockMinimoProducto, rubroProducto);
-        
-        this.repositioProducto.actualizarProducto(codigo, productoModificado);
+
+    public void actualizarProducto(int codigo, String nombre, String marca, String unidadMedida, String costo, String ganancias, String stock, String stockMinimo, String rubro) {
+        Producto productoModificado;
+
+        productoModificado = new Producto(ValidarNombre(nombre), ValidarMarca(marca), ValidarUnidadMedida(unidadMedida), ValidarCosto(costo), ValidarGanancias(ganancias), ValidarStockActual(stock), ValidarStockMinimo(stockMinimo), ValidarRubro(rubro));
+        productoModificado.setId(codigo);
+
+        this.repositioProducto.actualizarProducto(productoModificado);
     }
-    
+
     //Metodo llamado cuando se necesita revisar si se alcanzo el stock minimo, y envia una respuesta por pantalla.
-    public void revisarStock(int codigo){
+    public void revisarStock(int codigo) {
         boolean aux;
-        aux=this.repositioProducto.verificarStock(codigo);
-        
+        aux = this.repositioProducto.verificarStock(codigo);
+
         if (aux) {
             JOptionPane.showMessageDialog(null, "Se alcanzo el stock minimo con el producto seleccionado.");
         }

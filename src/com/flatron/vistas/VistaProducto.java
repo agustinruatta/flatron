@@ -16,14 +16,13 @@
  */
 package com.flatron.vistas;
 
+import com.flatron.modelos.Producto;
+import com.flatron.presentadores.ModeloTablaProducto;
 import com.flatron.presentadores.PresentadorProducto;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
 
 /**
  *
@@ -49,11 +48,11 @@ public final class VistaProducto extends javax.swing.JFrame {
         this.productosTable.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                int row = productosTable.rowAtPoint(evt.getPoint());                
-                if (row >= 0 ) {
-                    int codigo = (int) productosTable.getValueAt(row, 0);
-                    presentador.cargarDatosProducto(codigo);
-                    productoElegidoLabel.setText("Producto seleccionado: "+codigo);
+                int fila = productosTable.rowAtPoint(evt.getPoint());                
+                if (fila >= 0 ) {                    
+                    ModeloTablaProducto tabla= (ModeloTablaProducto) productosTable.getModel();
+                    Producto productoSeleccionado = tabla.ObtenerProducto(fila);
+                    presentador.cargarDatosProducto(productoSeleccionado);                   
                 }
             }
         });
@@ -68,10 +67,6 @@ public final class VistaProducto extends javax.swing.JFrame {
         //Solo como metodo de prueba, necesita ser modificado para recivir las unidades de medida registradas.
         String[] lista = {"Prueba","Prueba2"};
         this.unidadesMedidaProductoComboBox.setModel(new javax.swing.DefaultComboBoxModel(lista));
-    }
-
-    public JLabel getProductoElegidoLabel() {
-        return productoElegidoLabel;
     }
 
     public JTextField getCostoProductoTextField() {
@@ -119,8 +114,6 @@ public final class VistaProducto extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -137,30 +130,16 @@ public final class VistaProducto extends javax.swing.JFrame {
         stockActualProductoTextField = new javax.swing.JTextField();
         stockMinimoProductoTextField = new javax.swing.JTextField();
         rubroProductoTextField = new javax.swing.JTextField();
-        jSeparator1 = new javax.swing.JSeparator();
+        Separador = new javax.swing.JSeparator();
         buscarProductoTextField = new javax.swing.JTextField();
         buscarProductoButton = new javax.swing.JButton();
         guardarProductoButton = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
+        PanelScrollTabla = new javax.swing.JScrollPane();
         productosTable = new javax.swing.JTable();
         modificarProductoButton = new javax.swing.JButton();
         eliminarProductoButton = new javax.swing.JButton();
         unidadesMedidaProductoComboBox = new javax.swing.JComboBox<>();
         mostrarTodoButton = new javax.swing.JButton();
-        productoElegidoLabel = new javax.swing.JLabel();
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(jTable1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -199,16 +178,16 @@ public final class VistaProducto extends javax.swing.JFrame {
 
         productosTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {},
+                {},
+                {},
+                {}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+
             }
         ));
-        jScrollPane2.setViewportView(productosTable);
+        PanelScrollTabla.setViewportView(productosTable);
 
         modificarProductoButton.setText("Modificar");
         modificarProductoButton.addActionListener(new java.awt.event.ActionListener() {
@@ -235,37 +214,23 @@ public final class VistaProducto extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSeparator1)
+            .addComponent(Separador)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(guardarProductoButton)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jScrollPane2)
+            .addComponent(PanelScrollTabla, javax.swing.GroupLayout.DEFAULT_SIZE, 429, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel1))
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLabel4))
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLabel5))
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLabel6))
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLabel7))
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLabel8))
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLabel9)))
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel9))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
@@ -301,15 +266,15 @@ public final class VistaProducto extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(productoElegidoLabel)
+                .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(6, 6, 6)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(nombreProductoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -344,16 +309,14 @@ public final class VistaProducto extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(guardarProductoButton)
                 .addGap(13, 13, 13)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 5, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Separador, javax.swing.GroupLayout.PREFERRED_SIZE, 5, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buscarProductoButton)
                     .addComponent(buscarProductoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
-                .addComponent(productoElegidoLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addComponent(PanelScrollTabla, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(modificarProductoButton)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -387,6 +350,8 @@ public final class VistaProducto extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JScrollPane PanelScrollTabla;
+    private javax.swing.JSeparator Separador;
     private javax.swing.JButton buscarProductoButton;
     private javax.swing.JTextField buscarProductoTextField;
     private javax.swing.JTextField costoProductoTextField;
@@ -402,15 +367,10 @@ public final class VistaProducto extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField marcaProductoTextField;
     private javax.swing.JButton modificarProductoButton;
     private javax.swing.JButton mostrarTodoButton;
     private javax.swing.JTextField nombreProductoTextField;
-    private javax.swing.JLabel productoElegidoLabel;
     private javax.swing.JTable productosTable;
     private javax.swing.JTextField rubroProductoTextField;
     private javax.swing.JTextField stockActualProductoTextField;
