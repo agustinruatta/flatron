@@ -41,6 +41,6 @@ public class Flatron {
             public void run() {
                 new VistaPrincipal().setVisible(true);
             }
-        });
+        });      
      }
 }

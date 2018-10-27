@@ -5,31 +5,38 @@
  */
 package com.flatron.util;
 
-import org.hibernate.cfg.AnnotationConfiguration;
-import org.hibernate.SessionFactory;
+import java.util.Properties;
 
-/**
- * Hibernate Utility class with a convenient method to get Session Factory object.
- *
- * @author Mateo Cignetti <mateocig18@gmail.com>
- */
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.AnnotationConfiguration;
+
 public class HibernateUtil {
 
-    private static final SessionFactory sessionFactory;
-    
-    static {
+private static final SessionFactory sessionFactory = buildSessionFactory();
+
+private static SessionFactory buildSessionFactory() {
+    try {
+
+        Properties dbConnectionProperties = new Properties();
         try {
-            // Create the SessionFactory from standard (hibernate.cfg.xml) 
-            // config file.
-            sessionFactory = new AnnotationConfiguration().configure().buildSessionFactory();
-        } catch (Throwable ex) {
-            // Log the exception. 
-            System.err.println("Initial SessionFactory creation failed." + ex);
-            throw new ExceptionInInitializerError(ex);
-        }
+            dbConnectionProperties.load(HibernateUtil.class.getClassLoader().getSystemClassLoader().getResourceAsStream("hibernate.properties"));
+        } catch(Exception e) {
+            e.printStackTrace();
+            // Log
+        }           
+
+        return new AnnotationConfiguration().mergeProperties(dbConnectionProperties).configure("hibernate.cfg.xml").buildSessionFactory();          
+
+
+    } catch (Throwable ex) {
+        ex.printStackTrace();
+//            throw new ExceptionInInitializerError(ex);
     }
-    
-    public static SessionFactory getSessionFactory() {
-        return sessionFactory;
-    }
+    return null;
+}
+
+public static SessionFactory getSessionFactory() {
+    return sessionFactory;
+}
+
 }
