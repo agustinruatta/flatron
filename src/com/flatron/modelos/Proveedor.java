@@ -1,7 +1,7 @@
 package com.flatron.modelos;
 
+import java.util.Collection;
 import java.util.HashSet;
-import java.util.Set;
 
 public class Proveedor  implements java.io.Serializable {
 
@@ -16,12 +16,12 @@ public class Proveedor  implements java.io.Serializable {
      private String direccion;
      private String localidad;
      private String provincia;
-     private Set compras = new HashSet(0);
+     private Collection compras = new HashSet(0);
 
     public Proveedor() {
     }
 
-    public Proveedor(String nombre, String apellido, String razonSocial, String email, String telefono, String cuit, String direccion, String localidad, String provincia, Set compras) {
+    public Proveedor(String nombre, String apellido, String razonSocial, String email, String telefono, String cuit, String direccion, String localidad, String provincia, Collection compras) {
        this.nombre = nombre;
        this.apellido = apellido;
        this.razonSocial = razonSocial;
@@ -104,11 +104,11 @@ public class Proveedor  implements java.io.Serializable {
     public void setProvincia(String provincia) {
         this.provincia = provincia;
     }
-    public Set getCompras() {
+    public Collection getCompras() {
         return this.compras;
     }
     
-    public void setCompras(Set compras) {
+    public void setCompras(Collection compras) {
         this.compras = compras;
     }
 

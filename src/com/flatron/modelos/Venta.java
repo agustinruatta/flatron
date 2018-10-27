@@ -1,8 +1,8 @@
 package com.flatron.modelos;
 
+import java.util.Collection;
 import java.util.Date;
 import java.util.HashSet;
-import java.util.Set;
 
 public class Venta  implements java.io.Serializable {
 
@@ -13,12 +13,12 @@ public class Venta  implements java.io.Serializable {
      private Date fecha;
      private Double total;
      private Double descuento;
-     private Set detalleventas = new HashSet(0);
+     private Collection detalleventas = new HashSet(0);
 
     public Venta() {
     }
 
-    public Venta(Cliente cliente, String numeroComprobante, Date fecha, Double total, Double descuento, Set detalleventas) {
+    public Venta(Cliente cliente, String numeroComprobante, Date fecha, Double total, Double descuento, Collection detalleventas) {
        this.cliente = cliente;
        this.numeroComprobante = numeroComprobante;
        this.fecha = fecha;
@@ -69,11 +69,11 @@ public class Venta  implements java.io.Serializable {
     public void setDescuento(Double descuento) {
         this.descuento = descuento;
     }
-    public Set getDetalleventas() {
+    public Collection getDetalleventas() {
         return this.detalleventas;
     }
     
-    public void setDetalleventas(Set detalleventas) {
+    public void setDetalleventas(Collection detalleventas) {
         this.detalleventas = detalleventas;
     }
 

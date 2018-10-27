@@ -44,7 +44,6 @@ Contributor(s):
     <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
     <property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-    <property name="hibernate.show_sql">false</property>
     <property name="hibernate.query.factory_class">org.hibernate.hql.internal.classic.ClassicQueryTranslatorFactory</property>
     <mapping resource="com/flatron/modelos/Detallecompra.hbm.xml"/>
     <mapping resource="com/flatron/modelos/Venta.hbm.xml"/>

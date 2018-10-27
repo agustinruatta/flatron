@@ -5,6 +5,7 @@
  */
 package com.flatron.util;
 
+import com.flatron.infraestructura.Logger;
 import java.util.Properties;
 
 import org.hibernate.SessionFactory;
@@ -21,7 +22,7 @@ private static SessionFactory buildSessionFactory() {
         try {
             dbConnectionProperties.load(HibernateUtil.class.getClassLoader().getSystemClassLoader().getResourceAsStream("hibernate.properties"));
         } catch(Exception e) {
-            e.printStackTrace();
+            Logger.error(e.getMessage());
             // Log
         }           
 
@@ -29,7 +30,7 @@ private static SessionFactory buildSessionFactory() {
 
 
     } catch (Throwable ex) {
-        ex.printStackTrace();
+        Logger.error(ex.getMessage());
 //            throw new ExceptionInInitializerError(ex);
     }
     return null;

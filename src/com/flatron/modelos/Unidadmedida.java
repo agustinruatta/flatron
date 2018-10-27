@@ -1,19 +1,19 @@
 package com.flatron.modelos;
 
+import java.util.Collection;
 import java.util.HashSet;
-import java.util.Set;
 
 public class Unidadmedida  implements java.io.Serializable {
 
 
      private Integer codigo;
      private String nombre;
-     private Set productos = new HashSet(0);
+     private Collection productos = new HashSet(0);
 
     public Unidadmedida() {
     }
 
-    public Unidadmedida(String nombre, Set productos) {
+    public Unidadmedida(String nombre, Collection productos) {
        this.nombre = nombre;
        this.productos = productos;
     }
@@ -32,11 +32,11 @@ public class Unidadmedida  implements java.io.Serializable {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-    public Set getProductos() {
+    public Collection getProductos() {
         return this.productos;
     }
     
-    public void setProductos(Set productos) {
+    public void setProductos(Collection productos) {
         this.productos = productos;
     }
 

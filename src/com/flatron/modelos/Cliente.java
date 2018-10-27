@@ -1,7 +1,7 @@
 package com.flatron.modelos;
 
+import java.util.Collection;
 import java.util.HashSet;
-import java.util.Set;
 
 public class Cliente  implements java.io.Serializable {
 
@@ -15,12 +15,12 @@ public class Cliente  implements java.io.Serializable {
      private String direccion;
      private String localidad;
      private String provincia;
-     private Set ventas = new HashSet(0);
+     private Collection ventas = new HashSet(0);
 
     public Cliente() {
     }
 
-    public Cliente(String nombre, String apellido, String cuit, String email, String celular, String direccion, String localidad, String provincia, Set ventas) {
+    public Cliente(String nombre, String apellido, String cuit, String email, String celular, String direccion, String localidad, String provincia, Collection ventas) {
        this.nombre = nombre;
        this.apellido = apellido;
        this.cuit = cuit;
@@ -95,11 +95,11 @@ public class Cliente  implements java.io.Serializable {
     public void setProvincia(String provincia) {
         this.provincia = provincia;
     }
-    public Set getVentas() {
+    public Collection getVentas() {
         return this.ventas;
     }
     
-    public void setVentas(Set ventas) {
+    public void setVentas(Collection ventas) {
         this.ventas = ventas;
     }
 
