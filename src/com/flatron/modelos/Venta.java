@@ -13,12 +13,12 @@ public class Venta  implements java.io.Serializable {
      private Date fecha;
      private Double total;
      private Double descuento;
-     private Collection detalleventas = new HashSet(0);
+     private Collection<Detalleventa> detalleventas = new HashSet(0);
 
     public Venta() {
     }
 
-    public Venta(Cliente cliente, String numeroComprobante, Date fecha, Double total, Double descuento, Collection detalleventas) {
+    public Venta(Cliente cliente, String numeroComprobante, Date fecha, Double total, Double descuento, Collection<Detalleventa> detalleventas) {
        this.cliente = cliente;
        this.numeroComprobante = numeroComprobante;
        this.fecha = fecha;
@@ -69,11 +69,11 @@ public class Venta  implements java.io.Serializable {
     public void setDescuento(Double descuento) {
         this.descuento = descuento;
     }
-    public Collection getDetalleventas() {
+    public Collection<Detalleventa> getDetalleventas() {
         return this.detalleventas;
     }
     
-    public void setDetalleventas(Collection detalleventas) {
+    public void setDetalleventas(Collection<Detalleventa> detalleventas) {
         this.detalleventas = detalleventas;
     }
 

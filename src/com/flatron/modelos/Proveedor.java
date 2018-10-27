@@ -16,12 +16,12 @@ public class Proveedor  implements java.io.Serializable {
      private String direccion;
      private String localidad;
      private String provincia;
-     private Collection compras = new HashSet(0);
+     private Collection<Compra> compras = new HashSet(0);
 
     public Proveedor() {
     }
 
-    public Proveedor(String nombre, String apellido, String razonSocial, String email, String telefono, String cuit, String direccion, String localidad, String provincia, Collection compras) {
+    public Proveedor(String nombre, String apellido, String razonSocial, String email, String telefono, String cuit, String direccion, String localidad, String provincia, Collection<Compra> compras) {
        this.nombre = nombre;
        this.apellido = apellido;
        this.razonSocial = razonSocial;
@@ -104,11 +104,11 @@ public class Proveedor  implements java.io.Serializable {
     public void setProvincia(String provincia) {
         this.provincia = provincia;
     }
-    public Collection getCompras() {
+    public Collection<Compra> getCompras() {
         return this.compras;
     }
     
-    public void setCompras(Collection compras) {
+    public void setCompras(Collection<Compra> compras) {
         this.compras = compras;
     }
 

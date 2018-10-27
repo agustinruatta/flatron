@@ -12,12 +12,12 @@ public class Compra  implements java.io.Serializable {
      private String numeroComprobante;
      private Date fecha;
      private Integer total;
-     private Collection detallecompras = new HashSet(0);
+     private Collection<Detallecompra> detallecompras = new HashSet(0);
 
     public Compra() {
     }
 
-    public Compra(Proveedor proveedor, String numeroComprobante, Date fecha, Integer total, Collection detallecompras) {
+    public Compra(Proveedor proveedor, String numeroComprobante, Date fecha, Integer total, Collection<Detallecompra> detallecompras) {
        this.proveedor = proveedor;
        this.numeroComprobante = numeroComprobante;
        this.fecha = fecha;
@@ -60,11 +60,11 @@ public class Compra  implements java.io.Serializable {
     public void setTotal(Integer total) {
         this.total = total;
     }
-    public Collection getDetallecompras() {
+    public Collection<Detallecompra> getDetallecompras() {
         return this.detallecompras;
     }
     
-    public void setDetallecompras(Collection detallecompras) {
+    public void setDetallecompras(Collection<Detallecompra> detallecompras) {
         this.detallecompras = detallecompras;
     }
 

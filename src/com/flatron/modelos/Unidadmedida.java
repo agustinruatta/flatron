@@ -8,12 +8,12 @@ public class Unidadmedida  implements java.io.Serializable {
 
      private Integer codigo;
      private String nombre;
-     private Collection productos = new HashSet(0);
+     private Collection<Producto> productos = new HashSet(0);
 
     public Unidadmedida() {
     }
 
-    public Unidadmedida(String nombre, Collection productos) {
+    public Unidadmedida(String nombre, Collection<Producto> productos) {
        this.nombre = nombre;
        this.productos = productos;
     }
@@ -32,11 +32,11 @@ public class Unidadmedida  implements java.io.Serializable {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-    public Collection getProductos() {
+    public Collection<Producto> getProductos() {
         return this.productos;
     }
     
-    public void setProductos(Collection productos) {
+    public void setProductos(Collection<Producto> productos) {
         this.productos = productos;
     }
 

@@ -15,12 +15,12 @@ public class Cliente  implements java.io.Serializable {
      private String direccion;
      private String localidad;
      private String provincia;
-     private Collection ventas = new HashSet(0);
+     private Collection<Venta> ventas = new HashSet(0);
 
     public Cliente() {
     }
 
-    public Cliente(String nombre, String apellido, String cuit, String email, String celular, String direccion, String localidad, String provincia, Collection ventas) {
+    public Cliente(String nombre, String apellido, String cuit, String email, String celular, String direccion, String localidad, String provincia, Collection<Venta> ventas) {
        this.nombre = nombre;
        this.apellido = apellido;
        this.cuit = cuit;
@@ -95,11 +95,11 @@ public class Cliente  implements java.io.Serializable {
     public void setProvincia(String provincia) {
         this.provincia = provincia;
     }
-    public Collection getVentas() {
+    public Collection<Venta> getVentas() {
         return this.ventas;
     }
     
-    public void setVentas(Collection ventas) {
+    public void setVentas(Collection<Venta> ventas) {
         this.ventas = ventas;
     }
 

@@ -15,13 +15,13 @@ public class Producto  implements java.io.Serializable {
      private Double stock;
      private Double stockMinimo;
      private String rubro;
-     private Collection detalleventas = new HashSet(0);
-     private Collection detallecompras = new HashSet(0);
+     private Collection<Detalleventa> detalleventas = new HashSet(0);
+     private Collection<Detallecompra> detallecompras = new HashSet(0);
 
     public Producto() {
     }
 
-    public Producto(Unidadmedida unidadmedida, String marca, String nombre, Double costo, Double ganancia, Double stock, Double stockMinimo, String rubro, Collection detalleventas, Collection detallecompras) {
+    public Producto(Unidadmedida unidadmedida, String marca, String nombre, Double costo, Double ganancia, Double stock, Double stockMinimo, String rubro, Collection<Detalleventa> detalleventas, Collection<Detallecompra> detallecompras) {
        this.unidadmedida = unidadmedida;
        this.marca = marca;
        this.nombre = nombre;
@@ -97,18 +97,18 @@ public class Producto  implements java.io.Serializable {
     public void setRubro(String rubro) {
         this.rubro = rubro;
     }
-    public Collection getDetalleventas() {
+    public Collection<Detalleventa> getDetalleventas() {
         return this.detalleventas;
     }
     
-    public void setDetalleventas(Collection detalleventas) {
+    public void setDetalleventas(Collection<Detalleventa> detalleventas) {
         this.detalleventas = detalleventas;
     }
-    public Collection getDetallecompras() {
+    public Collection<Detallecompra> getDetallecompras() {
         return this.detallecompras;
     }
     
-    public void setDetallecompras(Collection detallecompras) {
+    public void setDetallecompras(Collection<Detallecompra> detallecompras) {
         this.detallecompras = detallecompras;
     }
 
