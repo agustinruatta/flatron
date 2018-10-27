@@ -7,13 +7,15 @@ package com.flatron.vistas;
 
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import com.flatron.presentadores.PresentadorUnidadDeMedida;
 
 /**
  *
  * @author laboratorio
  */
 public class VistaUnidadMedida extends javax.swing.JFrame {
-
+   
+    private PresentadorUnidadDeMedida presentadorUnidadDeMedida;
     /**
      * Creates new form VistaUnidadMedida
      */
@@ -29,9 +31,8 @@ public class VistaUnidadMedida extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
-        jLabel1 = new javax.swing.JLabel();
+        simboloLabel = new javax.swing.JLabel();
         nombreTextField = new javax.swing.JTextField();
         simboloTextField = new javax.swing.JTextField();
         eliminarButton = new javax.swing.JButton();
@@ -44,7 +45,7 @@ public class VistaUnidadMedida extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Unidad de medida");
 
-        jLabel1.setText("Símbolo:");
+        simboloLabel.setText("Símbolo:");
 
         eliminarButton.setText("Eliminar");
         eliminarButton.addActionListener(new java.awt.event.ActionListener() {
@@ -126,7 +127,7 @@ public class VistaUnidadMedida extends javax.swing.JFrame {
                         .addGap(36, 36, 36)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(nombreLabel)
-                            .addComponent(jLabel1))
+                            .addComponent(simboloLabel))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(simboloTextField)
@@ -143,7 +144,7 @@ public class VistaUnidadMedida extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(simboloTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
+                    .addComponent(simboloLabel))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(eliminarButton)
@@ -177,6 +178,18 @@ public class VistaUnidadMedida extends javax.swing.JFrame {
     public void setSimboloTextField(JTextField simboloTextField) {
         this.simboloTextField = simboloTextField;
     }
+
+    public JTextField getNombreTextField() {
+        return nombreTextField;
+    }
+
+    public JTextField getSimboloTextField() {
+        return simboloTextField;
+    }
+
+  
+    
+    
 
   
 
@@ -226,10 +239,10 @@ public class VistaUnidadMedida extends javax.swing.JFrame {
     private javax.swing.JButton atrasButton;
     private javax.swing.JButton eliminarButton;
     private javax.swing.JButton guardarButton;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel nombreLabel;
     private javax.swing.JTextField nombreTextField;
+    private javax.swing.JLabel simboloLabel;
     private javax.swing.JTextField simboloTextField;
     private javax.swing.JTable unidadDeMedidaTable;
     // End of variables declaration//GEN-END:variables
