@@ -23,7 +23,6 @@ private static SessionFactory buildSessionFactory() {
             dbConnectionProperties.load(HibernateUtil.class.getClassLoader().getSystemClassLoader().getResourceAsStream("hibernate.properties"));
         } catch(Exception e) {
             Logger.error(e.getMessage());
-            // Log
         }           
 
         return new AnnotationConfiguration().mergeProperties(dbConnectionProperties).configure("hibernate.cfg.xml").buildSessionFactory();          
@@ -31,9 +30,8 @@ private static SessionFactory buildSessionFactory() {
 
     } catch (Throwable ex) {
         Logger.error(ex.getMessage());
-//            throw new ExceptionInInitializerError(ex);
+        throw new ExceptionInInitializerError(ex);
     }
-    return null;
 }
 
 public static SessionFactory getSessionFactory() {
