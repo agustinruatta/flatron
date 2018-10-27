@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class catalog="flatron" name="com.flatron.modelos.Cliente" optimistic-lock="version" table="cliente">
+    <id name="codigo" type="java.lang.Integer">
+      <column name="codigo"/>
+      <generator class="identity"/>
+    </id>
+    <property name="nombre" type="string">
+      <column name="nombre"/>
+    </property>
+    <property name="apellido" type="string">
+      <column name="apellido"/>
+    </property>
+    <property name="cuit" type="string">
+      <column length="13" name="cuit"/>
+    </property>
+    <property name="email" type="string">
+      <column name="email"/>
+    </property>
+    <property name="celular" type="string">
+      <column name="celular"/>
+    </property>
+    <property name="direccion" type="string">
+      <column name="direccion"/>
+    </property>
+    <property name="localidad" type="string">
+      <column name="localidad"/>
+    </property>
+    <property name="provincia" type="string">
+      <column name="provincia"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="ventas" table="venta">
+      <key>
+        <column name="codigo_cliente"/>
+      </key>
+      <one-to-many class="com.flatron.modelos.Venta"/>
+    </set>
+  </class>
+</hibernate-mapping>

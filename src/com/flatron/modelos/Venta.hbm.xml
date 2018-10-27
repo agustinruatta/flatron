@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class catalog="flatron" name="com.flatron.modelos.Venta" optimistic-lock="version" table="venta">
+    <id name="codigo" type="java.lang.Integer">
+      <column name="codigo"/>
+      <generator class="identity"/>
+    </id>
+    <many-to-one class="com.flatron.modelos.Cliente" fetch="select" name="cliente">
+      <column name="codigo_cliente"/>
+    </many-to-one>
+    <property name="numeroComprobante" type="string">
+      <column name="numero_comprobante"/>
+    </property>
+    <property name="fecha" type="timestamp">
+      <column length="19" name="fecha"/>
+    </property>
+    <property name="total" type="java.lang.Double">
+      <column name="total" precision="22" scale="0"/>
+    </property>
+    <property name="descuento" type="java.lang.Double">
+      <column name="descuento" precision="22" scale="0"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="detalleventas" table="detalleventa">
+      <key>
+        <column name="codigo_venta"/>
+      </key>
+      <one-to-many class="com.flatron.modelos.Detalleventa"/>
+    </set>
+  </class>
+</hibernate-mapping>
