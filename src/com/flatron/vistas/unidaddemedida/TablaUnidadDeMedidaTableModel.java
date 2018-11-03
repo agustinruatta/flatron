@@ -56,10 +56,10 @@ public class TablaUnidadDeMedidaTableModel extends AbstractTableModel {
 
         switch (columnIndex) {
             case COLUMNA_NOMBRE:
-                return UnidadDeMedida.getNombre();
+                return unidadDeMedida.getNombre();
 
             case COLUMNA_SIMBOLO:
-                return UnidadDeMedida.getSimbolo();
+                return unidadDeMedida.getSimbolo();
 
             default:
                 throw new IllegalArgumentException("Columna inválida " + columnIndex);

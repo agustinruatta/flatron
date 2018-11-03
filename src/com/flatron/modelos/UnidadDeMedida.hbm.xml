@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-    <class catalog="flatron" name="com.flatron.modelos.Unidadmedida" optimistic-lock="version" table="unidadmedida">
+    <class catalog="flatron" name="com.flatron.modelos.UnidadDeMedida" optimistic-lock="version" table="unidadmedida">
         <id name="codigo" type="java.lang.Integer">
             <column name="codigo"/>
             <generator class="identity"/>
         </id>
         <property name="nombre" type="string">
             <column name="nombre"/>
-            <property name= "simbolo" type= "string">
-                <column name="simbolo"/>
+        </property>
+        <property name= "simbolo" type= "string">
+            <column name="simbolo"/>
+        </property>
     
     </class>
 </hibernate-mapping>

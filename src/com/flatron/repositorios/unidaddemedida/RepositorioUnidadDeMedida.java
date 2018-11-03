@@ -5,6 +5,7 @@
  */
 package com.flatron.repositorios.unidaddemedida;
 import com.flatron.modelos.UnidadDeMedida;
+import java.util.ArrayList;
 
 /**
  *
@@ -19,4 +20,8 @@ public class RepositorioUnidadDeMedida {
         this.unidadDeMedidaguardada = unidadDeMedida;
     }
     
+   public ArrayList <UnidadDeMedida> obtenerTodos (){
+       ArrayList <UnidadDeMedida> unidadesDeMedida = new ArrayList<>();
+       return unidadesDeMedida;
+   }
 }

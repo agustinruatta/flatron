@@ -173,6 +173,10 @@ public class VistaUnidadMedida extends javax.swing.JFrame {
         return simboloTextField;
     }
 
+    public JTable getUnidadDeMedidaTable() {
+        return unidadDeMedidaTable;
+    }
+
   
     
     
