@@ -52,6 +52,6 @@ Contributor(s):
     <mapping resource="com/flatron/modelos/Detalleventa.hbm.xml"/>
     <mapping resource="com/flatron/modelos/Cliente.hbm.xml"/>
     <mapping resource="com/flatron/modelos/Producto.hbm.xml"/>
-    <mapping resource="com/flatron/modelos/Unidadmedida.hbm.xml"/>
+    <mapping resource="com/flatron/modelos/UnidadDeMedida.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

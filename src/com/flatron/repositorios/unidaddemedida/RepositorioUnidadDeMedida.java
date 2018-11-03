@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.flatron.repositorios;
+package com.flatron.repositorios.unidaddemedida;
 import com.flatron.modelos.UnidadDeMedida;
 
 /**

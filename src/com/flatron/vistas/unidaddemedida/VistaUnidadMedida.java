@@ -3,11 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.flatron.vistas;
+package com.flatron.vistas.unidaddemedida;
 
+import com.flatron.modelos.UnidadDeMedida;
 import javax.swing.JTable;
 import javax.swing.JTextField;
-import com.flatron.presentadores.PresentadorUnidadDeMedida;
+import com.flatron.presentadores.unidaddemedida.PresentadorUnidadDeMedida;
 
 /**
  *
@@ -23,6 +24,8 @@ public class VistaUnidadMedida extends javax.swing.JFrame {
         initComponents();
         
         this.presentadorUnidadDeMedida = new PresentadorUnidadDeMedida(this);
+        
+       
     }
 
     /**

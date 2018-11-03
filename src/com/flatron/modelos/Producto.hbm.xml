@@ -6,7 +6,7 @@
       <column name="codigo"/>
       <generator class="identity"/>
     </id>
-    <many-to-one class="com.flatron.modelos.Unidadmedida" fetch="select" name="unidadmedida">
+    <many-to-one class="com.flatron.modelos.UnidadDeMedida" fetch="select" name="unidadmedida">
       <column name="codigo_unidadMedida"/>
     </many-to-one>
     <property name="marca" type="string">

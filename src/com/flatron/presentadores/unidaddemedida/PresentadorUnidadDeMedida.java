@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.flatron.presentadores;
+package com.flatron.presentadores.unidaddemedida;
 
-import com.flatron.vistas.VistaUnidadMedida;
-import com.flatron.servicios.ServicioUnidadDeMedida;
+import com.flatron.vistas.unidaddemedida.VistaUnidadMedida;
+import com.flatron.servicios.unidaddemedida.ServicioUnidadDeMedida;
 import javax.swing.JOptionPane;
 
 /**

@@ -7,7 +7,7 @@ public class Producto  implements java.io.Serializable {
 
 
      private Integer codigo;
-     private Unidadmedida unidadmedida;
+     private UnidadDeMedida unidadmedida;
      private String marca;
      private String nombre;
      private Double costo;
@@ -21,7 +21,7 @@ public class Producto  implements java.io.Serializable {
     public Producto() {
     }
 
-    public Producto(Unidadmedida unidadmedida, String marca, String nombre, Double costo, Double ganancia, Double stock, Double stockMinimo, String rubro, Collection<Detalleventa> detalleventas, Collection<Detallecompra> detallecompras) {
+    public Producto(UnidadDeMedida unidadmedida, String marca, String nombre, Double costo, Double ganancia, Double stock, Double stockMinimo, String rubro, Collection<Detalleventa> detalleventas, Collection<Detallecompra> detallecompras) {
        this.unidadmedida = unidadmedida;
        this.marca = marca;
        this.nombre = nombre;
@@ -41,11 +41,11 @@ public class Producto  implements java.io.Serializable {
     public void setCodigo(Integer codigo) {
         this.codigo = codigo;
     }
-    public Unidadmedida getUnidadmedida() {
+    public UnidadDeMedida getUnidadmedida() {
         return this.unidadmedida;
     }
     
-    public void setUnidadmedida(Unidadmedida unidadmedida) {
+    public void setUnidadmedida(UnidadDeMedida unidadmedida) {
         this.unidadmedida = unidadmedida;
     }
     public String getMarca() {
