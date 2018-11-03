@@ -10,4 +10,5 @@ repositories {
 
 dependencies{
     compile 'org.apache.karaf.jpa:hibernate:4.2.1'
+    testCompile 'junit:junit:4.12'
 }
