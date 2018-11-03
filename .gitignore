@@ -1,4 +1,5 @@
 /nbproject/private/
+/.gradle/
 /.nb-gradle/
 /build/
 /src/main/java/hibernate.properties
