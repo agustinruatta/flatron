@@ -17,6 +17,7 @@
 package com.flatron.servicios;
 
 import com.flatron.modelos.Producto;
+import com.flatron.modelos.Unidadmedida;
 import com.flatron.repositorios.RepositorioProducto;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -33,9 +34,9 @@ public class ServicioProducto {
         this.repositioProducto = new RepositorioProducto();
     }
 
-    public void guardarProducto(String nombre, String marca, String unidadMedida, String costo, String ganancias, String stock, String stockMinimo, String rubro) {
+    public void guardarProducto(String nombre, String marca, Unidadmedida unidadMedida, String costo, String ganancias, String stock, String stockMinimo, String rubro) {
 
-        Producto producto = new Producto(ValidarNombre(nombre), ValidarMarca(marca), ValidarUnidadMedida(unidadMedida), ValidarCosto(costo), ValidarGanancias(ganancias), ValidarStockActual(stock), ValidarStockMinimo(stockMinimo), ValidarRubro(rubro));
+        Producto producto = new Producto(unidadMedida, ValidarMarca(marca), ValidarNombre(nombre), ValidarCosto(costo), ValidarGanancias(ganancias), ValidarStockActual(stock), ValidarStockMinimo(stockMinimo), ValidarRubro(rubro),null,null);
         this.repositioProducto.guardarProducto(producto);
 
     }
@@ -62,9 +63,9 @@ public class ServicioProducto {
         return unidadMedida;
     }
 
-    public float ValidarCosto(String costo) {
+    public double ValidarCosto(String costo) {
         try {
-            float conversion = Float.valueOf(costo);
+            double conversion = Double.valueOf(costo);
             if (conversion < 0) {
                 throw new IllegalArgumentException("No puede ingresar numeros negativos.");
             }
@@ -74,9 +75,9 @@ public class ServicioProducto {
         }
     }
 
-    public float ValidarGanancias(String ganancias) {
+    public double ValidarGanancias(String ganancias) {
         try {
-            float conversion = Float.valueOf(ganancias);
+            double conversion = Double.valueOf(ganancias);
             if (conversion < 0) {
                 throw new IllegalArgumentException("No puede ingresar numeros negativos.");
             }
@@ -86,9 +87,9 @@ public class ServicioProducto {
         }
     }
 
-    public float ValidarStockActual(String stock) {
+    public double ValidarStockActual(String stock) {
         try {
-            float conversion = Float.valueOf(stock);
+            double conversion = Double.valueOf(stock);
             if (conversion < 0) {
                 throw new IllegalArgumentException("No puede ingresar numeros negativos.");
             }
@@ -99,9 +100,9 @@ public class ServicioProducto {
 
     }
 
-    public float ValidarStockMinimo(String stockMinimo) {
+    public double ValidarStockMinimo(String stockMinimo) {
         try {
-            float conversion = Float.valueOf(stockMinimo);
+            double conversion = Double.valueOf(stockMinimo);
             if (conversion < 0) {
                 throw new IllegalArgumentException("No puede ingresar numeros negativos.");
             }
@@ -124,9 +125,7 @@ public class ServicioProducto {
             if (producto == null) {
                 throw new IllegalArgumentException("No se ha escogido ningun producto a eliminar.");
             }
-
-            int codigoProducto = producto.getId();
-            this.repositioProducto.eliminarProducto(codigoProducto);
+            this.repositioProducto.eliminarProducto(producto);
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("Problemas con el formato del codigo.");
 
@@ -167,11 +166,11 @@ public class ServicioProducto {
         return producto;
     }
 
-    public void actualizarProducto(int codigo, String nombre, String marca, String unidadMedida, String costo, String ganancias, String stock, String stockMinimo, String rubro) {
+    public void actualizarProducto(int codigo, String nombre, String marca, Unidadmedida unidadMedida, String costo, String ganancias, String stock, String stockMinimo, String rubro) {
         Producto productoModificado;
 
-        productoModificado = new Producto(ValidarNombre(nombre), ValidarMarca(marca), ValidarUnidadMedida(unidadMedida), ValidarCosto(costo), ValidarGanancias(ganancias), ValidarStockActual(stock), ValidarStockMinimo(stockMinimo), ValidarRubro(rubro));
-        productoModificado.setId(codigo);
+        productoModificado = new Producto(unidadMedida, ValidarMarca(marca), ValidarNombre(nombre), ValidarCosto(costo), ValidarGanancias(ganancias), ValidarStockActual(stock), ValidarStockMinimo(stockMinimo), ValidarRubro(rubro),null,null);
+        productoModificado.setCodigo(codigo);
 
         this.repositioProducto.actualizarProducto(productoModificado);
     }

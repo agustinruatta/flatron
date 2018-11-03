@@ -17,70 +17,130 @@
 package com.flatron.repositorios;
 
 import com.flatron.modelos.Producto;
+import com.flatron.util.HibernateUtil;
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import org.hibernate.HibernateException;
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 /**
  *
  * @author Franco Morbidoni <fgmorbidoni@gmail.com>
  */
 public class RepositorioProducto {
-    private ArrayList<Producto> listadoProductos;
 
     public RepositorioProducto() {
-        this.listadoProductos = new ArrayList<>();
     }
     
     //Los tres metodos siguientes realizan las tareas de ABM de los productos.
     public void guardarProducto(Producto producto){
-        this.listadoProductos.add(producto);
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction tx = null;
+
+        try {
+            tx = session.beginTransaction();
+            session.save(producto);
+            tx.commit();
+        } catch (HibernateException e) {
+            if (tx != null) {
+                tx.rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
     }
     
-    public void eliminarProducto(int index){
-        int contador=0, indice=0;
-        
-        for(Producto objeto : listadoProductos) {
-            
-            if (objeto.getId()==index) { 
-               indice=contador;                                    
+    public void eliminarProducto(Producto producto){
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction tx = null;
+
+        try {
+            tx = session.beginTransaction();
+            session.delete(producto);
+            tx.commit();
+        } catch (HibernateException e) {
+            if (tx != null) {
+                tx.rollback();
             }
-            contador++;            
-        }
-        
-        listadoProductos.remove(indice);           
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }      
     }
     
     public void actualizarProducto(Producto producto){
-        int contador=0, indice=0;
-        
-        for(Producto objeto : listadoProductos) {
-            
-            if (objeto.getId()==producto.getId()) { 
-               indice=contador;                                    
+       Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction tx = null;
+
+        try {
+            tx = session.beginTransaction();
+            session.update(producto);
+            tx.commit();
+        } catch (HibernateException e) {
+            if (tx != null) {
+                tx.rollback();
             }
-            contador++;            
+            e.printStackTrace();
+        } finally {
+            session.close();
         }
-        
-        listadoProductos.remove(indice);
-        listadoProductos.add(indice, producto);
     }
     
     //Genera un array con todos los productos almacenados.
     public ArrayList<Producto> obtenerTodosLosProductos(){
-        return this.listadoProductos;
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction tx = null;
+        ArrayList<Producto> arrayADevolver = new ArrayList<>();
+
+        try {
+            tx = session.beginTransaction();
+            List productoList = session.createQuery("FROM  Producto").list();
+            for (Iterator iterator = productoList.iterator(); iterator.hasNext();) {
+                Producto producto = (Producto) iterator.next();
+                arrayADevolver.add(producto);
+            }
+            tx.commit();
+        } catch (HibernateException e) {
+            if (tx != null) {
+                tx.rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+
+        return arrayADevolver;
     }
     
     //Genera un array con todos los productos cuyo nombre se asemege al buscado.
-    public ArrayList<Producto> obtenerProductosSegunNombre(String nombre){
+    public ArrayList<Producto> obtenerProductosSegunNombre(String nombreBuscado){
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction tx = null;
         ArrayList<Producto> arrayADevolver = new ArrayList<>();
-        ArrayList<Producto> arrayAuxiliar = new ArrayList<>();
-        
-        arrayAuxiliar=listadoProductos;
-        
-        for (Producto modeloProducto : arrayAuxiliar) {
-            if (modeloProducto.getNombreProducto().toLowerCase().contains(nombre.toLowerCase())) {
-                arrayADevolver.add(modeloProducto);
+
+        try {
+            tx = session.beginTransaction();
+            Query query = session.createQuery("FROM  Producto WHERE nombre like concat('%',:nombre,'%')");
+            query.setParameter("nombre", nombreBuscado);
+            List productoList = query.list();
+            for (Iterator iterator = productoList.iterator(); iterator.hasNext();) {
+                Producto producto = (Producto) iterator.next();
+                arrayADevolver.add(producto);
             }
+            tx.commit();
+        } catch (HibernateException e) {
+            if (tx != null) {
+                tx.rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            session.close();
         }
+
         return arrayADevolver;
     }
     
@@ -88,12 +148,21 @@ public class RepositorioProducto {
     public Producto obtenerUnicoProductoPorCodigo(int codigo){
         Producto productoADevolver = null;
         
-        for (Producto producto : listadoProductos) {
-            if (producto.getId()==codigo) {
-                productoADevolver=producto;
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction tx = null;
+
+        try {
+            tx = session.beginTransaction();
+            productoADevolver=(Producto)session.get(Producto.class, codigo);
+            tx.commit();
+        } catch (HibernateException e) {
+            if (tx != null) {
+                tx.rollback();
             }
-        }
-        
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }      
         return productoADevolver;
     }
     
@@ -105,13 +174,9 @@ public class RepositorioProducto {
         Producto productoElegido = null;
         boolean alcanzoStockMinimo = false; //true->se alcanzo el stock minimo, false-> no se alcanzo el stock minimo
         
-        for (Producto producto : listadoProductos) {
-            if (producto.getId()==codigo) {
-                productoElegido=producto;
-            }
-        }
+        productoElegido = obtenerUnicoProductoPorCodigo(codigo);
         
-        if (productoElegido.getStockActualProducto()<=productoElegido.getStockMinimoProducto()){
+        if (productoElegido.getStock()<=productoElegido.getStockMinimo()){
             alcanzoStockMinimo=true;
         }
         

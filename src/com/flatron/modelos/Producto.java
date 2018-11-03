@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /*
  * Copyright (C) 2018 Franco Morbidoni <fgmorbidoni@gmail.com>
  *
@@ -17,92 +16,15 @@
  */
 package com.flatron.modelos;
 
+import java.util.Collection;
+import java.util.HashSet;
+
+
 /**
  *
  * @author Franco Morbidoni <fgmorbidoni@gmail.com>
  */
-public class Producto {
-    static int contador=0; //Variable temporal a remplazar una vez en funcionamiento la base de datos.
-    int id;
-    String nombreProducto;
-    String marcaProducto;
-    String unidadMedidaProducto; //TODO Cambiarlo por un objeto de la clase Unidad de Medida.
-    float costoProducto;
-    float gananciasProducto;
-    float stockActualProducto;
-    float stockMinimoProducto;
-    String rubroProducto;
-
-    public Producto(String nombreProducto, String marcaProducto, String unidadMedidaProducto, float costoProducto, float gananciasProducto, float stockActualProducto, float stockMinimoProducto, String rubroProducto) {
-        contador++;
-        this.id=contador;
-        this.nombreProducto = nombreProducto;
-        this.marcaProducto = marcaProducto;
-        this.unidadMedidaProducto = unidadMedidaProducto;
-        this.costoProducto = costoProducto;
-        this.gananciasProducto = gananciasProducto;
-        this.stockActualProducto = stockActualProducto;
-        this.stockMinimoProducto = stockMinimoProducto;
-        this.rubroProducto = rubroProducto;
-    }
-
-    public int getId() {
-        return id;
-    }   
-
-    public void setId(int id) {
-        this.id = id;
-    }    
-
-    public String getNombreProducto() {
-        return nombreProducto;
-    }
-
-    public String getMarcaProducto() {
-        return marcaProducto;
-    }
-
-    public String getUnidadMedidaProducto() {
-        return unidadMedidaProducto;
-    }
-
-    public float getCostoProducto() {
-        return costoProducto;
-    }
-
-    public float getGananciasProducto() {
-        return gananciasProducto;
-    }
-
-    public float getStockActualProducto() {
-        return stockActualProducto;
-    }
-
-    public float getStockMinimoProducto() {
-        return stockMinimoProducto;
-    }
-
-    public String getRubroProducto() {
-        return rubroProducto;
-    }
-    
-    public void validarStock(){
-        
-    }
-    
-    public void calcularPrecioVenta(){
-        
-    }
-    
-}
-=======
-package com.flatron.modelos;
-
-import java.util.Collection;
-import java.util.HashSet;
-
 public class Producto  implements java.io.Serializable {
-
 
      private Integer codigo;
      private Unidadmedida unidadmedida;
@@ -209,6 +131,13 @@ public class Producto  implements java.io.Serializable {
     public void setDetallecompras(Collection<Detallecompra> detallecompras) {
         this.detallecompras = detallecompras;
     }
+    
+    public void validarStock(){
+        
+    }
+    
+    public void calcularPrecioVenta(){
+        
+    }
 
 }
->>>>>>> master

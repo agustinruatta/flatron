@@ -17,6 +17,7 @@
 package com.flatron.presentadores;
 
 import com.flatron.modelos.Producto;
+import com.flatron.modelos.Unidadmedida;
 import com.flatron.servicios.ServicioProducto;
 import com.flatron.vistas.VistaProducto;
 import java.util.ArrayList;
@@ -42,7 +43,7 @@ public class PresentadorProducto {
         
         String nombre = this.vista.getNombreProductoTextField().getText();
         String marca = this.vista.getMarcaProductoTextField().getText();
-        String unidadMedida = this.vista.getUnidadesMedidaProductoComboBox().getSelectedItem().toString();
+        Unidadmedida unidadMedida = null; //TODO cambiar cuando se obtega el repositorio de unidades de medidas.
         String costo = this.vista.getCostoProductoTextField().getText();
         String ganancia = this.vista.getGananciaProductoTextField().getText();
         String stock = this.vista.getStockActualProductoTextField().getText();
@@ -113,14 +114,14 @@ public class PresentadorProducto {
     public void cargarDatosProducto(Producto producto) {
         try {
             this.productoSeleccionado=producto;
-            this.vista.getNombreProductoTextField().setText(producto.getNombreProducto());
-            this.vista.getMarcaProductoTextField().setText(producto.getMarcaProducto());
-            this.vista.getUnidadesMedidaProductoComboBox().setSelectedItem(producto.getUnidadMedidaProducto());
-            this.vista.getCostoProductoTextField().setText("" + producto.getCostoProducto());
-            this.vista.getGananciaProductoTextField().setText("" + producto.getGananciasProducto());
-            this.vista.getStockActualProductoTextField().setText("" + producto.getStockActualProducto());
-            this.vista.getStockMinimoProductoTextField().setText("" + producto.getStockMinimoProducto());
-            this.vista.getRubroProductoTextField().setText(producto.getRubroProducto());
+            this.vista.getNombreProductoTextField().setText(producto.getNombre());
+            this.vista.getMarcaProductoTextField().setText(producto.getMarca());
+            this.vista.getUnidadesMedidaProductoComboBox().setSelectedItem(producto.getUnidadmedida().getNombre());
+            this.vista.getCostoProductoTextField().setText("" + producto.getCosto());
+            this.vista.getGananciaProductoTextField().setText("" + producto.getGanancia());
+            this.vista.getStockActualProductoTextField().setText("" + producto.getStock());
+            this.vista.getStockMinimoProductoTextField().setText("" + producto.getStockMinimo());
+            this.vista.getRubroProductoTextField().setText(producto.getRubro());
 
         } catch (IllegalArgumentException e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
@@ -140,14 +141,14 @@ public class PresentadorProducto {
             //Se utiliza el laber para no perder el codigo respectivo del producto elegido.
             String nombre = this.vista.getNombreProductoTextField().getText();
             String marca = this.vista.getMarcaProductoTextField().getText();
-            String unidadMedida = this.vista.getUnidadesMedidaProductoComboBox().getSelectedItem().toString();
+            Unidadmedida unidadMedida = null; //TODO esperar al repositorio de unidad de medidas
             String costo = this.vista.getCostoProductoTextField().getText();
             String ganancia = this.vista.getGananciaProductoTextField().getText();
             String stock = this.vista.getStockActualProductoTextField().getText();
             String stockMinimo = this.vista.getStockMinimoProductoTextField().getText();
             String rubro = this.vista.getRubroProductoTextField().getText();
 
-            this.servicio.actualizarProducto(productoSeleccionado.getId(),nombre, marca, unidadMedida, costo, ganancia, stock, stockMinimo, rubro);
+            this.servicio.actualizarProducto(productoSeleccionado.getCodigo(),nombre, marca, unidadMedida, costo, ganancia, stock, stockMinimo, rubro);
             limpiarVista();
             this.actualizarTabla(this.servicio.obtenerTodosLosProductosRegistrados());
             JOptionPane.showMessageDialog(null, "Datos actualizados.");

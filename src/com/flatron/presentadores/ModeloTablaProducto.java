@@ -70,15 +70,15 @@ public class ModeloTablaProducto extends AbstractTableModel{
     @Override
     public Object getValueAt(int fila, int columna) {
         switch(columna){
-            case COLUMNA_CODIGO: return this.productos.get(fila).getId();
-            case COLUMNA_NOMBRE: return this.productos.get(fila).getNombreProducto();
-            case COLUMNA_MARCA: return this.productos.get(fila).getMarcaProducto();
-            case COLUMNA_UNIDADMEDIDA : return this.productos.get(fila).getUnidadMedidaProducto();
-            case COLUMNA_COSTO: return this.productos.get(fila).getCostoProducto();
-            case COLUMNA_GANANCIA: return this.productos.get(fila).getGananciasProducto();
-            case COLUMNA_STOCK: return this.productos.get(fila).getStockActualProducto();
-            case COLUMNA_STOCKMINIMO: return this.productos.get(fila).getStockMinimoProducto();
-            case COLUMNA_RUBRO: return this.productos.get(fila).getRubroProducto();
+            case COLUMNA_CODIGO: return this.productos.get(fila).getCodigo();
+            case COLUMNA_NOMBRE: return this.productos.get(fila).getNombre();
+            case COLUMNA_MARCA: return this.productos.get(fila).getMarca();
+            case COLUMNA_UNIDADMEDIDA : return this.productos.get(fila).getUnidadmedida().getNombre();
+            case COLUMNA_COSTO: return this.productos.get(fila).getCosto();
+            case COLUMNA_GANANCIA: return this.productos.get(fila).getGanancia();
+            case COLUMNA_STOCK: return this.productos.get(fila).getStock();
+            case COLUMNA_STOCKMINIMO: return this.productos.get(fila).getStockMinimo();
+            case COLUMNA_RUBRO: return this.productos.get(fila).getRubro();
             default: throw new IllegalArgumentException("Error");
         }    
     }
