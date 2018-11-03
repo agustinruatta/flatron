@@ -73,7 +73,7 @@ public class ModeloTablaProducto extends AbstractTableModel{
             case COLUMNA_CODIGO: return this.productos.get(fila).getCodigo();
             case COLUMNA_NOMBRE: return this.productos.get(fila).getNombre();
             case COLUMNA_MARCA: return this.productos.get(fila).getMarca();
-            case COLUMNA_UNIDADMEDIDA : return this.productos.get(fila).getUnidadmedida().getNombre();
+            case COLUMNA_UNIDADMEDIDA : return "Unidad"; //this.productos.get(fila).getUnidadmedida().getNombre();
             case COLUMNA_COSTO: return this.productos.get(fila).getCosto();
             case COLUMNA_GANANCIA: return this.productos.get(fila).getGanancia();
             case COLUMNA_STOCK: return this.productos.get(fila).getStock();

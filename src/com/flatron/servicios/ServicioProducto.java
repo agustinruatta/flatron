@@ -35,7 +35,7 @@ public class ServicioProducto {
     }
 
     public void guardarProducto(String nombre, String marca, Unidadmedida unidadMedida, String costo, String ganancias, String stock, String stockMinimo, String rubro) {
-
+        
         Producto producto = new Producto(unidadMedida, ValidarMarca(marca), ValidarNombre(nombre), ValidarCosto(costo), ValidarGanancias(ganancias), ValidarStockActual(stock), ValidarStockMinimo(stockMinimo), ValidarRubro(rubro),null,null);
         this.repositioProducto.guardarProducto(producto);
 
@@ -168,7 +168,7 @@ public class ServicioProducto {
 
     public void actualizarProducto(int codigo, String nombre, String marca, Unidadmedida unidadMedida, String costo, String ganancias, String stock, String stockMinimo, String rubro) {
         Producto productoModificado;
-
+        
         productoModificado = new Producto(unidadMedida, ValidarMarca(marca), ValidarNombre(nombre), ValidarCosto(costo), ValidarGanancias(ganancias), ValidarStockActual(stock), ValidarStockMinimo(stockMinimo), ValidarRubro(rubro),null,null);
         productoModificado.setCodigo(codigo);
 

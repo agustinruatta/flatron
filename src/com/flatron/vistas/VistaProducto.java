@@ -65,7 +65,7 @@ public final class VistaProducto extends javax.swing.JFrame {
 
     public void setUnidadesMedidaProductoComboBox() {
         //Solo como metodo de prueba, necesita ser modificado para recivir las unidades de medida registradas.
-        String[] lista = {"Prueba","Prueba2"};
+        String[] lista = {"1"};
         this.unidadesMedidaProductoComboBox.setModel(new javax.swing.DefaultComboBoxModel(lista));
     }
 

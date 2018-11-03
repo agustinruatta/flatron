@@ -24,6 +24,7 @@ import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
 /**
@@ -31,6 +32,7 @@ import org.hibernate.Transaction;
  * @author Franco Morbidoni <fgmorbidoni@gmail.com>
  */
 public class RepositorioProducto {
+    private static SessionFactory factory;
 
     public RepositorioProducto() {
     }
@@ -73,7 +75,7 @@ public class RepositorioProducto {
     }
     
     public void actualizarProducto(Producto producto){
-       Session session = HibernateUtil.getSessionFactory().openSession();
+        Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = null;
 
         try {
