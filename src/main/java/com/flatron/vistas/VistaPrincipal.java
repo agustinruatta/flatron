@@ -55,7 +55,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
 
         clienteButton.setBackground(new java.awt.Color(77, 58, 89));
         clienteButton.setForeground(new java.awt.Color(255, 255, 255));
-        clienteButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/main/java/com/flatron/vistas/imagenes/cliente.png")));
+        clienteButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/cliente.png"))); // NOI18N
         clienteButton.setBorder(null);
         clienteButton.setBorderPainted(false);
         clienteButton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -80,7 +80,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
 
         informeButton.setBackground(new java.awt.Color(89, 58, 58));
         informeButton.setForeground(new java.awt.Color(255, 255, 255));
-        informeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/flatron/vistas/imagenes/informe.png"))); // NOI18N
+        informeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/informe.png"))); // NOI18N
         informeButton.setBorder(null);
         informeButton.setFocusable(false);
         informeButton.setMaximumSize(new java.awt.Dimension(90, 90));
@@ -102,7 +102,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
 
         productoButton.setBackground(new java.awt.Color(64, 89, 58));
         productoButton.setForeground(new java.awt.Color(255, 255, 255));
-        productoButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/flatron/vistas/imagenes/producto.png"))); // NOI18N
+        productoButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/producto.png"))); // NOI18N
         productoButton.setBorder(null);
         productoButton.setFocusable(false);
         productoButton.setPreferredSize(new java.awt.Dimension(90, 90));
@@ -121,7 +121,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
         getContentPane().add(productoButton, gridBagConstraints);
 
         proovedoresButton.setBackground(new java.awt.Color(86, 89, 58));
-        proovedoresButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/flatron/vistas/imagenes/proveedores.png"))); // NOI18N
+        proovedoresButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/proveedores.png"))); // NOI18N
         proovedoresButton.setBorder(null);
         proovedoresButton.setFocusable(false);
         proovedoresButton.setPreferredSize(new java.awt.Dimension(90, 90));
@@ -140,7 +140,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
         getContentPane().add(proovedoresButton, gridBagConstraints);
 
         ventasButton.setBackground(new java.awt.Color(39, 58, 86));
-        ventasButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/flatron/vistas/imagenes/venta.png"))); // NOI18N
+        ventasButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/venta.png"))); // NOI18N
         ventasButton.setBorder(null);
         ventasButton.setPreferredSize(new java.awt.Dimension(90, 90));
         ventasButton.addActionListener(new java.awt.event.ActionListener() {
@@ -158,7 +158,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
         getContentPane().add(ventasButton, gridBagConstraints);
 
         comprasButton.setBackground(new java.awt.Color(131, 132, 90));
-        comprasButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/flatron/vistas/imagenes/compra.png"))); // NOI18N
+        comprasButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/compra.png"))); // NOI18N
         comprasButton.setBorder(null);
         comprasButton.setBorderPainted(false);
         comprasButton.setFocusable(false);
@@ -269,7 +269,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
         gridBagConstraints.weighty = 1.0;
         getContentPane().add(comodinLabel, gridBagConstraints);
 
-        fondojLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/flatron/vistas/imagenes/fondo.jpg"))); // NOI18N
+        fondojLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondo.jpg"))); // NOI18N
         fondojLabel.setMaximumSize(new java.awt.Dimension(5000, 4000));
         fondojLabel.setPreferredSize(new java.awt.Dimension(2700, 1600));
         gridBagConstraints = new java.awt.GridBagConstraints();
