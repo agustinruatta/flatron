@@ -114,15 +114,17 @@ public final class VistaProducto extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        tituloLabel = new javax.swing.JLabel();
+        nombreLabel = new javax.swing.JLabel();
+        costoLabel = new javax.swing.JLabel();
+        ganaciaLabel = new javax.swing.JLabel();
+        marcaLabel = new javax.swing.JLabel();
+        unidadMedidaLabel = new javax.swing.JLabel();
+        stockActualLabel = new javax.swing.JLabel();
+        stockMinimoLabel = new javax.swing.JLabel();
+        rubroLabel = new javax.swing.JLabel();
         nombreProductoTextField = new javax.swing.JTextField();
         marcaProductoTextField = new javax.swing.JTextField();
         costoProductoTextField = new javax.swing.JTextField();
@@ -141,26 +143,39 @@ public final class VistaProducto extends javax.swing.JFrame {
         unidadesMedidaProductoComboBox = new javax.swing.JComboBox<>();
         mostrarTodoButton = new javax.swing.JButton();
 
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel1.setText("Producto");
+        tituloLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        tituloLabel.setText("Producto");
 
-        jLabel3.setText("Nombre:");
+        nombreLabel.setText("Nombre:");
 
-        jLabel4.setText("Costo:");
+        costoLabel.setText("Costo:");
 
-        jLabel5.setText("Ganancia:");
+        ganaciaLabel.setText("Ganancia:");
 
-        jLabel6.setText("Marca:");
+        marcaLabel.setText("Marca:");
 
-        jLabel2.setText("Unidad de Medida:");
+        unidadMedidaLabel.setText("Unidad de Medida:");
 
-        jLabel7.setText("Stock Actual:");
+        stockActualLabel.setText("Stock Actual:");
 
-        jLabel8.setText("Stock Minimo:");
+        stockMinimoLabel.setText("Stock Minimo:");
 
-        jLabel9.setText("Rubro:");
+        rubroLabel.setText("Rubro:");
 
         buscarProductoButton.setText("Buscar");
         buscarProductoButton.addActionListener(new java.awt.event.ActionListener() {
@@ -225,24 +240,24 @@ public final class VistaProducto extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel9))
+                            .addComponent(costoLabel)
+                            .addComponent(ganaciaLabel)
+                            .addComponent(marcaLabel)
+                            .addComponent(stockActualLabel)
+                            .addComponent(stockMinimoLabel)
+                            .addComponent(rubroLabel))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3)
+                                .addComponent(nombreLabel)
                                 .addGap(66, 66, 66)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(marcaProductoTextField)
                                     .addComponent(nombreProductoTextField)))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
+                                .addComponent(unidadMedidaLabel)
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(costoProductoTextField)
@@ -266,45 +281,45 @@ public final class VistaProducto extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
+                .addComponent(tituloLabel)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(6, 6, 6)
-                .addComponent(jLabel1)
+                .addComponent(tituloLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
+                    .addComponent(nombreLabel)
                     .addComponent(nombreProductoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
+                    .addComponent(marcaLabel)
                     .addComponent(marcaProductoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
+                    .addComponent(unidadMedidaLabel)
                     .addComponent(unidadesMedidaProductoComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(6, 6, 6)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
+                    .addComponent(costoLabel)
                     .addComponent(costoProductoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
+                    .addComponent(ganaciaLabel)
                     .addComponent(gananciaProductoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
+                    .addComponent(stockActualLabel)
                     .addComponent(stockActualProductoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
+                    .addComponent(stockMinimoLabel)
                     .addComponent(stockMinimoProductoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
+                    .addComponent(rubroLabel)
                     .addComponent(rubroProductoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(guardarProductoButton)
@@ -354,27 +369,29 @@ public final class VistaProducto extends javax.swing.JFrame {
     private javax.swing.JSeparator Separador;
     private javax.swing.JButton buscarProductoButton;
     private javax.swing.JTextField buscarProductoTextField;
+    private javax.swing.JLabel costoLabel;
     private javax.swing.JTextField costoProductoTextField;
     private javax.swing.JButton eliminarProductoButton;
+    private javax.swing.JLabel ganaciaLabel;
     private javax.swing.JTextField gananciaProductoTextField;
     private javax.swing.JButton guardarProductoButton;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JLabel marcaLabel;
     private javax.swing.JTextField marcaProductoTextField;
     private javax.swing.JButton modificarProductoButton;
     private javax.swing.JButton mostrarTodoButton;
+    private javax.swing.JLabel nombreLabel;
     private javax.swing.JTextField nombreProductoTextField;
     private javax.swing.JTable productosTable;
+    private javax.swing.JLabel rubroLabel;
     private javax.swing.JTextField rubroProductoTextField;
+    private javax.swing.JLabel stockActualLabel;
     private javax.swing.JTextField stockActualProductoTextField;
+    private javax.swing.JLabel stockMinimoLabel;
     private javax.swing.JTextField stockMinimoProductoTextField;
+    private javax.swing.JLabel tituloLabel;
+    private javax.swing.JLabel unidadMedidaLabel;
     private javax.swing.JComboBox<String> unidadesMedidaProductoComboBox;
     // End of variables declaration//GEN-END:variables
 }

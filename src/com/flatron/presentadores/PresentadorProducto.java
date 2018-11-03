@@ -38,7 +38,9 @@ public class PresentadorProducto {
         this.servicio = new ServicioProducto();
     }
 
-    //Realiza el guardado de los datos ingresados.
+    /**
+    *Realiza el guardado de los datos ingresados.
+    */
     public void botonGuardarProducto() {
         
         String nombre = this.vista.getNombreProductoTextField().getText();
@@ -65,7 +67,9 @@ public class PresentadorProducto {
 
     }
     
-    //Elimina un producto seleccionado de la tabla.
+    /**
+    *Elimina un producto seleccionado de la tabla.
+    */
     public void botonEliminarProducto(){
         try {
            this.servicio.eliminarProducto(productoSeleccionado);
@@ -102,12 +106,14 @@ public class PresentadorProducto {
         }
     }
 
-    //Restaura la tabla a mostrar todos los valores, luego de una busqueda.
+    /**
+    *Restaura la tabla a mostrar todos los valores, luego de una busqueda.
+    */
     public void botonMostrarTodosLosProductos() {
         this.actualizarTabla(this.servicio.obtenerTodosLosProductosRegistrados());
     }
     
-    /*
+    /**
     *Llena los campos de la vista con los valores de la linea seleccionada en 
     *la tabla.
     */
@@ -158,7 +164,9 @@ public class PresentadorProducto {
         }
     }
 
-    //Vacia los campos de la vista luego de agregar o modificar un producto.
+    /**
+    *Vacia los campos de la vista luego de agregar o modificar un producto.
+    */
     private void limpiarVista() {
         this.vista.getNombreProductoTextField().setText("");
         this.vista.getMarcaProductoTextField().setText("");
@@ -170,7 +178,9 @@ public class PresentadorProducto {
         this.vista.getRubroProductoTextField().setText("");
     }
     
-    //Crea una tabla vacia cuando se abre la vista de la gestion de productos.
+    /**
+    *Crea una tabla vacia cuando se abre la vista de la gestion de productos.
+    */
     public void crearTablaInicial(){
         ArrayList<Producto> arrayVacio = new ArrayList<>();
         this.actualizarTabla(arrayVacio);

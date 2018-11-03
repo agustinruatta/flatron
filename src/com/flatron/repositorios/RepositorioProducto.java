@@ -33,11 +33,9 @@ import org.hibernate.Transaction;
  */
 public class RepositorioProducto {
     private static SessionFactory factory;
-
-    public RepositorioProducto() {
-    }
-    
-    //Los tres metodos siguientes realizan las tareas de ABM de los productos.
+    /**
+    *Los tres metodos siguientes realizan las tareas de ABM de los productos.
+    */
     public void guardarProducto(Producto producto){
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = null;
@@ -92,7 +90,9 @@ public class RepositorioProducto {
         }
     }
     
-    //Genera un array con todos los productos almacenados.
+    /**
+    *Genera un array con todos los productos almacenados.
+    */
     public ArrayList<Producto> obtenerTodosLosProductos(){
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = null;
@@ -118,7 +118,9 @@ public class RepositorioProducto {
         return arrayADevolver;
     }
     
-    //Genera un array con todos los productos cuyo nombre se asemege al buscado.
+    /**
+    *Genera un array con todos los productos cuyo nombre se asemege al buscado.
+    */
     public ArrayList<Producto> obtenerProductosSegunNombre(String nombreBuscado){
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = null;
@@ -146,7 +148,9 @@ public class RepositorioProducto {
         return arrayADevolver;
     }
     
-    //Obtiene el producto al cual le pertenece el codigo ingresado.
+    /**
+    *Obtiene el producto al cual le pertenece el codigo ingresado.
+    */
     public Producto obtenerUnicoProductoPorCodigo(int codigo){
         Producto productoADevolver = null;
         

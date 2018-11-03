@@ -36,34 +36,36 @@ public class ServicioProducto {
 
     public void guardarProducto(String nombre, String marca, Unidadmedida unidadMedida, String costo, String ganancias, String stock, String stockMinimo, String rubro) {
         
-        Producto producto = new Producto(unidadMedida, ValidarMarca(marca), ValidarNombre(nombre), ValidarCosto(costo), ValidarGanancias(ganancias), ValidarStockActual(stock), ValidarStockMinimo(stockMinimo), ValidarRubro(rubro),null,null);
+        Producto producto = new Producto(unidadMedida, validarMarca(marca), validarNombre(nombre), validarCosto(costo), validarGanancias(ganancias), validarStockActual(stock), validarStockMinimo(stockMinimo), validarRubro(rubro),null,null);
         this.repositioProducto.guardarProducto(producto);
 
     }
 
-    //Verifica la viabilidad de los datos ingresados.      
-    public String ValidarNombre(String nombre) {
+    /**
+    *Verifica la viabilidad de los datos ingresados.      
+    */
+    private String validarNombre(String nombre) {
         if (nombre.trim().isEmpty()) {
             throw new IllegalArgumentException("El campo nombre esta vacio.");
         }
         return nombre;
     }
 
-    public String ValidarMarca(String marca) {
+    private String validarMarca(String marca) {
         if (marca.trim().isEmpty()) {
             throw new IllegalArgumentException("El campo marca esta vacio.");
         }
         return marca;
     }
 
-    public String ValidarUnidadMedida(String unidadMedida) {
+    private String validarUnidadMedida(String unidadMedida) {
         if (unidadMedida.trim().isEmpty()) {
             throw new IllegalArgumentException("No se selecciono unidad de medida esta vacio.");
         }
         return unidadMedida;
     }
 
-    public double ValidarCosto(String costo) {
+    private double validarCosto(String costo) {
         try {
             double conversion = Double.valueOf(costo);
             if (conversion < 0) {
@@ -75,7 +77,7 @@ public class ServicioProducto {
         }
     }
 
-    public double ValidarGanancias(String ganancias) {
+    private double validarGanancias(String ganancias) {
         try {
             double conversion = Double.valueOf(ganancias);
             if (conversion < 0) {
@@ -87,7 +89,7 @@ public class ServicioProducto {
         }
     }
 
-    public double ValidarStockActual(String stock) {
+    private double validarStockActual(String stock) {
         try {
             double conversion = Double.valueOf(stock);
             if (conversion < 0) {
@@ -100,7 +102,7 @@ public class ServicioProducto {
 
     }
 
-    public double ValidarStockMinimo(String stockMinimo) {
+    private double validarStockMinimo(String stockMinimo) {
         try {
             double conversion = Double.valueOf(stockMinimo);
             if (conversion < 0) {
@@ -112,7 +114,7 @@ public class ServicioProducto {
         }
     }
 
-    public String ValidarRubro(String rubro) {
+    private String validarRubro(String rubro) {
         if (rubro.trim().isEmpty()) {
             throw new IllegalArgumentException("El campo rubro esta vacio.");
         }
@@ -169,13 +171,15 @@ public class ServicioProducto {
     public void actualizarProducto(int codigo, String nombre, String marca, Unidadmedida unidadMedida, String costo, String ganancias, String stock, String stockMinimo, String rubro) {
         Producto productoModificado;
         
-        productoModificado = new Producto(unidadMedida, ValidarMarca(marca), ValidarNombre(nombre), ValidarCosto(costo), ValidarGanancias(ganancias), ValidarStockActual(stock), ValidarStockMinimo(stockMinimo), ValidarRubro(rubro),null,null);
+        productoModificado = new Producto(unidadMedida, validarMarca(marca), validarNombre(nombre), validarCosto(costo), validarGanancias(ganancias), validarStockActual(stock), validarStockMinimo(stockMinimo), validarRubro(rubro),null,null);
         productoModificado.setCodigo(codigo);
 
         this.repositioProducto.actualizarProducto(productoModificado);
     }
 
-    //Metodo llamado cuando se necesita revisar si se alcanzo el stock minimo, y envia una respuesta por pantalla.
+    /**
+    *Metodo llamado cuando se necesita revisar si se alcanzo el stock minimo, y envia una respuesta por pantalla.
+    */
     public void revisarStock(int codigo) {
         boolean aux;
         aux = this.repositioProducto.verificarStock(codigo);
@@ -183,5 +187,13 @@ public class ServicioProducto {
         if (aux) {
             JOptionPane.showMessageDialog(null, "Se alcanzo el stock minimo con el producto seleccionado.");
         }
+    }
+    
+    public void validarStock(){
+        
+    }
+    
+    public void calcularPrecioVenta(){
+        
     }
 }

@@ -130,14 +130,6 @@ public class Producto  implements java.io.Serializable {
     
     public void setDetallecompras(Collection<Detallecompra> detallecompras) {
         this.detallecompras = detallecompras;
-    }
-    
-    public void validarStock(){
-        
-    }
-    
-    public void calcularPrecioVenta(){
-        
-    }
+    } 
 
 }
