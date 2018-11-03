@@ -55,7 +55,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
 
         clienteButton.setBackground(new java.awt.Color(77, 58, 89));
         clienteButton.setForeground(new java.awt.Color(255, 255, 255));
-        clienteButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/flatron/vistas/imagenes/cliente.png"))); // NOI18N
+        clienteButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/main/java/com/flatron/vistas/imagenes/cliente.png")));
         clienteButton.setBorder(null);
         clienteButton.setBorderPainted(false);
         clienteButton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));

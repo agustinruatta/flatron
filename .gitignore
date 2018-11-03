@@ -1,4 +1,3 @@
-/nbproject/private
+/nbproject/private/
+/.nb-gradle/
 /build/
-/dist/
-/src/hibernate.properties

@@ -1,0 +1,13 @@
+apply plugin: 'java'
+apply plugin: 'application'
+
+sourceCompatibility = '1.8'
+mainClassName = 'com.flatron.Flatron'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies{
+    compile 'org.apache.karaf.jpa:hibernate:4.2.1'
+}
