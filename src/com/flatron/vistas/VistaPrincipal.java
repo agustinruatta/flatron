@@ -305,7 +305,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_botonInformesApretado
 
     private void botonProductosApretado(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonProductosApretado
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_botonProductosApretado
 
     private void botonClientesApretado(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonClientesApretado
