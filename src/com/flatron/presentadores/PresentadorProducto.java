@@ -47,14 +47,14 @@ public class PresentadorProducto {
         String marca = this.vista.getMarcaProductoTextField().getText();
         Unidadmedida unidadMedida = null; //TODO cambiar cuando se obtega el repositorio de unidades de medidas.
         String costo = this.vista.getCostoProductoTextField().getText();
-        String ganancia = this.vista.getGananciaProductoTextField().getText();
+        String precio = this.vista.getPrecioProductoTextField().getText();
         String stock = this.vista.getStockActualProductoTextField().getText();
         String stockMinimo = this.vista.getStockMinimoProductoTextField().getText();
         String rubro = this.vista.getRubroProductoTextField().getText();
 
         try {
 
-            this.servicio.guardarProducto(nombre, marca, unidadMedida, costo, ganancia, stock, stockMinimo, rubro);
+            this.servicio.guardarProducto(nombre, marca, unidadMedida, costo, precio, stock, stockMinimo, rubro);
 
             this.limpiarVista();
 
@@ -124,7 +124,7 @@ public class PresentadorProducto {
             this.vista.getMarcaProductoTextField().setText(producto.getMarca());
             this.vista.getUnidadesMedidaProductoComboBox().setSelectedItem(producto.getUnidadmedida().getNombre());
             this.vista.getCostoProductoTextField().setText("" + producto.getCosto());
-            this.vista.getGananciaProductoTextField().setText("" + producto.getGanancia());
+            this.vista.getPrecioProductoTextField().setText("" + producto.getPrecio());
             this.vista.getStockActualProductoTextField().setText("" + producto.getStock());
             this.vista.getStockMinimoProductoTextField().setText("" + producto.getStockMinimo());
             this.vista.getRubroProductoTextField().setText(producto.getRubro());
@@ -149,12 +149,12 @@ public class PresentadorProducto {
             String marca = this.vista.getMarcaProductoTextField().getText();
             Unidadmedida unidadMedida = null; //TODO esperar al repositorio de unidad de medidas
             String costo = this.vista.getCostoProductoTextField().getText();
-            String ganancia = this.vista.getGananciaProductoTextField().getText();
+            String precio = this.vista.getPrecioProductoTextField().getText();
             String stock = this.vista.getStockActualProductoTextField().getText();
             String stockMinimo = this.vista.getStockMinimoProductoTextField().getText();
             String rubro = this.vista.getRubroProductoTextField().getText();
 
-            this.servicio.actualizarProducto(productoSeleccionado.getCodigo(),nombre, marca, unidadMedida, costo, ganancia, stock, stockMinimo, rubro);
+            this.servicio.actualizarProducto(productoSeleccionado.getCodigo(),nombre, marca, unidadMedida, costo, precio, stock, stockMinimo, rubro);
             limpiarVista();
             this.actualizarTabla(this.servicio.obtenerTodosLosProductosRegistrados());
             JOptionPane.showMessageDialog(null, "Datos actualizados.");
@@ -172,7 +172,7 @@ public class PresentadorProducto {
         this.vista.getMarcaProductoTextField().setText("");
         this.vista.getUnidadesMedidaProductoComboBox().setSelectedIndex(0);
         this.vista.getCostoProductoTextField().setText("");
-        this.vista.getGananciaProductoTextField().setText("");
+        this.vista.getPrecioProductoTextField().setText("");
         this.vista.getStockActualProductoTextField().setText("");
         this.vista.getStockMinimoProductoTextField().setText("");
         this.vista.getRubroProductoTextField().setText("");

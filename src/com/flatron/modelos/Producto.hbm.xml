@@ -18,8 +18,8 @@
     <property name="costo" type="java.lang.Double">
       <column name="costo" precision="22" scale="0"/>
     </property>
-    <property name="ganancia" type="java.lang.Double">
-      <column name="ganancia" precision="22" scale="0"/>
+    <property name="precio" type="java.lang.Double">
+      <column name="precio" precision="22" scale="0"/>
     </property>
     <property name="stock" type="java.lang.Double">
       <column name="stock" precision="22" scale="0"/>

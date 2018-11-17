@@ -31,7 +31,7 @@ public class ModeloTablaProducto extends AbstractTableModel{
     private static final int COLUMNA_MARCA= 2;
     private static final int COLUMNA_UNIDADMEDIDA = 3;
     private static final int COLUMNA_COSTO = 4;
-    private static final int COLUMNA_GANANCIA = 5;
+    private static final int COLUMNA_PRECIO = 5;
     private static final int COLUMNA_STOCK = 6;
     private static final int COLUMNA_STOCKMINIMO = 7;
     private static final int COLUMNA_RUBRO = 8;
@@ -49,7 +49,7 @@ public class ModeloTablaProducto extends AbstractTableModel{
             case COLUMNA_MARCA: return "Marca";
             case COLUMNA_UNIDADMEDIDA : return "Unidad de medida";
             case COLUMNA_COSTO: return "Costo";
-            case COLUMNA_GANANCIA: return "Ganancia";
+            case COLUMNA_PRECIO: return "Precio";
             case COLUMNA_STOCK: return "Stock actual";
             case COLUMNA_STOCKMINIMO: return "Stock minimo";
             case COLUMNA_RUBRO: return "rubro";
@@ -75,7 +75,7 @@ public class ModeloTablaProducto extends AbstractTableModel{
             case COLUMNA_MARCA: return this.productos.get(fila).getMarca();
             case COLUMNA_UNIDADMEDIDA : return this.productos.get(fila).getUnidadmedida().getNombre();
             case COLUMNA_COSTO: return this.productos.get(fila).getCosto();
-            case COLUMNA_GANANCIA: return this.productos.get(fila).getGanancia();
+            case COLUMNA_PRECIO: return this.productos.get(fila).getPrecio();
             case COLUMNA_STOCK: return this.productos.get(fila).getStock();
             case COLUMNA_STOCKMINIMO: return this.productos.get(fila).getStockMinimo();
             case COLUMNA_RUBRO: return this.productos.get(fila).getRubro();

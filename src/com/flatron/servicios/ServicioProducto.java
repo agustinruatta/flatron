@@ -34,9 +34,9 @@ public class ServicioProducto {
         this.repositioProducto = new RepositorioProducto();
     }
 
-    public void guardarProducto(String nombre, String marca, Unidadmedida unidadMedida, String costo, String ganancias, String stock, String stockMinimo, String rubro) {
+    public void guardarProducto(String nombre, String marca, Unidadmedida unidadMedida, String costo, String precio, String stock, String stockMinimo, String rubro) {
         
-        Producto producto = new Producto(unidadMedida, validarMarca(marca), validarNombre(nombre), validarCosto(costo), validarGanancias(ganancias), validarStockActual(stock), validarStockMinimo(stockMinimo), validarRubro(rubro),null,null);
+        Producto producto = new Producto(unidadMedida, validarMarca(marca), validarNombre(nombre), validarCosto(costo), validarPrecio(precio), validarStockActual(stock), validarStockMinimo(stockMinimo), validarRubro(rubro),null,null);
         this.repositioProducto.guardarProducto(producto);
 
     }
@@ -77,7 +77,7 @@ public class ServicioProducto {
         }
     }
 
-    private double validarGanancias(String ganancias) {
+    private double validarPrecio(String ganancias) {
         try {
             double conversion = Double.valueOf(ganancias);
             if (conversion < 0) {
@@ -85,7 +85,7 @@ public class ServicioProducto {
             }
             return conversion;
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("No fue ingresado un numero en ganancias.");
+            throw new IllegalArgumentException("No fue ingresado un numero en precio.");
         }
     }
 
@@ -171,7 +171,7 @@ public class ServicioProducto {
     public void actualizarProducto(int codigo, String nombre, String marca, Unidadmedida unidadMedida, String costo, String ganancias, String stock, String stockMinimo, String rubro) {
         Producto productoModificado;
         
-        productoModificado = new Producto(unidadMedida, validarMarca(marca), validarNombre(nombre), validarCosto(costo), validarGanancias(ganancias), validarStockActual(stock), validarStockMinimo(stockMinimo), validarRubro(rubro),null,null);
+        productoModificado = new Producto(unidadMedida, validarMarca(marca), validarNombre(nombre), validarCosto(costo), validarPrecio(ganancias), validarStockActual(stock), validarStockMinimo(stockMinimo), validarRubro(rubro),null,null);
         productoModificado.setCodigo(codigo);
 
         this.repositioProducto.actualizarProducto(productoModificado);

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2018 Usuario
+ * Copyright (C) 2018 Franco Morbidoni <fgmorbidoni@gmail.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -16,19 +16,61 @@
  */
 package com.flatron.vistas;
 
+import com.flatron.presentadores.PresentadorVenta;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JComboBox;
+import javax.swing.JFormattedTextField;
+import javax.swing.JLabel;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+
 /**
  *
- * @author Usuario
+ * @author Franco Morbidoni <fgmorbidoni@gmail.com>
  */
 public class VistaVenta extends javax.swing.JFrame {
+    private final PresentadorVenta presentador;
 
     /**
      * Creates new form VistaVenta
      */
     public VistaVenta() {
         initComponents();
+        
+        this.presentador = new PresentadorVenta(this);
+        this.setListaClientes();
+        this.setListaProductos();
+        
+        this.productoVentaComboBox.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                presentador.generarImporte();
+            }
+        });
+        
+        this.cantidadVentaTextField.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                 presentador.generarImporte();
+            }
+        });
+        
     }
 
+    private void setListaClientes(){
+        //Metodo de prueba que debera ser modificado cuando se tenga los repositorios de clientes.
+        String[] clientes = {"Juan", "Pedro", "Maria"};
+        this.clientesVentaComboBox.setModel(new DefaultComboBoxModel<>(clientes));
+    }
+    
+    private void setListaProductos(){        
+        this.productoVentaComboBox.setModel(new DefaultComboBoxModel<String>(presentador.obtenerListadoDeProductos()));
+    }
+    
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -88,11 +130,20 @@ public class VistaVenta extends javax.swing.JFrame {
 
         jLabel6.setText("Descuento:");
 
+        descuentoVentaTextField.setText("0");
+
         jLabel7.setText("Producto:");
 
         jLabel8.setText("Cantidad:");
 
+        cantidadVentaTextField.setText("0");
+
         agregarProductoVentaButton.setText("Agregar");
+        agregarProductoVentaButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                agregarProductoVentaButtonActionPerformed(evt);
+            }
+        });
 
         detalleVentaTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -108,6 +159,11 @@ public class VistaVenta extends javax.swing.JFrame {
         jScrollPane2.setViewportView(detalleVentaTable);
 
         registrarVentaButton.setText("Registrar Venta");
+        registrarVentaButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registrarVentaButtonActionPerformed(evt);
+            }
+        });
 
         totalVentaLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         totalVentaLabel.setText("0");
@@ -228,6 +284,14 @@ public class VistaVenta extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void agregarProductoVentaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarProductoVentaButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_agregarProductoVentaButtonActionPerformed
+
+    private void registrarVentaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarVentaButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_registrarVentaButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -263,6 +327,42 @@ public class VistaVenta extends javax.swing.JFrame {
         });
     }
 
+    public JTextField getCantidadVentaTextField() {
+        return cantidadVentaTextField;
+    }
+
+    public JComboBox<String> getClientesVentaComboBox() {
+        return clientesVentaComboBox;
+    }
+
+    public JTextField getDescuentoVentaTextField() {
+        return descuentoVentaTextField;
+    }
+
+    public JTable getDetalleVentaTable() {
+        return detalleVentaTable;
+    }
+
+    public JFormattedTextField getFechaVentaFormattedTextField() {
+        return fechaVentaFormattedTextField;
+    }
+
+    public JLabel getImporteDetalleVentaLabel() {
+        return importeDetalleVentaLabel;
+    }
+
+    public JTextField getNumeroComprobanteVentaTextField() {
+        return numeroComprobanteVentaTextField;
+    }
+
+    public JComboBox<String> getProductoVentaComboBox() {
+        return productoVentaComboBox;
+    }
+
+    public JLabel getTotalVentaLabel() {
+        return totalVentaLabel;
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton agregarProductoVentaButton;
     private javax.swing.JTextField cantidadVentaTextField;
