@@ -3,3 +3,4 @@
 /.nb-gradle/
 /build/
 /src/main/java/hibernate.properties
+/nbproject
