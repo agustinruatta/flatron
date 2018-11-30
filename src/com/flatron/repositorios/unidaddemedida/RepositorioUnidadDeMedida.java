@@ -6,6 +6,10 @@
 package com.flatron.repositorios.unidaddemedida;
 
 import com.flatron.modelos.UnidadDeMedida;
+import com.flatron.util.HibernateUtil;
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 import java.util.ArrayList;
 
 /**
@@ -14,11 +18,20 @@ import java.util.ArrayList;
  */
 public class RepositorioUnidadDeMedida {
 
-    private static UnidadDeMedida unidadDeMedidaguardada;
-
     public void guardar(UnidadDeMedida unidadDeMedida) {
-
-        this.unidadDeMedidaguardada = unidadDeMedida;
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            session.saveOrUpdate(unidadDeMedida);
+            tx.commit();
+        } catch (HibernateException e) {
+            if (tx != null) {
+                tx.rollback();
+            }
+        } finally {
+            session.close();
+        }
     }
 
     public ArrayList<UnidadDeMedida> obtenerTodos() {
