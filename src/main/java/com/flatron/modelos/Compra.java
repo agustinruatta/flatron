@@ -1,28 +1,23 @@
 package com.flatron.modelos;
-
-import java.util.Collection;
 import java.util.Date;
-import java.util.HashSet;
 
 public class Compra  implements java.io.Serializable {
 
 
-     private Integer codigo;
-     private Proveedor proveedor;
+     private int codigo;
+     private int proveedor;
      private String numeroComprobante;
      private Date fecha;
-     private Integer total;
-     private Collection<Detallecompra> detallecompras = new HashSet(0);
+     private int total;
 
     public Compra() {
     }
 
-    public Compra(Proveedor proveedor, String numeroComprobante, Date fecha, Integer total, Collection<Detallecompra> detallecompras) {
+    public Compra(int proveedor, String numeroComprobante, Date fecha, Integer total) {
        this.proveedor = proveedor;
        this.numeroComprobante = numeroComprobante;
        this.fecha = fecha;
        this.total = total;
-       this.detallecompras = detallecompras;
     }
    
     public Integer getCodigo() {
@@ -32,11 +27,11 @@ public class Compra  implements java.io.Serializable {
     public void setCodigo(Integer codigo) {
         this.codigo = codigo;
     }
-    public Proveedor getProveedor() {
+    public int getProveedor() {
         return this.proveedor;
     }
     
-    public void setProveedor(Proveedor proveedor) {
+    public void setProveedor(int proveedor) {
         this.proveedor = proveedor;
     }
     public String getNumeroComprobante() {
@@ -60,12 +55,4 @@ public class Compra  implements java.io.Serializable {
     public void setTotal(Integer total) {
         this.total = total;
     }
-    public Collection<Detallecompra> getDetallecompras() {
-        return this.detallecompras;
-    }
-    
-    public void setDetallecompras(Collection<Detallecompra> detallecompras) {
-        this.detallecompras = detallecompras;
-    }
-
 }
