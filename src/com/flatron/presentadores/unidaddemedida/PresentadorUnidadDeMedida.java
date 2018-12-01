@@ -24,8 +24,10 @@ public class PresentadorUnidadDeMedida {
     private ServicioUnidadDeMedida servicioUnidadDeMedida;
 
     private RepositorioUnidadDeMedida repositorioUnidadDeMedida;
-    
+
     private TablaUnidadDeMedidaTableModel modeloTabla;
+    
+    private boolean cambios;
 
     public PresentadorUnidadDeMedida(VistaUnidadMedida vistaUnidadMedida) {
         this.vistaUnidadMedida = vistaUnidadMedida;
@@ -60,7 +62,6 @@ public class PresentadorUnidadDeMedida {
             modeloTabla = new TablaUnidadDeMedidaTableModel(unidadesDeMedida);
             this.vistaUnidadMedida.getUnidadDeMedidaTable().setModel(modeloTabla);
             this.vistaUnidadMedida.getUnidadDeMedidaTable().repaint();
-            
 
             JOptionPane.showMessageDialog(null, "¡La unidad de medida fue guardada correctamente!");
 
@@ -73,11 +74,15 @@ public class PresentadorUnidadDeMedida {
 
     public void eliminarUnidadDeMedida(int filaSeleccionada) {
         UnidadDeMedida medida = this.modeloTabla.getUnidadDeMedidaSeleccionada(filaSeleccionada);
-        
+
         this.servicioUnidadDeMedida.remove(medida);
     }
 
-    private void actualizarTabla (){
-        
+    private void actualizarTabla() {
+        modeloTabla = new TablaUnidadDeMedidaTableModel(unidadesDeMedida);
+        this.vistaUnidadMedida.getUnidadDeMedidaTable().setModel(modeloTabla);
+        if (cambios = true){
+        this.vistaUnidadMedida.getUnidadDeMedidaTable().repaint();
     }
+}
 }
