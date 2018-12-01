@@ -11,14 +11,14 @@ public class Detalleventa  implements java.io.Serializable {
 
     public Detalleventa() {
     }
-
+    
     public Detalleventa(Producto producto, Venta venta, Double cantidad, Double importe) {
        this.producto = producto;
        this.venta = venta;
        this.cantidad = cantidad;
-       this.importe = importe;
+       this.importe = importe;       
     }
-   
+      
     public Integer getCodigo() {
         return this.codigo;
     }

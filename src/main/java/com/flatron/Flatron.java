@@ -1,6 +1,7 @@
 package com.flatron;
 
 import com.flatron.vistas.VistaPrincipal;
+import com.flatron.vistas.VistaVenta;
 
 /**
  *
@@ -39,7 +40,7 @@ public class Flatron {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VistaPrincipal().setVisible(true);
+                new VistaVenta().setVisible(true);
             }
         });      
      }

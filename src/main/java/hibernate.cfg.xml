@@ -45,6 +45,10 @@ Contributor(s):
     <property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
     <property name="hibernate.query.factory_class">org.hibernate.hql.internal.classic.ClassicQueryTranslatorFactory</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/flatron</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.password">plan111fm</property>
+    <property name="hibernate.show_sql">true</property>
     <mapping resource="com/flatron/modelos/Detallecompra.hbm.xml"/>
     <mapping resource="com/flatron/modelos/Venta.hbm.xml"/>
     <mapping resource="com/flatron/modelos/Proveedor.hbm.xml"/>

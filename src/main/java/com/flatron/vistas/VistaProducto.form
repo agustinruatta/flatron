@@ -59,7 +59,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="costoLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="ganaciaLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="precioLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="marcaLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="stockActualLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="stockMinimoLabel" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -83,7 +83,7 @@
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="costoProductoTextField" max="32767" attributes="0"/>
-                                  <Component id="gananciaProductoTextField" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="precioProductoTextField" alignment="0" max="32767" attributes="0"/>
                                   <Component id="stockActualProductoTextField" alignment="0" max="32767" attributes="0"/>
                                   <Component id="stockMinimoProductoTextField" alignment="0" max="32767" attributes="0"/>
                                   <Component id="rubroProductoTextField" alignment="0" max="32767" attributes="0"/>
@@ -143,8 +143,8 @@
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="ganaciaLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="gananciaProductoTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="precioLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="precioProductoTextField" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -204,7 +204,7 @@
         <Property name="text" type="java.lang.String" value="Costo:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="ganaciaLabel">
+    <Component class="javax.swing.JLabel" name="precioLabel">
       <Properties>
         <Property name="text" type="java.lang.String" value="Ganancia:"/>
       </Properties>
@@ -240,7 +240,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="costoProductoTextField">
     </Component>
-    <Component class="javax.swing.JTextField" name="gananciaProductoTextField">
+    <Component class="javax.swing.JTextField" name="precioProductoTextField">
     </Component>
     <Component class="javax.swing.JTextField" name="stockActualProductoTextField">
     </Component>

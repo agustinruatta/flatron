@@ -73,8 +73,8 @@ public final class VistaProducto extends javax.swing.JFrame {
         return costoProductoTextField;
     }
 
-    public JTextField getGananciaProductoTextField() {
-        return gananciaProductoTextField;
+    public JTextField getPrecioProductoTextField() {
+        return precioProductoTextField;
     }
 
     public JTextField getBuscarProductoTextField() {
@@ -119,7 +119,7 @@ public final class VistaProducto extends javax.swing.JFrame {
         tituloLabel = new javax.swing.JLabel();
         nombreLabel = new javax.swing.JLabel();
         costoLabel = new javax.swing.JLabel();
-        ganaciaLabel = new javax.swing.JLabel();
+        precioLabel = new javax.swing.JLabel();
         marcaLabel = new javax.swing.JLabel();
         unidadMedidaLabel = new javax.swing.JLabel();
         stockActualLabel = new javax.swing.JLabel();
@@ -128,7 +128,7 @@ public final class VistaProducto extends javax.swing.JFrame {
         nombreProductoTextField = new javax.swing.JTextField();
         marcaProductoTextField = new javax.swing.JTextField();
         costoProductoTextField = new javax.swing.JTextField();
-        gananciaProductoTextField = new javax.swing.JTextField();
+        precioProductoTextField = new javax.swing.JTextField();
         stockActualProductoTextField = new javax.swing.JTextField();
         stockMinimoProductoTextField = new javax.swing.JTextField();
         rubroProductoTextField = new javax.swing.JTextField();
@@ -165,7 +165,7 @@ public final class VistaProducto extends javax.swing.JFrame {
 
         costoLabel.setText("Costo:");
 
-        ganaciaLabel.setText("Ganancia:");
+        precioLabel.setText("Ganancia:");
 
         marcaLabel.setText("Marca:");
 
@@ -241,7 +241,7 @@ public final class VistaProducto extends javax.swing.JFrame {
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(costoLabel)
-                            .addComponent(ganaciaLabel)
+                            .addComponent(precioLabel)
                             .addComponent(marcaLabel)
                             .addComponent(stockActualLabel)
                             .addComponent(stockMinimoLabel)
@@ -261,7 +261,7 @@ public final class VistaProducto extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(costoProductoTextField)
-                                    .addComponent(gananciaProductoTextField)
+                                    .addComponent(precioProductoTextField)
                                     .addComponent(stockActualProductoTextField)
                                     .addComponent(stockMinimoProductoTextField)
                                     .addComponent(rubroProductoTextField)
@@ -307,8 +307,8 @@ public final class VistaProducto extends javax.swing.JFrame {
                     .addComponent(costoProductoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ganaciaLabel)
-                    .addComponent(gananciaProductoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(precioLabel)
+                    .addComponent(precioProductoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(stockActualLabel)
@@ -372,8 +372,6 @@ public final class VistaProducto extends javax.swing.JFrame {
     private javax.swing.JLabel costoLabel;
     private javax.swing.JTextField costoProductoTextField;
     private javax.swing.JButton eliminarProductoButton;
-    private javax.swing.JLabel ganaciaLabel;
-    private javax.swing.JTextField gananciaProductoTextField;
     private javax.swing.JButton guardarProductoButton;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
@@ -383,6 +381,8 @@ public final class VistaProducto extends javax.swing.JFrame {
     private javax.swing.JButton mostrarTodoButton;
     private javax.swing.JLabel nombreLabel;
     private javax.swing.JTextField nombreProductoTextField;
+    private javax.swing.JLabel precioLabel;
+    private javax.swing.JTextField precioProductoTextField;
     private javax.swing.JTable productosTable;
     private javax.swing.JLabel rubroLabel;
     private javax.swing.JTextField rubroProductoTextField;

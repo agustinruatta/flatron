@@ -31,7 +31,7 @@ public class Producto  implements java.io.Serializable {
      private String marca;
      private String nombre;
      private Double costo;
-     private Double ganancia;
+     private Double precio;
      private Double stock;
      private Double stockMinimo;
      private String rubro;
@@ -41,12 +41,12 @@ public class Producto  implements java.io.Serializable {
     public Producto() {
     }
 
-    public Producto(Unidadmedida unidadmedida, String marca, String nombre, Double costo, Double ganancia, Double stock, Double stockMinimo, String rubro, Collection<Detalleventa> detalleventas, Collection<Detallecompra> detallecompras) {
+    public Producto(Unidadmedida unidadmedida, String marca, String nombre, Double costo, Double precio, Double stock, Double stockMinimo, String rubro, Collection<Detalleventa> detalleventas, Collection<Detallecompra> detallecompras) {
        this.unidadmedida = unidadmedida;
        this.marca = marca;
        this.nombre = nombre;
        this.costo = costo;
-       this.ganancia = ganancia;
+       this.precio = precio;
        this.stock = stock;
        this.stockMinimo = stockMinimo;
        this.rubro = rubro;
@@ -89,12 +89,12 @@ public class Producto  implements java.io.Serializable {
     public void setCosto(Double costo) {
         this.costo = costo;
     }
-    public Double getGanancia() {
-        return this.ganancia;
+    public Double getPrecio() {
+        return this.precio;
     }
     
-    public void setGanancia(Double ganancia) {
-        this.ganancia = ganancia;
+    public void setPrecio(Double precio) {
+        this.precio = precio;
     }
     public Double getStock() {
         return this.stock;
