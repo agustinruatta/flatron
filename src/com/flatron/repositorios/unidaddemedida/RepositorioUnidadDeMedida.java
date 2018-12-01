@@ -11,6 +11,7 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import java.util.ArrayList;
+import org.hibernate.Query;
 
 /**
  *
@@ -35,7 +36,25 @@ public class RepositorioUnidadDeMedida {
     }
 
     public ArrayList<UnidadDeMedida> obtenerTodos() {
-        ArrayList<UnidadDeMedida> unidadesDeMedida = new ArrayList<>();
-        return unidadesDeMedida;
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Query query = session.createQuery("from unidadmedida");
+        return (ArrayList<UnidadDeMedida>) query.list();
+
+    }
+
+    public void remove(UnidadDeMedida unidadDeMedida) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            session.delete(unidadDeMedida);
+            tx.commit();
+        } catch (HibernateException e) {
+            if (tx != null) {
+                tx.rollback();
+            }
+        } finally {
+            session.close();
+        }
     }
 }

@@ -18,52 +18,63 @@ import javax.swing.JOptionPane;
  * @author laboratorio
  */
 public class PresentadorUnidadDeMedida {
-    
+
     private VistaUnidadMedida vistaUnidadMedida;
-    
+
     private ServicioUnidadDeMedida servicioUnidadDeMedida;
-    
+
     private RepositorioUnidadDeMedida repositorioUnidadDeMedida;
     
+    private TablaUnidadDeMedidaTableModel modeloTabla;
+
     public PresentadorUnidadDeMedida(VistaUnidadMedida vistaUnidadMedida) {
         this.vistaUnidadMedida = vistaUnidadMedida;
-        
+
         this.servicioUnidadDeMedida = new ServicioUnidadDeMedida();
-        
+
         this.repositorioUnidadDeMedida = new RepositorioUnidadDeMedida();
         this.inicializarTabla();
     }
-    
+
     private void inicializarTabla() {
         ArrayList<UnidadDeMedida> unidadesDeMedida = this.repositorioUnidadDeMedida.obtenerTodos();
-        
-        TablaUnidadDeMedidaTableModel modeloTabla = new TablaUnidadDeMedidaTableModel(unidadesDeMedida);
+
+        modeloTabla = new TablaUnidadDeMedidaTableModel(unidadesDeMedida);
         this.vistaUnidadMedida.getUnidadDeMedidaTable().setModel(modeloTabla);
-        
+
     }
-    
+
     public void guardarUnidadDeMedida() {
-        
+
         String nombre = this.vistaUnidadMedida.getNombreTextField().getText();
         String simbolo = this.vistaUnidadMedida.getSimboloTextField().getText();
-        
+
         try {
             this.servicioUnidadDeMedida.guardarUnidadDeMedida(nombre, simbolo);
-            
+
             this.vistaUnidadMedida.getNombreTextField().setText("");
             this.vistaUnidadMedida.getSimboloTextField().setText("");
+
+            ArrayList<UnidadDeMedida> unidadesDeMedida = this.repositorioUnidadDeMedida.obtenerTodos();
+
+            modeloTabla = new TablaUnidadDeMedidaTableModel(unidadesDeMedida);
+            this.vistaUnidadMedida.getUnidadDeMedidaTable().setModel(modeloTabla);
+            this.vistaUnidadMedida.getUnidadDeMedidaTable().repaint();
             
+
             JOptionPane.showMessageDialog(null, "¡La unidad de medida fue guardada correctamente!");
-            
+
         } catch (IllegalArgumentException excepcion) {
-            
+
             JOptionPane.showMessageDialog(null, excepcion.getMessage());
         }
-        
+
     }
-    
-    public void eliminarUnidadDeMedida() {
+
+    public void eliminarUnidadDeMedida(int filaSeleccionada) {
+        UnidadDeMedida medida = this.modeloTabla.getUnidadDeMedidaSeleccionada(filaSeleccionada);
         
+        this.servicioUnidadDeMedida.remove(medida);
     }
-    
+
 }

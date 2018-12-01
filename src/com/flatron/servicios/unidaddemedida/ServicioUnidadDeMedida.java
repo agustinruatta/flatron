@@ -45,4 +45,8 @@ public class ServicioUnidadDeMedida {
             throw new IllegalArgumentException("¡No ingreso el símbolo!");
         }
     }
+    
+    public void remove(UnidadDeMedida um) {
+        
+    }
 }
