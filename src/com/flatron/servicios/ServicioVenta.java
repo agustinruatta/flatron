@@ -36,27 +36,31 @@ import org.hibernate.mapping.Collection;
 public class ServicioVenta {
     RepositorioVenta repositorioVenta;
     RepositorioProducto repositorioProducto;
-    ArrayList<Detalleventa> detalles;
 
     public ServicioVenta() {
         this.repositorioVenta=new RepositorioVenta();
         this.repositorioProducto=new RepositorioProducto();
-        this.detalles = new ArrayList<>();
     }
     
-    public void guardarVenta(Cliente cliente, String comprobante, String fecha,  String total, String descuento){
-    
-        Venta venta = new Venta(cliente, validarComprobante(comprobante), validarFecha(fecha), validarTotal(total), validarDescuento(descuento), detalles);
+    public void guardarVenta(Cliente cliente, String comprobante, String fecha,  String total, String descuento, ArrayList<Detalleventa> detallesDeVenta){
+        //TODO el cliente creado es una medida temporal, hasta que se cree el repositorio de clientes.
+        cliente=new Cliente("Juan", "Perez","124155352" ,"juan@hotmail","15667889","Italia 333", "Devoto", "Cordoba",null);
+        cliente.setCodigo(1);
+        Venta venta = new Venta(cliente, validarComprobante(comprobante), validarFecha(fecha), validarTotal(total), validarDescuento(descuento));
         this.repositorioVenta.guardarVenta(venta);
-        for (Detalleventa detalle : detalles) {
+        
+        for (Detalleventa detalle : detallesDeVenta) {
             detalle.setVenta(venta);
+            venta.agregarDetalleVenta(detalle);
+            
             this.repositorioVenta.guardarDetalleVenta(detalle);
+            this.repositorioVenta.guardarVenta(venta);
         }
     }
     
     public void guardarDetalleVenta(Producto producto, String cantidad, String importe){
         Detalleventa detalle = new Detalleventa(producto, null, validarCantidad(cantidad), validarImporte(importe));
-        detalles.add(detalle);
+        
     }
     
     public double calcularImporte(String productoElegido, String cantidadIngresada){
@@ -161,5 +165,9 @@ public class ServicioVenta {
             }            
          }
         return importeValidado;
+    }
+    
+    public Producto obtenerProductoEnParticular(int codigo){
+        return this.repositorioProducto.obtenerUnicoProductoPorCodigo(codigo);        
     }
 }

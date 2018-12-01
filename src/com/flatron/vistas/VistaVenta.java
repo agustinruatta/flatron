@@ -25,6 +25,8 @@ import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 
 /**
  *
@@ -50,13 +52,49 @@ public class VistaVenta extends javax.swing.JFrame {
             }
         });
         
-        this.cantidadVentaTextField.addActionListener(new ActionListener() {
+        this.cantidadVentaTextField.getDocument().addDocumentListener(new DocumentListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
-                 presentador.generarImporte();
+            public void insertUpdate(DocumentEvent e) {
+                action();
             }
-        });
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                action();
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                action();
+            }
+            
+            public void action(){
+                presentador.generarImporte();
+            }
+        });               
         
+        this.descuentoVentaTextField.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                action();
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                action();
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                action();
+            }
+            
+            public void action(){
+                presentador.calcularTotal();
+            }
+            
+        });         
+                      
     }
 
     private void setListaClientes(){
@@ -285,11 +323,11 @@ public class VistaVenta extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void agregarProductoVentaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarProductoVentaButtonActionPerformed
-        // TODO add your handling code here:
+        this.presentador.agregarProductoAlDetalle();
     }//GEN-LAST:event_agregarProductoVentaButtonActionPerformed
 
     private void registrarVentaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarVentaButtonActionPerformed
-        // TODO add your handling code here:
+        this.presentador.registrarVenta();
     }//GEN-LAST:event_registrarVentaButtonActionPerformed
 
     /**

@@ -18,13 +18,12 @@ public class Venta  implements java.io.Serializable {
     public Venta() {
     }
 
-    public Venta(Cliente cliente, String numeroComprobante, Date fecha, Double total, Double descuento, Collection<Detalleventa> detalleventas) {
+    public Venta(Cliente cliente, String numeroComprobante, Date fecha, Double total, Double descuento) {
        this.cliente = cliente;
        this.numeroComprobante = numeroComprobante;
        this.fecha = fecha;
        this.total = total;
        this.descuento = descuento;
-       this.detalleventas = detalleventas;
     }
    
     public Integer getCodigo() {
@@ -73,8 +72,7 @@ public class Venta  implements java.io.Serializable {
         return this.detalleventas;
     }
     
-    public void setDetalleventas(Collection<Detalleventa> detalleventas) {
-        this.detalleventas = detalleventas;
+    public void agregarDetalleVenta(Detalleventa detalleventa) {
+        this.detalleventas.add(detalleventa);
     }
-
 }

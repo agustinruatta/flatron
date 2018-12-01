@@ -25,12 +25,11 @@ import javax.swing.table.AbstractTableModel;
  * @author Franco Morbidoni <fgmorbidoni@gmail.com>
  */
 public class ModeloTablaDetalleVenta extends AbstractTableModel{
-    private static final int CANTIDAD_COLUMNAS = 5;
-    private static final int COLUMNA_CODIGO = 0;
-    private static final int COLUMNA_PRODUCTO = 1;
-    private static final int COLUMNA_PRECIO= 2;
-    private static final int COLUMNA_CANTIDAD = 3;
-    private static final int COLUMNA_IMPORTE = 4;
+    private static final int CANTIDAD_COLUMNAS = 4;
+    private static final int COLUMNA_PRODUCTO = 0;
+    private static final int COLUMNA_PRECIO= 1;
+    private static final int COLUMNA_CANTIDAD = 2;
+    private static final int COLUMNA_IMPORTE = 3;
     private ArrayList<Detalleventa> detallesVentas;
 
     public ModeloTablaDetalleVenta(ArrayList<Detalleventa> detalles) {
@@ -40,7 +39,6 @@ public class ModeloTablaDetalleVenta extends AbstractTableModel{
     @Override
     public String getColumnName(int columna) {
         switch(columna){
-            case COLUMNA_CODIGO: return "Codigo";
             case COLUMNA_PRODUCTO: return "Producto";
             case COLUMNA_PRECIO: return "Precio";
             case COLUMNA_CANTIDAD : return "Cantidad";
@@ -61,7 +59,6 @@ public class ModeloTablaDetalleVenta extends AbstractTableModel{
     @Override
     public Object getValueAt(int fila, int columna) {
      switch(columna){
-            case COLUMNA_CODIGO: return this.detallesVentas.get(fila).getCodigo();
             case COLUMNA_PRODUCTO: return this.detallesVentas.get(fila).getProducto().getNombre();
             case COLUMNA_PRECIO: return this.detallesVentas.get(fila).getProducto().getPrecio();
             case COLUMNA_CANTIDAD : return this.detallesVentas.get(fila).getCantidad();
